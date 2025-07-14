@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: 48891
 
 media_folder: "static/uploads/docs"
 public_folder: "/uploads/docs"
