@@ -17,3 +17,14 @@ collections:
       - { label: "Descrizione", name: "description", widget: "text" }
       - { label: "Autore", name: "author", widget: "string" }
       - { label: "File PDF", name: "file", widget: "file", media_library: { allow_multiple: false }, required: true }
+  - name: "ufficiale"
+    label: "Pagine Ufficiali"
+    folder: "contenuti/ufficiali"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Titolo", name: "title", widget: "string"}
+      - {label: "Pubblicato", name: "published", widget: "boolean", default: true}
+      - {label: "Contenuto", name: "body", widget: "markdown"}
+      - {label: "Permalink (URL)", name: "permalink", widget: "string", required: false, hint: "Es: /ambiente/ufficio/"}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "formale"}
