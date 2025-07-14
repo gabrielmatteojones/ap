@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/uploads/docs"
+public_folder: "/uploads/docs"
+
+collections:
+  - name: "documents"
+    label: "Documenti"
+    folder: "content/docs"
+    create: true
+    slug: "{{slug}}"
+    path: "{{slug}}/index"
+    fields:
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Descrizione", name: "description", widget: "text" }
+      - { label: "Autore", name: "author", widget: "string" }
+      - { label: "File PDF", name: "file", widget: "file", media_library: { allow_multiple: false }, required: true }

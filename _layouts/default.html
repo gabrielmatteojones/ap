@@ -1,877 +1,186 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Sito di esempio per il tema Jekyll">
-<meta name="author" content="Team per la Trasformazione Digitale">
-<meta name="generator" content="Jekyll v4.0.0">
-
-
-<title>Arena Giovani - Friuli Occidentale</title>
-
-<link rel="stylesheet" href="https://gabrieljonesdev.github.io/arenagiovani.gov.it/assets/bootstrap-italia/dist/css/bootstrap-italia.min.css">
-<link rel="alternate" type="application/rss+xml" title=" - " href="/arenagiovani.gov.it/feed.xml" />
-<link rel="stylesheet" type="text/css" href="https://gabrieljonesdev.github.io/arenagiovani.gov.it/style.css" />
-<link rel="stylesheet" type="text/css" href="https://gabrieljonesdev.github.io/arenagiovani.gov.it/assets/style.css" />
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ufficio Digitale di Gabriel</title>
+    <link rel="stylesheet" href="https://gabrieljones.it/udfvg/assets/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <style>
-    body
-    {
-    font-family: 'arial';
-    background-color: #FFFFFF;
-    }
-    
-    
-    
-    a, a:hover
-    {
-    color: #0000EE;
-    }
-    
-    .form-check [type="checkbox"]:checked + label::after
-    {
-    border-color: #333;
-    background-color: #333;
-    color: #fff;
-    }
-    
-    .login_bg
-    {
-    background-color: #DDDDDD;
-    }
-    
-    .login_text, .login_text:hover
-    {
-    color: #000000;
-    }
-    
-    .logo_bg
-    {
-    background-color: #FFFFFF;
-    }
-    
-    .logo_text, .logo_text:hover
-    {
-    color: #000000;
-    }
-    
-    .menu_bg
-    {
-    background-color: #DDDDDD;
-    }
-    
-    .menu_text, .menu_text:hover
-    {
-    color: #000000;
-    }
-    
-    .footer_bg
-    {
-    background-color: #DDDDDD;
-    }
-    
-    .footer_text, .footer_text:hover
-    {
-    color: #000000;
-    }
-    
-    .primario_text, .primario_text:hover
-    {
-    color: #000000;
-    }
-    
-    .secondario_text, .secondario_text:hover
-    {
-    color: #333333;
-    }
-    
-    
-    /*===================================================*/
-    /* Personalizzazione Sfondo Testata / Menù / Footer */
-    /*=================================================*/
-    
-    .it-header-wrapper .it-header-slim-wrapper {
-    background: #DDDDDD;
-    }
-    
-    .it-header-slim-wrapper .it-header-slim-wrapper-content a {
-    color: #000000;
-    }
-    
-    .it-header-slim-wrapper .it-header-slim-wrapper-content .modal a {
-    color: #0000EE;
-    }
-    
-    .it-header-slim-wrapper .it-header-slim-wrapper-content a .icon {
-    fill: #000000;
-    }
-    
-    .it-header-wrapper .it-header-center-wrapper {
-    background-color: #FFFFFF!important;
-    }
-    
-    .it-header-center-wrapper .it-header-center-content-wrapper .it-brand-wrapper a {
-    color: #000000;
-    }
-    
-    .it-header-wrapper .it-header-navbar-wrapper {
-    background: #DDDDDD;
-    }
-    
-    .navbar .navbar-collapsable .navbar-nav li a.nav-link {
-    color: #000000;
-    }
-    
-    .navbar .navbar-collapsable .navbar-nav li a.nav-link.dropdown-toggle svg {
-    fill: #000000;
-    }
-    
-    .it-header-wrapper .it-header-navbar-wrapper .custom-navbar-toggler svg
-    {
-    fill: #000000;
-    }
-    
-    
-    
-    /*==========================================*/
-    /* Sezione Footer */
-    /*==========================================*/
-    
-    .it-footer .it-footer-main {
-    background-color: #DDDDDD;
-    }
-    
-    .it-footer-main
-    {
-    font-family: "arial"!important;
-    color: #000000;
-    }
-    
-    .it-footer-main h3{
-    color: #000000;
-    }
-    
-    .it-footer-main a{
-    color: #000000;
-    }
-    
-    
-    /*==========================================*/
-    /* Login / Social */
-    /*==========================================*/
-    
-    .it-header-slim-wrapper .it-header-slim-wrapper-content .header-slim-right-zone .it-access-top-wrapper button {
-    background: #FFFFFF;
-    color: #000000;
-    }
-    
-    .it-header-slim-wrapper .it-header-slim-wrapper-content .header-slim-right-zone .it-access-top-wrapper input {
-    background: #FFFFFF;
-    color: #000000;
-    }
-    
-    .it-header-slim-wrapper .it-header-slim-wrapper-content .header-slim-right-zone .it-access-top-wrapper button:hover {
-    background: #FFFFFF;
-    }
-    
-    .it-header-slim-wrapper .it-header-slim-wrapper-content .header-slim-right-zone .link-list-wrapper ul li a span {
-    color: #333;
-    }
-    
-    .it-nav-wrapper .it-header-center-wrapper .it-header-center-content-wrapper .it-right-zone {
-    color: #000000;
-    }
-    
-    .it-nav-wrapper .it-header-center-wrapper .it-header-center-content-wrapper .it-right-zone .it-socials ul .icon {
-    fill: #000000;
-    }
-    
-    .it-nav-wrapper .it-header-center-wrapper .it-header-center-content-wrapper .it-right-zone .it-socials ul li a:hover .icon {
-    fill: #DDDDDD;
-    }
-    
-    img.avatar-profile {
-    border: 2px solid #FFFFFF;
-    }
-    
-    /*==========================================*/
-    /* Login Modal Form */
-    /*==========================================*/
-    
-    .modal-dialog .modal-content .md-form label.active {
-    color: #DDDDDD;
-    }
-    
-    .modal-dialog .modal-content .btn.color-box {
-    color: #000000;
-    }
-    
-    .modal-dialog .modal-content .color-box {
-    background: #DDDDDD!important;
-    }
-    
-    .modal-dialog .modal-content .btn .fab {
-    color: #DDDDDD!important;
-    }
-    
-    
-    /*==========================================*/
-    /* Logo - Intestazione*/
-    /*==========================================*/
-    .it-brand-wrapper .testo_t1, .it-brand-wrapper .testo_t2, .it-brand-wrapper .testo_t3
-    {
-    font-family: 'arial';
-    color: #000000;
-    }
-    
-    
-    /*==========================================*/
-    /* Menu di navigazione*/
-    /*==========================================*/
-    
-    .it-header-navbar-wrapper .link-list-wrapper ul li a span {
-    color: #333333!important;
-    }
-    
-    .it-header-navbar-wrapper .link-list-wrapper ul li a:hover span {
-    color: #333333!important;
-    }
-    
-    .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper.sticky
-    {
-    background-color: #DDDDDD;
-    }
-    
-    .navbar .dropdown-menu
-    {
-    background-color: #FFFFFF;
-    }
-    
-    .navbar .dropdown-menu::before {
-    background-color: #FFFFFF;
-    }
-    
-    
-    /*==========================================*/
-    /* Sezione News */
-    /*==========================================*/
-    
-    .sezione-notizie .card .card-body h3.card-title {
-    color: #000000;
-    }
-    
-    .sezione-notizie a.read-more {
-    color: #333333;
-    }
-    
-    .sezione-notizie .card .card-body h3 a {
-    color: #000000;
-    }
-    
-    .sezione-notizie .card .card-body h3 a:hover {
-    color: #000000;
-    }
-    
-    .sezione-notizie .card .card-body p {
-    font-family: "arial";
-    }
-    
-    .sezione-notizie .card .card-body p {
-    color: #333333;
-    }
-    
-    .sezione-notizie .card:hover
-    {
-    outline: 3px solid #0000EE;
-    }
-    
-    
-    /*==========================================*/
-    /* Sezione news a scorrimento */
-    /*==========================================*/
-    
-    .sezione-scorrimento .card .card-body h3 a
-    {
-    color: #000000;
-    }
-    
-    
-    /*==========================================*/
-    /* Widgets */
-    /*==========================================*/
-    
-    #amministrativo .sezione-ammin:hover
-    {
-    outline: 3px solid #0000EE;
-    }
-    
-    .sezione-widgets .widget:hover, .sezione-widgets .widget-servizi:hover
-    {
-    outline: 3px solid #0000EE;
-    }
-    
-    
-    /*==========================================*/
-    /* Eventi */
-    /*==========================================*/
-    
-    .planning-calendar {
-    font-family: "arial";
-    }
-    
-    .planning-day-listed:focus {
-    background-color: #FFFFFF;
-    }
-    
-    .planning-day.planning-day-today {
-    background-color: #FFFFFF;
-    }
-    
-    .latest-news-feed .latest-news-feed-header{
-    background-color: #DDDDDD;
-    color: #000000;
-    }
-    
-    .latest-news-feed .latest-news-feed-body h3 a,
-    .latest-news-feed .latest-news-feed-body h3 a:hover{
-    color: #000000;
-    font-family: "arial";
-    }
-    
-    .planning-day.planning-day-today .planning-day-num
-    {
-    color: #000000;
-    }
-    
-    .planning-day.planning-day-listed.focus--mouse .planning-day-num
-    {
-    color: #000000;
-    }
-    
-    .planning-day.planning-day-listed:focus .planning-day-num
-    {
-    color: #000000;
-    }
-    
-    /*==========================================*/
-    /* Back to top */
-    /*==========================================*/
-    
-    .back-to-top, .back-to-top:hover {
-    background: #FFFFFF;
-    }
-    
-    .icon-light {
-    fill: #000000 !important;
-    }
-    
-    /*==========================================*/
-    /* Breadcrumb & Bottone Scarica Visualizza */
-    /*==========================================*/
-    
-    .breadcrumb-container .breadcrumb .breadcrumb-item.active a {
-    color: #000000;
-    }
-    
-    .breadcrumb-container .breadcrumb .breadcrumb-item a {
-    color: #333;
-    }
-    
-    
-    .btn-warning {
-    color: #fff!important;
-    background-color: #DDDDDD;
-    border-color: #DDDDDD;
-    }
-    
-    .btn-warning:hover {
-    color: #fff!important;
-    background-color: #3f3e3e;
-    border-color: #3f3e3e;
-    }
-    
-    /*==========================================*/
-    /* Pagina Semplice */
-    /*==========================================*/
-    
-    .contenuto-sito h1
-    {
-    color: #000000;
-    }
-    
-    .contenuto-sito p a {
-    color: #0000EE;
-    }
-    
-    /*==========================================*/
-    /* Gruppo di Pagine */
-    /*==========================================*/
-    
-    .contenuto-sito .section-gruppo-pagina .content-index--menu ul.lv1 li.list-element.lv1>.media {
-    background-color: #DDDDDD;
-    color: #000000!important;
-    border-bottom: 0px;
-    }
-    
-    .contenuto-sito .section-gruppo-pagina .content-index--menu ul.lv1 li.list-element.lv1>.media a {
-    color: #000000!important;
-    border-bottom: 0px;
-    }
-    
-    
-    /*==========================================*/
-    /* Panoramica */
-    /*==========================================*/
-    
-    .contenuto-sito.contenuto-panoramica .section_title
-    {
-    background: #DDDDDD;
-    }
-    
-    .contenuto-sito.contenuto-panoramica h1, .contenuto-sito.contenuto-panoramica p
-    {
-    color: #000000;
-    }
-    
-    
-    /*==========================================*/
-    /* Schede / Servizi */
-    /*==========================================*/
-    
-    .contenuto-schede-index .section_title
-    {
-    background: #DDDDDD;
-    }
-    
-    .contenuto-schede-index .section_title h1, .contenuto-schede-index .section_title p
-    {
-    color: #000000;
-    }
-    
-    
-    /*==========================================*/
-    /* News */
-    /*==========================================*/
-    .contenuto-sito .pagina .card.card-big .flag-icon{
-    background: #DDDDDD;
-    }
-    
-    .contenuto-sito .pagina .card.border-left-card {
-    border-left: 5px solid #DDDDDD;
-    }
-    
-    .contenuto-sito .pagina .card.card-big .card-body p{
-    font-family: "arial",Geneva,Tahoma,sans-serif;
-    }
-    
-    
-    /*==========================================*/
-    /* Amministrazione / Albo */
-    /*==========================================*/
-    
-    .amministrazione-trasparente .indice .categorie li.categorie-item.titolo_trasparenza {
-    background-color: #DDDDDD!important;
-    }
-    
-    .amministrazione-trasparente .indice .categorie li.categorie-item.titolo_trasparenza label{
-    color: #000000!important;
-    }
-    
-    .amministrazione-trasparente .indice .categorie li.categorie-item.oggetto_trasparenza a{
-    color: #000000;
-    }
-    
-    .badge-light{
-    color: #000000;
-    background-color: #DDDDDD;
-    }
-    
-    /* Colonna DX*/
-    
-    .amministrazione-trasparente .trasparenza-content .tabella-ricerca .search-table2 button{
-    border: 1px solid #ddd;
-    background: #fff;
-    }
-    
-    .amministrazione-trasparente .trasparenza-content #box-search {
-    border: 1px solid #ddd;
-    background: #fff;
-    }
-    
-    .amministrazione-trasparente .trasparenza-content #box-categoria {
-    border: 1px solid #ddd;
-    background: #fff;
-    }
-    
-    .amministrazione-trasparente .trasparenza-content #box-search .form_sez_trasparenza {
-    color: #767676!important;
-    }
-    
-    .amministrazione-trasparente .trasparenza-content #box-categoria .select_trasparenza {
-    color: #333333;
-    }
-    
-    
-    /*==========================================*/
-    /* Pagina Speciale 1 */
-    /*==========================================*/
-    
-    .tabella-standard #testata-tabella, .tabella-standard2 #testata-tabella
-    {
-    background:#DDDDDD;
-    color:white;
-    }
-    
-    table .odd{
-    background:#f9f9f9;
-    }
-    table .even{
-    background:#eee;
-    }
-    
-    .tabella #testata-tabella{
-    background:#DDDDDD;
-    color:white;
-    }
-    
-    .tabella td, .tabella th{
-    border: 1px solid #fff;
-    }
-    
-    span.orari-precise {
-    color: #333;
-    }
-    
-    span.docente-attivo {
-    color: #333;
-    }
-    
-    #serbatoio-pon #testata-serbatoio {
-    background:#DDDDDD;
-    color:white;
-    }
-    
-    #serbatoio-pon td, #serbatoio-pon th{
-    border: 1px solid #ccc;
-    }
-    
-    /*==========================================*/
-    /* Pagina Speciale 2: Galleria Video; */
-    /*==========================================*/
-    
-    .contenuto-sito .boxvideo {
-    background-color: #eee;
-    }
-    
-    .contenuto-sito .box-video{
-    background: #fff;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
-    }
-    
-    .video-card-slide .it-video-card-slide {
-    border: 1px solid #e3e4e6;
-    }
-    
-    .video-card-slide .it-video-card-slide .owl-nav button{
-    background-color: #DDDDDD;
-    color: #fff;
-    }
-    
-    .video-card-slide .it-video-card-slide .owl-dots .owl-dot {
-    background: #DDDDDD;
-    }
-    
-    /*==========================================*/
-    /* Pagina Speciale 3: Contatti */
-    /*==========================================*/
-    
-    .sezione-contatti {
-    border: 1px solid #e3e3e3;
-    background-color: #f5f5f5;
-    }
-    
-    .sezione-contatti .contact-dati .unico-info p{
-    color: #000000;
-    }
-    
-    .sezione-contatti .contact-dati .unico-info a{
-    color: #000;
-    }
-    
-    .sezione-contatti .card:after {
-    background-color: #fff;
-    }
-    
-    .sezione-contatti .title-contact h3 {
-    color: #000000;
-    }
-    
-    .sezione-contatti .form-group .input-group-text {
-    color: #495057;
-    background-color: #e9ecef;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    }
-    
-    .sezione-contatti .form-group .input-group input {
-    border-top: 1px solid #f5f5f5;
-    }
-    
-    .sezione-contatti .card-body .send-button .btn-rounded {
-    color: #333333;
-    background-color: #FFFFFF;
-    }
-    
-    /* ---------------------------*/
-    
-    .sezione-informazione-scuola {
-    border: 1px solid #e3e3e3;
-    background-color: #f5f5f5;
-    }
-    
-    .sezione-informazione-scuola #tabelle-orari {
-    background-color: #fff;
-    }
-    
-    .sezione-informazione-scuola #tabelle-orari td {
-    border: 1px solid#ccc;
-    }
-    
-    .sezione-informazione-scuola .nota-bene a {
-    color: #000000;
-    }
-    
-    
-    /*==========================================*/
-    /* Varie */
-    /*==========================================*/
-    
-    .rssmaintitle
-    {
-    background-color: #DDDDDD;
-    color: #000000;
-    }
-    
-    .rsstitle
-    {
-    color: #000000;
-    }
-    
-    .rsstext
-    {
-    color: #333333;
-    }
-    
-    :focus:not(.focus--mouse):not([data-focus-mouse="true"]) {
-    border-color: #0000EE !important;
-    box-shadow: 0 0 0 2px #0000EE !important;
-    outline: 0 !important;
-    }
-    
-    
-    /*==========================================*/
-    /* MEDIA QUERIES */
-    /*==========================================*/
-    
-    @media (max-width: 1200px) and (min-width: 992px){
-    
-    }
-    
-    @media (max-width: 991px) and (min-width: 768px){
-    .it-header-wrapper .it-header-navbar-wrapper {
-    background: none;
-    color: #000000;
-    }
-    
-    img.avatar-profile {
-    border: 2px solid #FFFFFF;
-    }
-    
-    .navbar .navbar-collapsable .menu-wrapper {
-    background-color: #DDDDDD;
-    }
-    
-    .navbar .navbar-collapsable .navbar-nav li a.nav-link {
-    color: #000000;
-    }
-    
-    .it-header-navbar-wrapper .link-list-wrapper ul li h3 {
-    color: #000000;
-    }
-    
-    .navbar .navbar-collapsable .navbar-nav li a.nav-link.dropdown-toggle svg {
-    fill: #000000;
-    }
-    
-    .it-header-navbar-wrapper .link-list-wrapper ul li a span {
-    color: #333333!important;
-    }
-    
-    .it-header-navbar-wrapper .link-list-wrapper ul li a:hover span {
-    color: #333333!important;
-    }
-    
-    .amministrazione-trasparente .trasparenza-content #box-categoria .select_trasparenza {
-    color: #333333;
-    }
-    }
-    
-    @media (max-width: 767px) and (min-width: 408px){
-    }
-    
-    @media (max-width: 767px){
-    .it-header-wrapper .it-header-navbar-wrapper {
-    background: none;
-    color: #000000;
-    }
-    
-    img.avatar-profile {
-    border: 2px solid #FFFFFF;
-    }
-    
-    .navbar .navbar-collapsable .menu-wrapper {
-    background-color: #DDDDDD;
-    }
-    
-    .navbar .navbar-collapsable .navbar-nav li a.nav-link {
-    color: #000000;
-    }
-    
-    
-    .it-header-navbar-wrapper .link-list-wrapper ul li h3 {
-    color: #000000;
-    }
-    
-    .navbar .navbar-collapsable .navbar-nav li a.nav-link.dropdown-toggle svg {
-    fill: #000000;
-    }
-    
-    .it-header-navbar-wrapper .link-list-wrapper ul li a span {
-    color: #333333!important;
-    }
-    
-    .it-header-navbar-wrapper .link-list-wrapper ul li a:hover span {
-    color: #333333!important;
-    }
-    
-    .video-card-slide .it-video-card-slide {
-    border: 1px solid #e3e4e6;
-    }
-    }
+        body {
+            margin: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background-color: #1c1c1c;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        header .social-icons a {
+            margin: 0 10px;
+            color: white;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        header .social-icons a:hover {
+            color: #f0a500;
+        }
+
+        .hero {
+            position: relative;
+            background: url('https://www.sediadaufficio.it/blog/wp-content/uploads/2018/01/Ufficio-Industriale-1.jpg') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero .title {
+            background: rgba(0, 0, 0, 0.751);
+            padding: 20px 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav {
+            background-color: #b30000;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 40px;
+            background: #cc0000;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        nav a:hover {
+            background: #e60000;
+            transform: scale(1.1);
+        }
+
+        .container2 {
+            display: flex;
+            max-width: 1200px;
+            margin: 50px auto;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 5px solid #a40000;
+        }
+
+        .image {
+            flex: 1;
+            background-image: url('https://2.gravatar.com/avatar/53241b11fb23d653d6c97ab192be4c459ef4201d71bffe0b87f8c09c061c577b?size=900&d=initials');
+            background-size: cover;
+            background-position: center;
+            min-height: 400px;
+        }
+
+        .content {
+            flex: 2;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .content h1 {
+            font-size: 2.5rem;
+            color: #a40000;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        table a {
+            color: white; /* Imposta il colore dei link a bianco */
+            text-decoration: none; /* Rimuove la sottolineatura */
+        }
+
+        table a:hover {
+            color: #f0a500; /* Cambia colore al passaggio del mouse (opzionale) */
+        }
+
+
+        td, th {
+            width: 33.33%;
+            height: 50px;
+            text-align: center;
+            background-color: #a40000;
+            color: #fff;
+            border: 3px solid #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container2 {
+                flex-direction: column;
+            }
+
+            .image, .content {
+                flex: 1;
+            }
+        }
     </style>
 </head>
-<body><header class="it-header-wrapper">
-  <div class="it-header-slim-wrapper">
+<body>
   <div class="container">
-  <div class="row">
-  <div class="col-12">
-  <div class="it-header-slim-wrapper-content">
-  <div class="nav-mobile">
-  
-  <a href="https://gabrieljones.it/" target="_blank" title="Link"><b>Gabriel Jones</b></a>
-  
-  
-  </div>
-  <!-- Sezione Autenticazione / Scelta Lingua -->
-  <div class="header-slim-right-zone">
-  <!-- multilang space -->
-  
-  <div class="it-access-top-wrapper">
-  
-  <button class="btn btn-primary btn-sm" data-toggle="modal"><i aria-hidden="true" class="fa fa-user-circle"></i> Accedi</button>
-  
-  
-  </div>
-  </div>
-  
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  <div class="it-nav-wrapper">
-  <div class="it-header-center-wrapper">
-  <div class="container">
-  <div class="row">
-  <div class="col-12">
-  <div class="it-header-center-content-wrapper">
-  <div class="it-brand-wrapper">
-  <a href="/" title="Torna alla homepage">
-  
-  <h1>
-  <span class="media">
-  <img class="align-self-center logo_scuola" src="https://u.g.18f.it/assets/img/logo.png" alt="logo">
-  
-  <span class="media-body ml-2 text-truncate">
-  <span class="testo_t3"><b>Gabriel Jones;</b></span>
-  <span class="testo_t1"><b>Arena Giovani</b></span>
-  <span class="testo_t3"><b>Uniti per il futuro</b></span>
-  </span>
-  
-  
-  </span>
-  </h1>
-  
-  
-  </a>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  
-  <div class="it-header-navbar-wrapper">
-    <div class="container-xxl">
-      <div class="row">
-        <div class="col-12">
-          <!--start nav-->
-          <nav class="navbar navbar-expand-lg" aria-label="Navigazione principale">
-            <button class="custom-navbar-toggler" type="button" aria-controls="nav0" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-bs-toggle="navbarcollapsible" data-bs-target="#nav0">
-              <svg class="icon bg-override"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use></svg>
-            </button>
-            <div class="navbar-collapsable" id="nav0" style="display: none;">
-              <div class="overlay" style="display: none;"></div>
-              <div class="close-div">
-                <button class="btn close-menu" type="button">
-                  <span class="visually-hidden">Nascondi la navigazione</span>
-                  <svg class="icon"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-close-big"></use></svg>
-                </button>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  
-  
-      
-  </div></header>
-
+    <main>
     {{ content }}
-
-    
-<footer class="it-footer">
-  <div class="it-footer-small-prints clearfix">
-  <div class="container">
-  <h3 class="sr-only">Sezione Copyright</h3>
-  <div class="box-copyright">
-  <div class="primavisione-web">
-  <img href="ciao" src="https://gjd.altervista.org/wp-content/uploads/2024/09/cropped-Black_Beige_Circle_Y2K_Illustrative_Class_Logo-removebg-preview.png" alt="Logo URP Gabriel Jones" class="logo-pvw">
-  </div>
-  <div class="pvw_footer">
-  Copyright 2025 | Creato da Gabriel Jones<br>
-  </div>
-  </div>
-  </div>
-  </div>
-  </footer>
-</body>
+    </main>
+  <p>Powered by DataWin</p>
+</div>
+<script type="text/javascript">
+var _iub = _iub || [];
+_iub.csConfiguration = {"siteId":4052509,"cookiePolicyId":40124372,"lang":"it","storage":{"useSiteId":true}};
+</script>
+<script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4052509.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script></body>
 </html>

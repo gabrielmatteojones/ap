@@ -1,12 +1,68 @@
 ---
 layout: default
 ---
+    <header>
+        <div class="logo">
+         <a href="/">
+            <img src="/assets/logo.png" alt="Stemma del GMJ">
+         </a>
+        <a href="/">
+           <h1>{{ page.title }}</h1>
+           <h3>Ufficio di Gabriel</h3>
+        </a>
+        </div>
 
-<article class="container my-4">
+        <div class="social-icons">
+            <a href="https://agfo.fvg.it">Arena Giovani</a>
+            <a href="https://blog.gabrieljones.it/">Blog</a>
+            <a href="/DWL/">Fai il login</a>
+        </div>
+    </header>
 
-  <h1>{{ page.title }}</h1>
+    <section class="hero">
+        <div class="title">
+            <h2>Ufficio Digitale di Gabriel</h2>
+        </div>
+    </section>
 
-  <div class="entry">
-    {{ content }}
-  </div>
-</article>
+    <nav>
+        <a href="/documenti/">Documenti Pubblici</a>
+        <a href="/servizi/">Servizi</a>
+        <a href="/assistenza/">Assistenza</a>
+        <a href="/org/">Organizzazioni</a>
+        <a href="/blog/">Blog</a>
+    </nav>  
+
+    <div class="container2">
+        <div class="image"></div>
+        <div class="content">
+            <h1>Scopri chi sono</h1>
+            <p>Ciao! Sono Gabriel Jones, e sono il presidente del progetto "Arena Giovani"! Vai al mio ufficio digitale e scopri chi sono!</p>
+
+            <table>
+                <tr>
+                    <td><a href="/chisono/" target="_blank">Chi sono</a></td>
+                    <td><a href="/agfo/" target="_blank">Arena Giovani</a></td>
+                    <td><a href="/trasparenza/" target="_blank">Trasparenza</a></td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <td><a href="https://gabrieljones.it/obiettivi35/" target="_blank">obiettivi2035</a></td>
+                    <td><a href="mailto:gjones@comune.arenagiovani.it" target="_blank">Contatti</a></td>
+                    <td><a href="/documenti/" target="_blank">documenti publici</a></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td><a href="/assistenza/" target="_blank">Assistenza</a></td>
+                    <td><a href="/lgbtq/" target="_blank">LGBTQ+</a></td>
+                    <td><a href="/avvisi/" target="_blank">Avvisi</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+      {{ content }}
+    </div>
