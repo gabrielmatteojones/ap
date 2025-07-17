@@ -78,3 +78,22 @@ collections:
       - label: "Corpo"
         name: "body"
         widget: "markdown"
+  - name: "intro"
+    label: "Sezione 'Chi Sono'"
+    files:
+      - file: "data/navigazione.yml"
+        label: "Contenuto della Home"
+        name: "intro"
+        fields:
+          - { name: "title", label: "Titolo", widget: "string" }
+          - { name: "intro", label: "Testo introduttivo", widget: "text" }
+          - name: "links"
+            label: "Gruppi di Link"
+            widget: "list"
+            fields:
+              - name: "group"
+                label: "Colonna"
+                widget: "list"
+                fields:
+                  - { name: "label", label: "Testo del link", widget: "string" }
+                  - { name: "url", label: "URL", widget: "string" }
