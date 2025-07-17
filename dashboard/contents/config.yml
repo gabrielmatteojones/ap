@@ -74,7 +74,7 @@ collections:
     fields:
       - { label: "Titolo", name: "title", widget: "string" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "riservato" }
-      - { label: "Permalink", name: "permalink", widget: "string", default: "// }
+      - { label: "Permalink", name: "permalink", widget: "string" }
       - label: "Corpo"
         name: "body"
         widget: "markdown"
