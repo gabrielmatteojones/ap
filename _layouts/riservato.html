@@ -1,0 +1,84 @@
+---
+layout: page
+---
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCu9YBjutCK0UR3EoliYwiNrrKaY8cyt8U",
+      authDomain: "ufficiogabrieljones.firebaseapp.com",
+      projectId: "ufficiogabrieljones",
+      storageBucket: "ufficiogabrieljones.firebasestorage.app",
+      messagingSenderId: "754177287030",
+      appId: "1:754177287030:web:e4f70d2d3d9c54c1d91057",
+      measurementId: "G-HBSRVKC0JQ"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    // Controlla stato login e mostra/nascondi sezioni
+    function showPage(user) {
+      if (user) {
+        // Sei loggato: mostra contenuto privato
+        document.getElementById('private-content').style.display = 'block';
+        document.getElementById('login-form').style.display = 'none';
+      } else {
+        // Non loggato: mostra form login
+        document.getElementById('private-content').style.display = 'none';
+        document.getElementById('login-form').style.display = 'flex'; // per d-flex del body
+      }
+    }
+
+    firebase.auth().onAuthStateChanged(user => {
+      showPage(user);
+    });
+
+    // Funzione di login chiamata dal form
+    function login() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .catch(error => {
+          const alertBox = document.getElementById('alertBox');
+          alertBox.textContent = error.message;
+          alertBox.classList.remove('d-none');
+        });
+    }
+  </script>
+
+  <div id="private-content" style="display:none;">
+    {{ content }}
+  </div>
+
+  <!-- FORM LOGIN -->
+  <div id="login-form" class="bg-light d-flex align-items-center" style="height: 100vh; display:none;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title mb-4 text-center">Accedi</h3>
+              <div id="alertBox" class="alert alert-danger d-none" role="alert"></div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Inserisci email" required />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Inserisci password" required />
+              </div>
+              <button class="btn btn-primary w-100" onclick="login()">Accedi</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <style>
+    /* Nascondo contenuti prima che Firebase risponda per evitare flash */
+    #private-content, #login-form {
+      display: none;
+    }
+  </style>
