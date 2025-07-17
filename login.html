@@ -1,0 +1,52 @@
+---
+layout: page
+title: login
+---
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCu9YBjutCK0UR3EoliYwiNrrKaY8cyt8U",
+      authDomain: "ufficiogabrieljones.firebaseapp.com",
+      projectId: "ufficiogabrieljones",
+      storageBucket: "ufficiogabrieljones.firebasestorage.app",
+      messagingSenderId: "754177287030",
+      appId: "1:754177287030:web:e4f70d2d3d9c54c1d91057",
+      measurementId: "G-HBSRVKC0JQ"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    function login() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(() => {
+          window.location.href = '/'; // Reindirizza alla home o pagina privata
+        })
+        .catch(error => {
+          const alertBox = document.getElementById('alertBox');
+          alertBox.textContent = error.message;
+          alertBox.classList.remove('d-none');
+        });
+    }
+  </script>
+<body class="bg-light d-flex align-items-center" style="height: 100vh;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title mb-4 text-center">Accedi</h3>
+            <div id="alertBox" class="alert alert-danger d-none" role="alert"></div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Inserisci email" required />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Inserisci password" required />
+            </div>
+            <button class="btn btn-primary w-100" onclick="login()">Accedi</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
