@@ -205,25 +205,36 @@
         <a href="/login/">Login</a>
     </nav>  
 
-{% assign intro = site.data.intro %}
-<div class="container2">
-  <div class="image"></div>
-  <div class="content">
-    <h1>{{ intro.title }}</h1>
-    <p>{{ intro.intro }}</p>
+    <div class="container2">
+        <div class="image"></div>
+        <div class="content">
+            <h1>Scopri chi sono</h1>
+            <p>Ciao! Sono Gabriel Matteo Jones, sono un Web Developer, ex bibliotecario volontario, animatore, politico, videomaker e questo non è ancora nulla, scoprimi qui, nel mio ufficio digitale!</p>
 
-    {% for row in intro.links %}
-      <table>
-        <tr>
-          {% for link in row.group %}
-            <td><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a></td>
-          {% endfor %}
-        </tr>
-      </table>
-    {% endfor %}
-  </div>
-</div>
+            <table>
+                <tr>
+                    <td><a href="/chisono/" target="_blank">Chi sono</a></td>
+                    <td><a href="/agfo/" target="_blank">Arena Giovani</a></td>
+                    <td><a href="/trasparenza/" target="_blank">Trasparenza</a></td>
+                </tr>
+            </table>
 
+            <table>
+                <tr>
+                    <td><a href="https://gabrieljones.it/grest/" target="_blank">Grest</a></td>
+                    <td><a href="mailto:gjones@agfo.fvg.it" target="_blank">Contatti</a></td>
+                    <td><a href="/documenti/" target="_blank">documenti publici</a></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td><a href="/dashboard/" target="_blank">Entra nell'Ufficio</a></td>
+                    <td><a href="/blog/" target="_blank">Blog+</a></td>
+                    <td><a href="/avvisi/" target="_blank">Avvisi</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
   <div class="container">
     <main>
     {{ content }}
