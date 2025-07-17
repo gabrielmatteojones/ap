@@ -81,7 +81,7 @@ collections:
   - name: "intro"
     label: "Sezione 'Chi Sono'"
     files:
-      - file: "data/navigazione.yml"
+      - file: "_data/navigazione.yml"
         label: "Contenuto della Home"
         name: "intro"
         fields:
