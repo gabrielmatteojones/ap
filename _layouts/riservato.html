@@ -1,67 +1,99 @@
 ---
 layout: default
 ---
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyCu9YBjutCK0UR3EoliYwiNrrKaY8cyt8U",
-      authDomain: "ufficiogabrieljones.firebaseapp.com",
-      projectId: "ufficiogabrieljones",
-      storageBucket: "ufficiogabrieljones.firebasestorage.app",
-      messagingSenderId: "754177287030",
-      appId: "1:754177287030:web:e4f70d2d3d9c54c1d91057",
-      measurementId: "G-HBSRVKC0JQ"
-    };
-    firebase.initializeApp(firebaseConfig);
 
-    // Controlla stato login e mostra/nascondi sezioni
-    function showPage(user) {
-      if (user) {
-        // Sei loggato: mostra contenuto privato
-        document.getElementById('private-content').style.display = 'block';
-        document.getElementById('login-form').style.display = 'none';
-      } else {
-        // Non loggato: mostra form login
-        document.getElementById('private-content').style.display = 'none';
-        document.getElementById('login-form').style.display = 'flex'; // per d-flex del body
-      }
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyCu9YBjutCK0UR3EoliYwiNrrKaY8cyt8U",
+    authDomain: "ufficiogabrieljones.firebaseapp.com",
+    projectId: "ufficiogabrieljones",
+    storageBucket: "ufficiogabrieljones.firebasestorage.app",
+    messagingSenderId: "754177287030",
+    appId: "1:754177287030:web:e4f70d2d3d9c54c1d91057",
+    measurementId: "G-HBSRVKC0JQ"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+  function showPage(user) {
+    const privateContent = document.getElementById('private-content');
+    const loginForm = document.getElementById('login-form');
+    if (!privateContent || !loginForm) {
+      console.error('Div private-content o login-form non trovato!');
+      return;
     }
+    if (user) {
+      privateContent.style.display = 'block';
+      loginForm.style.display = 'none';
+    } else {
+      privateContent.style.display = 'none';
+      loginForm.style.display = 'flex';
+    }
+  }
 
+  window.addEventListener('DOMContentLoaded', () => {
     firebase.auth().onAuthStateChanged(user => {
       showPage(user);
     });
+  });
 
-    // Funzione di login chiamata dal form
-    function login() {
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      firebase.auth().signInWithEmailAndPassword(email, password)
-        .catch(error => {
-          const alertBox = document.getElementById('alertBox');
-          alertBox.textContent = error.message;
-          alertBox.classList.remove('d-none');
-        });
-    }
-  </script>
+  function login() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const alertBox = document.getElementById('alertBox');
+    alertBox.classList.add('d-none');
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .catch(error => {
+        alertBox.textContent = error.message;
+        alertBox.classList.remove('d-none');
+      });
+  }
+</script>
 
-  <div id="private-content" style="display:none;">
-    {{ content }}
+<style>
+  /* Nascondi contenuti prima che Firebase risponda */
+  #private-content, #login-form {
+    display: none;
+  }
+  /* Per mostrare il login come flex con centratura */
+  #login-form {
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+
+<!-- Contenuto privato -->
+<div id="private-content" style="display:none;">
+  {{ content }}
+</div>
+
+<!-- Form login -->
+<div id="login-form" class="d-flex bg-light" style="display:none;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title mb-4 text-center">Accedi</h3>
+
+            <div id="alertBox" class="alert alert-danger d-none" role="alert"></div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Inserisci email" required />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Inserisci password" required />
+            </div>
+            <button class="btn btn-primary w-100" onclick="login()">Accedi</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Inserisci email" required />
-              </div>
-              <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Inserisci password" required />
-              </div>
-              <button class="btn btn-primary w-100" onclick="login()">Accedi</button>
-
-  <style>
-    /* Nascondo contenuti prima che Firebase risponda per evitare flash */
-    #private-content, #login-form {
-      display: none;
-    }
-  </style>
+</div>
