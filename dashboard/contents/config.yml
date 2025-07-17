@@ -8,7 +8,7 @@ public_folder: "/assets"
 collections:
   - name: "pagine_it"
     label: "Pagine"
-    folder: "content/it"
+    folder: "content/pagine"
     create: true
     slug: "{{slug}}"
     fields:
