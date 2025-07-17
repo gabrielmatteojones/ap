@@ -8,7 +8,6 @@ layout: default
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
 
 <style>
-  /* Nascondo entrambi all’inizio */
   #private-content, #login-form {
     display: none;
   }
@@ -61,7 +60,7 @@ layout: default
   firebase.initializeApp(firebaseConfig);
 
   function showPage(user) {
-    console.log("Stato utente:", user);
+    console.log("showPage user:", user);
     const privateContent = document.getElementById('private-content');
     const loginForm = document.getElementById('login-form');
 
@@ -81,6 +80,7 @@ layout: default
 
   document.addEventListener('DOMContentLoaded', () => {
     firebase.auth().onAuthStateChanged(user => {
+      console.log("onAuthStateChanged:", user);
       showPage(user);
     });
   });
@@ -92,7 +92,9 @@ layout: default
     alertBox.classList.add('d-none');
 
     firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(() => {
+      .then((userCredential) => {
+        console.log("Login effettuato con successo:", userCredential.user);
+        showPage(userCredential.user);
         alertBox.classList.add('d-none');
       })
       .catch(error => {
@@ -102,7 +104,9 @@ layout: default
   }
 
   function logout() {
-    firebase.auth().signOut();
+    firebase.auth().signOut().then(() => {
+      console.log("Logout effettuato");
+    });
   }
 </script>
 
