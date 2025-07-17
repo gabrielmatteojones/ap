@@ -6,6 +6,232 @@
     <title>Ufficio Digitale di Gabriel</title>
     <link rel="stylesheet" href="https://gabrieljones.it/udfvg/assets/css/main.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+body {
+  margin: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+header {
+  background-color: #1c1c1c;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header .logo img {
+  height: 60px;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+header .social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+header .social-icons a {
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+header .social-icons a:hover {
+  color: #f0a500;
+}
+
+.hero {
+  position: relative;
+  background: url('https://www.sediadaufficio.it/blog/wp-content/uploads/2018/01/Ufficio-Industriale-1.jpg') no-repeat center center/cover;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero .title {
+  background: rgba(0, 0, 0, 0.751);
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.hero h2 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+nav {
+  background-color: #b30000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 30px;
+  background: #cc0000;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+  background: #e60000;
+  transform: scale(1.1);
+}
+
+.container2 {
+  display: flex;
+  max-width: 1200px;
+  margin: 50px auto;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 5px solid #a40000;
+}
+
+.image {
+  flex: 1;
+  background-image: url('https://2.gravatar.com/avatar/53241b11fb23d653d6c97ab192be4c459ef4201d71bffe0b87f8c09c061c577b?size=900&d=initials');
+  background-size: cover;
+  background-position: center;
+  min-height: 400px;
+}
+
+.content {
+  flex: 2;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content h1 {
+  font-size: 2.5rem;
+  color: #a40000;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.content p {
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.8;
+}
+
+table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+
+table a {
+  color: white;
+  text-decoration: none;
+}
+
+table a:hover {
+  color: #f0a500;
+}
+
+td, th {
+  width: 33.33%;
+  height: 50px;
+  text-align: center;
+  background-color: #a40000;
+  color: #fff;
+  border: 3px solid #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 10px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .content h1 {
+    font-size: 2rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+
+  td, th {
+    font-size: 1rem;
+  }
+
+  nav a {
+    padding: 8px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container2 {
+    flex-direction: column;
+  }
+
+  .hero {
+    height: 300px;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  header {
+    justify-content: center;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  table tr {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  td, th {
+    width: 100%;
+  }
+}
+
+    </style>
 <style>
         body {
             margin: 0;
