@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 ---
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
@@ -49,16 +49,6 @@ layout: page
     {{ content }}
   </div>
 
-  <!-- FORM LOGIN -->
-  <div id="login-form" class="bg-light d-flex align-items-center" style="height: 100vh; display:none;">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-4">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <h3 class="card-title mb-4 text-center">Accedi</h3>
-              <div id="alertBox" class="alert alert-danger d-none" role="alert"></div>
-
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" placeholder="Inserisci email" required />
@@ -68,13 +58,6 @@ layout: page
                 <input type="password" class="form-control" id="password" placeholder="Inserisci password" required />
               </div>
               <button class="btn btn-primary w-100" onclick="login()">Accedi</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
 
   <style>
     /* Nascondo contenuti prima che Firebase risponda per evitare flash */
