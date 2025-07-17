@@ -1,6 +1,6 @@
 ---
 title: Esempio
 layout: riservato
-permalink: Esempio
+permalink: /Esempio/
 ---
 esempio di richiesta
