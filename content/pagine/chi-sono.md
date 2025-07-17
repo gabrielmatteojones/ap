@@ -1,0 +1,7 @@
+---
+layout: page
+title: Chi sono
+date: 2025-07-17T10:12:00.000+02:00
+permalink: /chisono/
+---
+Mi chiamo Gabriel Jones, ma sono conosciuto come Matteo. Nato nel 2008, sono un giovane politico, influencer e bibliotecario volontario impegnato a promuovere il cambiamento sociale e culturale attraverso la comunicazione, la cultura e il coinvolgimento giovanile. Sono il fondatore del movimento “Arena Giovani”, nato con l’obiettivo di unire le nuove generazioni e dar loro voce nelle decisioni politiche a livello locale e nazionale. Gestisco tre redazioni e un dipartimento mediatico dedicato alla produzione di contenuti digitali di qualità, mentre sui social media, in particolare su Instagram, diffondo messaggi positivi legati alla cultura e allo sviluppo personale. Il mio lavoro come bibliotecario volontario riflette la convinzione profonda che la cultura rappresenti il motore fondamentale della trasformazione sociale. Appassionato di lingua italiana e grammatica, mi definisco un politico culturale, determinato a costruire una società più coesa, consapevole e aperta al dialogo. Attraverso Arena Giovani creo spazi di confronto e promuovo iniziative concrete per coinvolgere i giovani nella vita pubblica, incoraggiandoli a partecipare attivamente e a credere nelle proprie idee. Credo fermamente che l’educazione e la cultura siano i primi passi verso un futuro migliore, e per questo, con il mio impegno quotidiano, lavoro per diffondere valori positivi e ispirare altri giovani a costruire il proprio percorso con passione e determinazione.
