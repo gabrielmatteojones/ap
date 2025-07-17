@@ -22,7 +22,7 @@ layout: default
     const privateContent = document.getElementById('private-content');
     const loginForm = document.getElementById('login-form');
     if (!privateContent || !loginForm) {
-      console.error('Div private-content o login-form non trovato!');
+      console.error('Elementi private-content o login-form mancanti!');
       return;
     }
     if (user) {
@@ -34,10 +34,8 @@ layout: default
     }
   }
 
-  window.addEventListener('DOMContentLoaded', () => {
-    firebase.auth().onAuthStateChanged(user => {
-      showPage(user);
-    });
+  firebase.auth().onAuthStateChanged(user => {
+    showPage(user);
   });
 
   function login() {
@@ -54,11 +52,11 @@ layout: default
 </script>
 
 <style>
-  /* Nascondi contenuti prima che Firebase risponda */
+  /* Nascondo contenuti prima che Firebase risponda per evitare flash */
   #private-content, #login-form {
     display: none;
   }
-  /* Per mostrare il login come flex con centratura */
+  /* Centrare form login */
   #login-form {
     height: 100vh;
     align-items: center;
@@ -66,13 +64,13 @@ layout: default
   }
 </style>
 
-<!-- Contenuto privato -->
+<!-- Contenuto privato: qui il tuo contenuto Jekyll -->
 <div id="private-content" style="display:none;">
   {{ content }}
 </div>
 
-<!-- Form login -->
-<div id="login-form" class="d-flex bg-light" style="display:none;">
+<!-- Form Login -->
+<div id="login-form" class="d-flex bg-light">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-4">
