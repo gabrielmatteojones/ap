@@ -64,3 +64,15 @@ collections:
       - { label: "Formati disponibili", name: "formati", widget: "string" }
       - { label: "Licenza", name: "licenza", widget: "string" }
       - { label: "Permalink", name: "permalink", widget: "string", default: "/docs/{{slug}}/" }
+  - name: "private_pages"
+    label: "Pagine Private"
+    folder: "_private_pages"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Titolo", name: "title", widget: "string" }
+      - label: "Corpo"
+        name: "body"
+        widget: "markdown"
