@@ -1,25 +1,26 @@
-title: "Scopri chi sono"
-intro: "Ciao! Sono Gabriel Matteo Jones, sono un Web Developer, ex bibliotecario volontario, animatore, politico, videomaker e questo non è ancora nulla, scoprimi qui, nel mio ufficio digitale!"
-
+title: Scopri chi sono
+intro: Ciao! Sono Gabriel Matteo Jones, sono un Web Developer, ex bibliotecario
+  volontario, animatore, politico, videomaker e questo non è ancora nulla,
+  scoprimi qui, nel mio ufficio digitale!
 links:
   - group:
-      - label: "Chi sono"
-        url: "/chisono/"
-      - label: "Arena Giovani"
-        url: "/agfo/"
-      - label: "Trasparenza"
-        url: "/trasparenza/"
+      - label: Chi sono
+        url: /chisono/
+      - label: Arena Giovani
+        url: /agfo/
+      - label: Trasparenza
+        url: /trasparenza/
   - group:
-      - label: "Grest"
-        url: "https://gabrieljones.it/grest/"
-      - label: "Contatti"
-        url: "mailto:gjones@agfo.fvg.it"
-      - label: "Documenti pubblici"
-        url: "/documenti/"
+      - label: Grest
+        url: /grest/
+      - label: Contatti
+        url: mailto:gjones@agfo.fvg.it
+      - label: Documenti pubblici
+        url: /documenti/
   - group:
-      - label: "Entra nell'Ufficio"
-        url: "/dashboard/"
-      - label: "Blog+"
-        url: "/blog/"
-      - label: "Avvisi"
-        url: "/avvisi/"
+      - label: Entra nell'Ufficio
+        url: /dashboard/
+      - label: Blog+
+        url: /blog/
+      - label: Avvisi
+        url: /avvisi/
