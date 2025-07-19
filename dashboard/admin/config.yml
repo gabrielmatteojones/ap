@@ -17,6 +17,29 @@ collections:
       - { name: "date", label: "Data", widget: "datetime", default: "", hidden: true }
       - { name: "permalink", label: "Link personalizzato", widget: "string", required: true }
       - { name: "body", label: "page", widget: "markdown" }
+  - name: "Trasparenza"
+    label: "Trasparenza"
+    folder: "_trasparenza/"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Titolo", widget: "string" }
+      - { name: "date", label: "Data", widget: "datetime", default: "", hidden: true }
+      - label: "Documento"
+        name: "file"
+        widget: "file"
+        media_library:
+          config:
+            multiple: true
+        required: true
+        hint: "Carica un file PDF"
+        media_folder: "/static/files"
+        public_folder: "/files"
+        # Non strettamente necessario ma utile per filtrare
+        media_library:
+          config:
+            max_file_size: 500 # MB (opzionale)
+      - { name: "body", label: "Contenuto", widget: "markdown" }
   - name: "articoli"
     label: "Articoli"
     folder: "_articoli/"
@@ -24,10 +47,9 @@ collections:
     slug: "{{slug}}"
     fields:
       - { name: "title", label: "Titolo", widget: "string" }
-      - { name: "date", label: "Data", widget: "datetime", default: "", hidden: true }
-      - { name: "link", label: "Link personalizzato", widget: "string", required: false }
+      - { name: "date", label: "Data", widget: "datetime", hidden: true }
       - { name: "body", label: "Contenuto", widget: "markdown" }
-  - name: "progetti"
+- name: "progetti"
     label: "Progetti"
     folder: "content/progetti"
     create: true
