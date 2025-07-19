@@ -111,4 +111,12 @@ collections:
           - { name: "title", label: "Titolo", widget: "string" }
           - { name: "intro", label: "Testo introduttivo", widget: "text" }
           - name: "links"
-            labe
+            label: "Gruppi di Link"
+            widget: "list"
+            fields:
+              - name: "group"
+                label: "Colonna"
+                widget: "list"
+                fields:
+                  - { name: "label", label: "Testo del link", widget: "string" }
+                  - { name: "url", label: "URL", widget: "string" }
