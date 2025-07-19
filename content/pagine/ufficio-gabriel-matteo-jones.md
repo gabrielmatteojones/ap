@@ -40,7 +40,6 @@ Compila il form qui sotto e raccontami chi sei, cosa ti piace fare e in che modo
 
 Ogni proposta verrà letta con attenzione. Se ci sono attività adatte al tuo profilo, ti ricontatterò!
 
-```
 <form name="lavora-con-me" method="POST" data-netlify="true">
   <input type="hidden" name="form-name" value="lavora-con-me" />
   <input type="hidden" name="ruolo" value="volontario" />
@@ -59,4 +58,3 @@ Ogni proposta verrà letta con attenzione. Se ci sono attività adatte al tuo pr
 
   <button type="submit">Invia la candidatura</button>
 </form>
-```
