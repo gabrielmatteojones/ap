@@ -29,14 +29,14 @@ collections:
       - label: "Documento"
         name: "file"
         widget: "file"
+        media_folder: "/static/files"
+        public_folder: "/files"
+        required: true
+        hint: "Carica un file PDF"
         media_library:
           config:
             multiple: true
             max_file_size: 500 # MB
-        required: true
-        hint: "Carica un file PDF"
-        media_folder: "/static/files"
-        public_folder: "/files"
       - { name: "body", label: "Contenuto", widget: "markdown" }
 
   - name: "articoli"
