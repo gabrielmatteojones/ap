@@ -40,3 +40,12 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "riservato" }
       - { label: "Permalink", name: "permalink", widget: "string" }
       - { label: "Corpo", name: "body", widget: "markdown" }
+  - name: "settings"
+    label: "Settings"
+    files:
+      - file: "data/settings.yml"
+        label: "Site Settings"
+        name: "settings"
+        fields:
+          - { label: "Enable Maintenance Mode", name: "maintenance_mode", widget: "boolean" }
+          - { label: "Maintenance Redirect URL", name: "redirect_url", widget: "string" }
