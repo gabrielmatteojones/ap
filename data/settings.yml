@@ -1,2 +1,2 @@
-maintenance_mode: false  # Imposta a true per abilitare la manutenzione
-redirect_url: "https://ufficiogabrieljones.it/avvisi/86-2025/"  # URL di redirezione quando manutenzione è attiva
+maintenance_mode: true
+redirect_url: https://ufficiogabrieljones.it/avvisi/86-2025/
