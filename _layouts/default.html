@@ -1,466 +1,218 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ufficio Digitale di Gabriel</title>
-    <link rel="stylesheet" href="https://gabrieljones.it/udfvg/assets/css/main.css">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.unito.it/unito-theme/v3/css/bootstrap-unito.configs.css">
+    <link rel="stylesheet" href="https://cdn.unito.it/unito-theme/v3/css/bootstrap-unito.min.css">
+    <!-- FAVICON --> 
+    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.unito.it/unito-loghi/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.unito.it/unito-loghi/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://cdn.unito.it/unito-loghi/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://cdn.unito.it/unito-loghi/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.unito.it/unito-loghi/favicon/apple-touch-icon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <style>
-body {
-  margin: 0;
-  font-family: 'Roboto', Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-}
-
-header {
-  background-color: #1c1c1c;
-  color: white;
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-header .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-header .logo img {
-  height: 60px;
-}
-
-header h1 {
-  font-size: 1.5rem;
-  margin: 0;
-}
-
-header .social-icons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-header .social-icons a {
-  color: white;
-  font-size: 1rem;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-header .social-icons a:hover {
-  color: #f0a500;
-}
-
-.hero {
-  position: relative;
-  background: url('https://www.sediadaufficio.it/blog/wp-content/uploads/2018/01/Ufficio-Industriale-1.jpg') no-repeat center center/cover;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
-}
-
-.hero .title {
-  background: rgba(0, 0, 0, 0.751);
-  padding: 20px 30px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.hero h2 {
-  margin: 0;
-  font-size: 2.5rem;
-}
-
-nav {
-  background-color: #b30000;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px 0;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 30px;
-  background: #cc0000;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background 0.3s, transform 0.3s;
-}
-
-nav a:hover {
-  background: #e60000;
-  transform: scale(1.1);
-}
-
-.container2 {
-  display: flex;
-  max-width: 1200px;
-  margin: 50px auto;
-  background: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  border: 5px solid #a40000;
-}
-
-.image {
-  flex: 1;
-  background-image: url('https://2.gravatar.com/avatar/53241b11fb23d653d6c97ab192be4c459ef4201d71bffe0b87f8c09c061c577b?size=900&d=initials');
-  background-size: cover;
-  background-position: center;
-  min-height: 400px;
-}
-
-.content {
-  flex: 2;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.content h1 {
-  font-size: 2.5rem;
-  color: #a40000;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-
-.content p {
-  font-size: 1.2rem;
-  color: #333;
-  line-height: 1.8;
-}
-
-table {
-  width: 100%;
-  margin-top: 15px;
-  border-collapse: separate;
-  border-spacing: 10px;
-}
-
-table a {
-  color: white;
-  text-decoration: none;
-}
-
-table a:hover {
-  color: #f0a500;
-}
-
-td, th {
-  width: 33.33%;
-  height: 50px;
-  text-align: center;
-  background-color: #a40000;
-  color: #fff;
-  border: 3px solid #fff;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  border-radius: 10px;
-}
-
-/* --- RESPONSIVE --- */
-@media (max-width: 992px) {
-  .hero h2 {
-    font-size: 2rem;
-  }
-
-  .content h1 {
-    font-size: 2rem;
-  }
-
-  .content p {
-    font-size: 1rem;
-  }
-
-  td, th {
-    font-size: 1rem;
-  }
-
-  nav a {
-    padding: 8px 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .container2 {
-    flex-direction: column;
-  }
-
-  .hero {
-    height: 300px;
-    text-align: center;
-  }
-
-  .social-icons {
-    justify-content: center;
-  }
-
-  header {
-    justify-content: center;
-  }
-
-  nav {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  table tr {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  td, th {
-    width: 100%;
-  }
-}
-
-    </style>
-<style>
-        body {
-            margin: 0;
-            font-family: 'Roboto', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        header {
-            background-color: #1c1c1c;
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        header .logo img {
-            height: 60px;
-            margin-right: 15px;
-        }
-
-        header h1 {
-            font-size: 1.5rem;
-            margin: 0;
-        }
-
-        header .social-icons a {
-            margin: 0 10px;
-            color: white;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        header .social-icons a:hover {
-            color: #f0a500;
-        }
-
-        .hero {
-            position: relative;
-            background: url('https://www.sediadaufficio.it/blog/wp-content/uploads/2018/01/Ufficio-Industriale-1.jpg') no-repeat center center/cover;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        .hero .title {
-            background: rgba(0, 0, 0, 0.751);
-            padding: 20px 30px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .hero h2 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
-        nav {
-            background-color: #b30000;
-            display: flex;
-            justify-content: center;
-            padding: 10px 0;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            padding: 10px 40px;
-            background: #cc0000;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        nav a:hover {
-            background: #e60000;
-            transform: scale(1.1);
-        }
-
-        .container2 {
-            display: flex;
-            max-width: 1200px;
-            margin: 50px auto;
-            background: #fff;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 5px solid #a40000;
-        }
-
-        .image {
-            flex: 1;
-            background-image: url('https://2.gravatar.com/avatar/53241b11fb23d653d6c97ab192be4c459ef4201d71bffe0b87f8c09c061c577b?size=900&d=initials');
-            background-size: cover;
-            background-position: center;
-            min-height: 400px;
-        }
-
-        .content {
-            flex: 2;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .content h1 {
-            font-size: 2.5rem;
-            color: #a40000;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .content p {
-            font-size: 1.2rem;
-            color: #333;
-            line-height: 1.8;
-        }
-
-        table a {
-            color: white; /* Imposta il colore dei link a bianco */
-            text-decoration: none; /* Rimuove la sottolineatura */
-        }
-
-        table a:hover {
-            color: #f0a500; /* Cambia colore al passaggio del mouse (opzionale) */
-        }
-
-
-        td, th {
-            width: 33.33%;
-            height: 50px;
-            text-align: center;
-            background-color: #a40000;
-            color: #fff;
-            border: 3px solid #fff;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            border-radius: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .container2 {
-                flex-direction: column;
-            }
-
-            .image, .content {
-                flex: 1;
-            }
-        }
-    </style>
-</head>
-<body>
-
-
-    <header>
-        <div class="logo">
-         <a href="/">
-            <img src="https://gabrieljones.it/assets/logo.png" alt="Stemma del GMJ">
-         </a>
-        <a href="/">
-           <h3>Ufficio di Gabriel</h3>
-        </a>
-        </div>
-
-        <div class="social-icons">
-            <a href="https://agfo.fvg.it">Arena Giovani</a>
-            <a href="https://blog.gabrieljones.it/">Blog</a>
-            <a href="https://ufficiogabrieljones.it/dashboard/">Amministrazione 2</a>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="title">
-            <h2>Ufficio Digitale di Gabriel</h2>
-            <h4>Benvenuti, in tutto il mio mondo!</h4>
-        </div>
-    </section>
-
-    <nav>
-        <a href="/documenti/">Documenti Pubblici</a>
-        <a href="/servizi/">Servizi</a>
-        <a href="/blog/">Blog</a>
-        <a href="/contatti/">Contatti</a>
-        <a href="/login/">Login</a>
-    </nav>  
-
-    <div class="container2">
-        <div class="image"></div>
-        <div class="content">
-            <h1>Scopri chi sono</h1>
-            <p>Ciao! Sono Gabriel Matteo Jones, sono un Web Developer, ex bibliotecario volontario, animatore, politico, videomaker e questo non è ancora nulla, scoprimi qui, nel mio ufficio digitale!</p>
-
-            <table>
-                <tr>
-                    <td><a href="/chisono/" target="_blank">Chi sono</a></td>
-                    <td><a href="/agfo/" target="_blank">Arena Giovani</a></td>
-                    <td><a href="/trasparenza/" target="_blank">Trasparenza</a></td>
-                </tr>
-            </table>
-
-            <table>
-                <tr>
-                    <td><a href="/grest/" target="_blank">Grest</a></td>
-                    <td><a href="mailto:gjones@agfo.fvg.it" target="_blank">Contatti</a></td>
-                    <td><a href="/documenti/" target="_blank">documenti publici</a></td>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <td><a href="/dashboard/" target="_blank">Entra nell'Ufficio</a></td>
-                    <td><a href="/blog/" target="_blank">Blog+</a></td>
-                    <td><a href="/avvisi/" target="_blank">Avvisi</a></td>
-                </tr>
-            </table>
+    <!-- Windows Os Start Screen color  -->
+    <meta name="msapplication-TileColor" content="#e3e4e6">
+    <!-- Browser UI Color  -->
+    <meta name="theme-color" content="#ffffff">
+  </head>
+  <body>
+
+
+            
+<div class="it-header-wrapper p-0">
+    <div class="it-header-slim-wrapper theme-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="it-header-slim-wrapper-content p-1">
+                        <a class="d-none d-lg-block navbar-brand" href="https://gabrieljones.it/">Gabriel Jones</a>
+                        <div class="it-header-slim-right-zone">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown d-flex" id="accesso_rapido">
+                                    <button type="button" aria-expanded="false" aria-controls="menu_accesso_rapido" aria-label="Accesso Rapido" >Accesso Rapido</button>
+                                    <div class="dropdown-menu" id="menu_accesso_rapido">
+                                        <div class="link-list-wrapper">
+                                            <ul class="link-list">
+                                                <li><a class="list-item" href="/dashboard7" ><span>Dashboard Utenza</span></a></li>
+                                                <li><a class="list-item" href="/utenza/" ><span>Login</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <a href="#" id="login" class="d-block d-lg-none" aria-label="Login" title="Login">Login</a>
+                            <div class="d-flex d-lg-none">
+                                    <a id="SearchMobileOpen" role="button" class="SearchMobileTrigger search-link rounded-icon" aria-label="Apri la ricerca" href="#">
+                                        <svg role="img" aria-describedby="title_searchMobile" class="icon">
+                                            <title id="title_searchMobile">Apri la ricerca</title><use xlink:href="./dist/svg/sprite.svg#it-search"></use>
+                                        </svg>
+                                    </a>
+                                <a id="SearchMobileClose" role="button" class="SearchMobileTrigger d-none search-link rounded-icon" aria-label="Chiudi la ricerca" href="#">
+                                    <svg role="img" aria-describedby="title_searchMobileClose" class="icon">
+                                        <title id="title_searchMobileClose">Chiudi la ricerca</title><use xlink:href="./dist/svg/sprite.svg#it-close"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="it-access-top-wrapper d-none d-lg-block">
+                                <a href="#" class="ps-2"><img src="https://u.g.18f.it/assets/img/logo.png" width="40" alt="UniTa"></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="it-nav-wrapper">
+        <div class="it-header-center-wrapper theme-light">
+            <div class="container h-100 ps-0 pe-0">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 ">
+                        <div class="it-header-center-content-wrapper">
+                            <div class="it-brand-wrapper d-flex">
+                                <button class="custom-navbar-toggler" type="button" aria-controls="nav02" aria-expanded="false" aria-label="Toggle navigation" data-bs-target="#nav02" data-bs-toggle="navbarcollapsible">
+                                    <svg role="navigation" aria-describedby="my-title8" class="icon">
+                                        <title id="my-title8">Apri</title><use xlink:href="./dist/svg/sprite.svg#it-burger"></use>
+                                    </svg>
+                                </button>
+                                <a href="#">
+                                <img src="https://gabrieljones.it/assets/logo.png" width="109" alt="Dental School" class="d-none d-lg-block">
+                                <div class="it-brand-wrapper-descriptor">Ufficio digitale di Gabriel Matteo Jones</div></a>
+                            </div>
+                            <div class="it-right-zone">
+                                <a class="d-block d-lg-none navbar-brand ps-1" href="#" data-focus-mouse="false">
+                                    <img src="https://cdn.unito.it/unito-loghi/logo_sigillo_orizzontale.svg" height="32" width="86" alt="Università degli Studi di Torino"></a>
+                                <div class="it-access-top-wrapper d-block d-lg-none ps-1 pe-1">
+                                    <a href="#"><img src="./assets/images/LogoUNITA.png" width="40" alt="UniTa"></a>
+                                </div>
+                                <div class="justify-content-between it-socials d-none d-lg-flex">
+                                    <ul>
+                                        <li>
+                                            <a href="#" aria-label="Facebook" target="_blank">
+                                                <svg role="img" aria-describedby="social_1" class="icon">
+                                                    <title id="social_1">Facebook</title><use xlink:href="./dist/svg/sprite.svg#it-facebook"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" aria-label="Twitter" target="_blank">
+                                                <svg role="img" aria-describedby="social_2" class="icon">
+                                                    <title id="social_2">Twitter</title><use xlink:href="./dist/svg/sprite.svg#it-twitter"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" aria-label="Instagram" target="_blank">
+                                                <svg role="img" aria-describedby="social_3" class="icon">
+                                                    <title id="social_3">Instagram</title><use xlink:href="./dist/svg/sprite.svg#it-instagram"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" aria-label="Instagram" target="_blank">
+                                                <svg role="img" aria-describedby="social_4" class="icon">
+                                                    <title id="social_4">LinkedIn</title><use xlink:href="./dist/svg/sprite.svg#it-linkedin"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" aria-label="Instagram" target="_blank">
+                                                <svg role="img" aria-describedby="social_5" class="icon">
+                                                    <title id="social_5">Youtube</title><use xlink:href="./dist/svg/sprite.svg#it-youtube"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="it-header-navbar-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 ps-0 pe-0">
+                        <!--start nav-->
+                        <nav class="navbar navbar-expand-lg has-megamenu">
+                            <div class="navbar-collapsable" id="nav02" style="display: none;">
+                                <div class="menu-wrapper">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item"><a class="nav-link" href="/portale/trasparenza/"><span>Trasparenza</span></a></li>
+                                        <li class="nav-item"><a class="nav-link" href="/portale/DataWin/"><span>Portale DataWin</span></a></li>
+                                        <li class="nav-item"><a class="nav-link" href="/DataWIn/"><span>DataWin </span></a></li>
+                                        <li class="nav-item"><a class="nav-link"  href="/archivio/"><span>Archivio</span></a></li>
+                                        <li class="nav-item"><a class="nav-link"  href="/blog/"><span>Blog</span></a></li>
+                                        <li class="nav-item"><a class="nav-link"  href="/utenza/"><span>Login Interglobale</span></a></li>
+                                        <li class="nav-item dropdown" id="Internazionalita">
+                                            <a class="nav-link dropdown-toggle d-none d-lg-flex" href="/" aria-controls="menu_internazionalita" aria-expanded="false" >
+                                                <span>Progetti</span>
+                                            </a>
+                                            <button type="button" aria-expanded="false" aria-controls="menu_internazionalita" aria-label="Internazionalità" ><span class="d-flex d-lg-none">Progetti</span></button>
+                                            <div class="dropdown-menu" id="progetti">
+                                                <div class="link-list-wrapper">
+                                                    <ul class="link-list">
+                                                        <li><a class="list-item" href="/agfo/"><span>Arena Giovani</span></a></li>
+                                                        <li><a class="list-item" href="/upid/"><span>UPID</span></a></li>
+                                                        <li><a class="list-item" href="/onlygabbyme/"><span>OnlyGabbyMe</span></a></li>
+                                                        <li><a class="list-item" href="/bibliotecando/"><span>Bibliotecando</span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item dropdown" id="Internazionalita">
+                                            <a class="nav-link dropdown-toggle d-none d-lg-flex" href="/" aria-controls="menu_internazionalita" aria-expanded="false" >
+                                                <span>Siti collegati</span>
+                                            </a>
+                                            <button type="button" aria-expanded="false" aria-controls="menu_internazionalita" aria-label="Internazionalità" ><span class="d-flex d-lg-none">Siti Collegati</span></button>
+                                            <div class="dropdown-menu" id="progetti">
+                                                <div class="link-list-wrapper">
+                                                    <ul class="link-list">
+                                                        <li><a class="list-item" href="/blogs/gmj/"><span>GMJ BLOG</span></a></li>
+                                                        <li><a class="list-item" href="/blogs/upid/"><span>UPID</span></a></li>
+                                                        <li><a class="list-item" href="/onlygabbyme/"><span>OnlyGabbyMe</span></a></li>
+                                                        <li><a class="list-item" href="/bibliotecando/"><span>Bibliotecando</span></a></li>
+                                                        <li><a class="list-item" href="/blogs/agfo/"><span>UPID</span></a></li>
+                                                        <li><a class="list-item" href="/blogs/GabbyStudio/"><span>GabbyStudio</span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="it-hero-wrapper">
+  <div class="container">
+    <div class="row">
+        <div class="col-12">
+          <div class="it-hero-text-wrapper bg-dark">
+              <h1 class="no_toc">Ufficio di Gabriel Matteo Jones.</h1>
+              <hr>
+              <br>
+              <hr>
+              <span class="it-category">Crea, sviluppa, gestisci.</span>
+
+              <div class="it-btn-container"><a class="btn btn-sm btn-outline-primary" href="/info/">Info</a></div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>            
+            
   <div class="container">
     <main>
     {{ content }}
@@ -471,6 +223,41 @@ var _iub = _iub || [];
 _iub.csConfiguration = {"siteId":4163114,"cookiePolicyId":61374569,"lang":"it","storage":{"useSiteId":true}};
 </script>
 <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4163114.js"></script>
-<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
-    
+<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>           
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCu9YBjutCK0UR3EoliYwiNrrKaY8cyt8U",
+      authDomain: "ufficiogabrieljones.firebaseapp.com",
+      projectId: "ufficiogabrieljones",
+      storageBucket: "ufficiogabrieljones.firebasestorage.app",
+      messagingSenderId: "754177287030",
+      appId: "1:754177287030:web:e4f70d2d3d9c54c1d91057",
+      measurementId: "G-HBSRVKC0JQ"
+    };
+    // 🔥 Inizializza Firebase
+    firebase.initializeApp(firebaseConfig);
+    // 📲 Login
+    const loginForm = document.getElementById('login-form');
+    const alertBox = document.getElementById('alert');
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          window.location.href = "https://agfo.fvg.it/utenza/dashboard/?aflogiunx";
+        })
+        .catch((error) => {
+          // ❌ Errore
+          alertBox.classList.remove('d-none');
+          alertBox.textContent = "Errore: " + error.message;
+        });
+    });
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+
+    <script src="https://cdn.unito.it/unito-theme/v3/js/bootstrap-unito.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.unito.it/unito-theme/v3/js/keyboardNav.min.js" crossorigin="anonymous"></script>
+  </body>
 </html>
