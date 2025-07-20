@@ -1,16 +1,13 @@
 (function() {
-  // Funzione per caricare e interpretare il file YAML
-  fetch('https://ufficiogabrieljones.it/data/settings.yml')
-    .then(response => response.text())  // Legge il file YAML come testo
+  // Recupera il file JSON generato da Decap CMS
+  fetch('https://ufficiogabrieljones.it/config.json')
+    .then(response => response.json())
     .then(data => {
-      // Usa la libreria js-yaml per convertire YAML in oggetto JavaScript
-      const yaml = jsyaml.load(data);
-
       // Se la modalità manutenzione è attiva
-      if (yaml.maintenance_mode) {
-        // Redirige alla pagina di avviso configurata
-        window.location.replace(yaml.redirect_url);
+      if (data.maintenance_mode) {
+        // Esegui il reindirizzamento
+        window.location.replace(data.redirect_url);
       }
     })
-    .catch(error => console.error('Errore nel controllo manutenzione:', error));
+    .catch(error => console.error('Errore nel caricare la configurazione:', error));
 })();

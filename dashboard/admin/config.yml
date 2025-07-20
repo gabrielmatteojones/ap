@@ -27,7 +27,6 @@ collections:
       - { name: "title", label: "Titolo", widget: "string" }
       - { name: "date", label: "Data", widget: "datetime", hidden: true }
       - { name: "body", label: "Contenuto", widget: "markdown" }
-      
   - name: "private_pages"
     label: "Pagine ad autorizzazione"
     folder: "content/private/"
@@ -40,12 +39,11 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "riservato" }
       - { label: "Permalink", name: "permalink", widget: "string" }
       - { label: "Corpo", name: "body", widget: "markdown" }
-  - name: "settings"
-    label: "Settings"
-    files:
-      - file: "data/settings.yml"
-        label: "Site Settings"
-        name: "settings"
-        fields:
-          - { label: "Enable Maintenance Mode", name: "maintenance_mode", widget: "boolean" }
-          - { label: "Maintenance Redirect URL", name: "redirect_url", widget: "string" }
+  - name: "site_settings"
+    label: "Impostazioni del sito"
+    folder: "data"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Modalità Manutenzione", name: "maintenance_mode", widget: "boolean" }
+      - { label: "URL di redirect", name: "redirect_url", widget: "string" }

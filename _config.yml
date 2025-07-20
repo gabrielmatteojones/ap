@@ -65,6 +65,11 @@ canonical_url: "https://blog.gabrieljones.it/gabrieljones/"
 rss_feed_url: "https://blog.gabrieljones.it/gabrieljones/feed"
 
 collections:
-  articoli:
-    output: true
-    permalink: /articoli/:title/
+  - name: "site_settings"
+    label: "Impostazioni del sito"
+    folder: "data"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Modalità Manutenzione", name: "maintenance_mode", widget: "boolean" }
+      - { label: "URL di redirect", name: "redirect_url", widget: "string" }
