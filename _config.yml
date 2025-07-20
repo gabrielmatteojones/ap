@@ -63,13 +63,3 @@ language: "it"
 og_image: "/assets/logo.png"
 canonical_url: "https://blog.gabrieljones.it/gabrieljones/"
 rss_feed_url: "https://blog.gabrieljones.it/gabrieljones/feed"
-
-collections:
-  - name: "site_settings"
-    label: "Impostazioni del sito"
-    folder: "data"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Modalità Manutenzione", name: "maintenance_mode", widget: "boolean" }
-      - { label: "URL di redirect", name: "redirect_url", widget: "string" }
