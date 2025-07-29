@@ -2,7 +2,7 @@
 layout: page
 title: Accento Civico
 date: 2025-07-29T14:57:00.000+02:00
-permalink: /org/accentocivico/
+permalink: /amministrazione/org/accentocivico/
 ---
 # Accento Civico – Il progetto di una nuova cittadinanza attiva
 
