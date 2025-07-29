@@ -2,7 +2,7 @@
 layout: page
 title: Documenti
 date: 2025-07-19T14:08:00.000+02:00
-permalink: /documenti/
+permalink: /amministrazione/documenti/
 ---
 # Documenti
 
