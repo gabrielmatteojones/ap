@@ -3,9 +3,7 @@ layout: riservato
 ---
 
 <main>
-  <div class="container my-5">
-    <div class="row justify-content-center">
-      <div class="col-12 col-lg-10">
+
 
         <div class="cmp-heading pb-3 pb-lg-4">
           <h1 class=""> {{ page.nome }} </h1>
@@ -13,7 +11,9 @@ layout: riservato
             <h4 class="text-muted">{{ page.ruolo }}</h4>
           {% endif %}
         </div>
-
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
         {% if page.foto %}
         <figure class="figure px-0 img-full mb-4">
           <img src="{{ page.foto }}" alt="Foto di {{ page.nome }}" class="figure-img img-fluid rounded">
