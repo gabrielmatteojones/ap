@@ -17,16 +17,21 @@ collections:
       - { name: "date", label: "Data", widget: "datetime", default: "", hidden: true }
       - { name: "permalink", label: "Link personalizzato", widget: "string", required: true }
       - { name: "body", label: "page", widget: "markdown" }
-
-  - name: "articoli"
-    label: "Articoli"
-    folder: "_articoli/"
+  - name: "posts"
+    label: "Post"
+    label_singular: "Post"
+    folder: "_posts"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "posts/{{slug}}"
+    sortable_fields: ['date', 'title']
     fields:
-      - { name: "title", label: "Titolo", widget: "string" }
-      - { name: "date", label: "Data", widget: "datetime", hidden: true }
-      - { name: "body", label: "Contenuto", widget: "markdown" }
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ" }
+      - { label: "Categoria", name: "categories", widget: "list", default: ["notizie"] }
+      - { label: "Tag", name: "tags", widget: "list" }
+      - { label: "Contenuto", name: "body", widget: "markdown" }
+      - { label: "Autore", name: "autore", widget: "string", default: "Redazione: Gabriel Matteo Jones" }
   - name: "private_pages"
     label: "Pagine ad autorizzazione"
     folder: "content/private/"
@@ -39,11 +44,3 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "riservato" }
       - { label: "Permalink", name: "permalink", widget: "string" }
       - { label: "Corpo", name: "body", widget: "markdown" }
-  - name: "site_settings"
-    label: "Impostazioni del sito"
-    folder: "data"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Modalità Manutenzione", name: "maintenance_mode", widget: "boolean" }
-      - { label: "URL di redirect", name: "redirect_url", widget: "string" }
