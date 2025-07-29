@@ -32,7 +32,7 @@ person:
       description: È il documento che determina la presidenza, la durata e le deleghe
         del presidente.
       link: /atti/presidenziali/
-  image: /assets/download.jpeg
+  image: /assets/img.png
   email: gjones@agfo.fvg.it - email istituzionale gestita dall'ufficio della
     presidenza.
 ---
