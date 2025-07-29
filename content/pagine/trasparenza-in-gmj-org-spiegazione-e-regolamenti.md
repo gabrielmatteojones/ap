@@ -2,7 +2,7 @@
 layout: page
 title: Trasparenza in GMJ-ORG - spiegazione e regolamenti
 date: 2025-07-19T14:27:00.000+02:00
-permalink: /trasparenza/intro/
+permalink: /amministrazione/trasparenza/intro/
 ---
 Per Gabriel Jones, e per tutti i progetti da lui promossi o sostenuti, la trasparenza rappresenta un valore imprescindibile e una condizione necessaria per garantire fiducia, partecipazione e responsabilità condivisa. La possibilità di accedere liberamente alle informazioni, infatti, è un diritto fondamentale che ogni cittadino dovrebbe poter esercitare con semplicità e chiarezza.
 
