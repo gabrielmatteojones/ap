@@ -32,7 +32,7 @@ Uno spazio operativo, aperto e trasparente, dove si coordinano attività cultura
 
 **Qui l’azione si fa metodo, il metodo si fa rete.**
 
-## Lavora con me (testo + form per volontari)
+## Lavora con me
 
 ✋ Vuoi metterti in gioco come volontario?
 
@@ -48,26 +48,29 @@ Ogni proposta verrà letta con attenzione. Se ci sono attività adatte al tuo pr
     <input type="hidden" name="form-name" value="lavora-con-me">
     <input type="hidden" name="ruolo" value="volontario">
 
-    <div class="mb-3">
-      <label for="nome" class="form-label">Nome e cognome *</label>
-      <input type="text" class="form-control" id="nome" name="nome" required>
-    </div>
+```
+<div class="mb-3">
+  <label for="nome" class="form-label">Nome e cognome *</label>
+  <input type="text" class="form-control" id="nome" name="nome" required>
+</div>
 
-    <div class="mb-3">
-      <label for="email" class="form-label">Email *</label>
-      <input type="email" class="form-control" id="email" name="email" required>
-    </div>
+<div class="mb-3">
+  <label for="email" class="form-label">Email *</label>
+  <input type="email" class="form-control" id="email" name="email" required>
+</div>
 
-    <div class="mb-3">
-      <label for="messaggio" class="form-label">Raccontami chi sei e cosa ti piacerebbe fare *</label>
-      <textarea class="form-control" id="messaggio" name="messaggio" rows="5" required></textarea>
-    </div>
+<div class="mb-3">
+  <label for="messaggio" class="form-label">Raccontami chi sei e cosa ti piacerebbe fare *</label>
+  <textarea class="form-control" id="messaggio" name="messaggio" rows="5" required></textarea>
+</div>
 
-    <div class="mb-3">
-      <label for="cv" class="form-label">CV o portfolio (PDF, facoltativo)</label>
-      <input type="file" class="form-control" id="cv" name="cv" accept=".pdf">
-    </div>
+<div class="mb-3">
+  <label for="cv" class="form-label">CV o portfolio (PDF, facoltativo)</label>
+  <input type="file" class="form-control" id="cv" name="cv" accept=".pdf">
+</div>
 
-    <button type="submit" class="btn btn-primary">Invia la candidatura</button>
+<button type="submit" class="btn btn-primary">Invia la candidatura</button>
+```
+
   </form>
 </section>
