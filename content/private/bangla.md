@@ -3,7 +3,6 @@ title: Bangla
 layout: riservato
 permalink: /sites/bangla/
 ---
-```
 <iframe 
     src="https://www.example.com" 
     width="600" 
@@ -11,4 +10,3 @@ permalink: /sites/bangla/
     style="border:1px solid #ccc;" 
     allowfullscreen>
 </iframe>
-```
