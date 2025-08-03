@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Accedi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js"></script>
+  <!-- Firebase Config -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyA5vs7wXPz3gQlALVRjxJgFYwZmB-ySUGE",
+      authDomain: "accentocivico.firebaseapp.com",
+      projectId: "accentocivico",
+      storageBucket: "accentocivico.firebasestorage.app",
+      messagingSenderId: "458977448648",
+      appId: "1:458977448648:web:cb08ac1274328356d5cbfd",
+      measurementId: "G-HDMW0Y4M6Q"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 400px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #f7f7f7;
+    }
+    input, button {
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+    label {
+      font-weight: bold;
+    }
+    .error {
+      color: red;
+    }
+    .success {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Accedi</h1>
+
+  <form id="login-form">
+    <label for="email">Email</label>
+    <input type="email" id="email" required placeholder="nome@esempio.it">
+
+    <label for="password">Password</label>
+    <input type="password" id="password" required placeholder="********">
+
+    <button type="submit">Accedi</button>
+  </form>
+
+  <p id="status" class="error"></p>
+
+  <script>
+    const form = document.getElementById('login-form');
+    const status = document.getElementById('status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = form.email.value.trim();
+      const password = form.password.value;
+
+      try {
+        await firebase.auth().signInWithEmailAndPassword(email, password);
+        status.className = "success";
+        status.textContent = "Accesso effettuato. Reindirizzamento...";
+        setTimeout(() => {
+          window.location.href = "/"; // modifica se vuoi mandarlo altrove
+        }, 1000);
+      } catch (error) {
+        status.className = "error";
+        switch (error.code) {
+          case 'auth/user-not-found':
+            status.textContent = "Utente non trovato.";
+            break;
+          case 'auth/wrong-password':
+            status.textContent = "Password errata.";
+            break;
+          case 'auth/invalid-email':
+            status.textContent = "Indirizzo email non valido.";
+            break;
+          default:
+            status.textContent = "Errore: " + error.message;
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
