@@ -1,207 +1,213 @@
 <!doctype html>
 <html lang="it">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
     <!-- CSS -->
-    <link href="
-    https://cdn.jsdelivr.net/npm/bootstrap-italia@2.16.0/dist/css/bootstrap-italia.min.css
-    " rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.16.0/dist/css/bootstrap-italia.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://www.comune.trieste.it/assets/static/styles_trieste.css">
-    <!-- FAVICON --> 
+
+    <!-- FAVICON -->
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-ufficio-gmj-1.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/logo-ufficio-gmj-1.png">
     <link rel="manifest" href="https://cdn.unito.it/unito-loghi/favicon/site.webmanifest">
     <link rel="mask-icon" href="/assets/logo-ufficio-gmj-1.png" color="#5bbad5">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo-ufficio-gmj-1.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+      .navbar-nav .nav-link,
+      .navbar-nav .nav-link:hover,
+      .navbar-nav .nav-link:focus,
+      .navbar-nav .nav-link.active,
+      .navbar-nav .nav-link.dropdown-toggle {
+        color: #000 !important;
+      }
+      .dropdown-menu .dropdown-item,
+      .dropdown-menu .dropdown-item:hover,
+      .dropdown-menu .dropdown-item:focus {
+        color: #000 !important;
+      }
+    </style>
   </head>
+
   <body>
-<div class="it-header-slim-wrapper">
-  <div class="container-xxl">
-    <div class="row">
-      <div class="col-12">
-        <div class="it-header-slim-wrapper-content">
-          <a class="d-lg-block navbar-brand" href="#">Ente appartenenza</a>
-          <div class="it-header-slim-right-zone">
-            <div class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="visually-hidden">Accesso Rapido</span>
-                <span>Accesso Rapido</span>
-                <svg class="icon d-none d-lg-block"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-expand"></use></svg>
-              </a>
-              <div class="dropdown-menu">
-                <div class="row">
-                  <div class="col-12">
-                    <div class="link-list-wrapper">
-                      <ul class="link-list">
-                        <li><a class="dropdown-item list-item" href="#"><span>ENG</span></a></li>
-                        <li><a class="dropdown-item list-item" href="#"><span>ENG</span></a></li>
-                        <li><a class="dropdown-item list-item" href="#"><span>ENG</span></a></li>
-                      </ul>
+    <!-- HEADER SLIM -->
+    <div class="it-header-slim-wrapper">
+      <div class="container-xxl">
+        <div class="row">
+          <div class="col-12">
+            <div class="it-header-slim-wrapper-content">
+              <a class="d-lg-block navbar-brand" href="https://ufficiogabrieljones.it/">Accento Civico</a>
+              <div class="it-header-slim-right-zone">
+                <div class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Accesso Rapido</span>
+                    <span>Accesso Rapido</span>
+                    <svg class="icon d-none d-lg-block"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-expand"></use></svg>
+                  </a>
+                  <div class="dropdown-menu">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="link-list-wrapper">
+                          <ul class="link-list">
+                            <li><a class="dropdown-item list-item" href="/login/"><span>Login</span></a></li>
+                            <li><a class="dropdown-item list-item" href="/trasparenza/"><span>Trasparenza</span></a></li>
+                            <li><a class="dropdown-item list-item" href="/dashboard/"><span>Dashboard</span></a></li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <a href="#" class="btn btn-primary btn-icon btn-full">
+                  <span class="rounded-icon">
+                    <svg class="icon icon-primary">
+                      <use href="https://gabrieljones.it/assets/logo.png"></use>
+                    </svg>
+                  </span>
+                  <span class="d-none d-lg-block">Accedi all'area personale</span>
+                </a>
               </div>
             </div>
-            <a href="#" class="btn btn-primary btn-icon btn-full">
-              <span class="rounded-icon">
-                <svg class="icon icon-primary">
-                  <use href="https://gabrieljones.it/assets/logo.png"></use>
-                </svg>
-              </span>
-              <span class="d-none d-lg-block">Accedi all'area personale</span>
-            </a>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<div class="it-header-center-wrapper it-small-header">
-  <div class="container-xxl">
-    <div class="row">
-      <div class="col-12">
-        <div class="it-header-center-content-wrapper">
-          <div class="it-brand-wrapper">
-            <a href="#">
-              <svg class="icon" aria-hidden="true">
-                <use href="/bootstrap-italia/dist/svg/sprites.svg#it-pa"></use>
-              </svg>
-              <div class="it-brand-text">
-                <div class="it-brand-title">Nome dell'Istituzione</div>
-                <div class="it-brand-tagline d-none d-md-block">Tag line dell'Istituzione</div>
+    <!-- HEADER CENTER -->
+    <div class="it-header-center-wrapper it-small-header">
+      <div class="container-xxl">
+        <div class="row">
+          <div class="col-12">
+            <div class="it-header-center-content-wrapper">
+              <div class="it-brand-wrapper">
+                <a href="/">
+                    <img src="https://gabrieljones.it/assets/logo.png" alt="Logo" class="icon icon-sm me-2" width="40" height="40" data-cmp-info="10">                  <div class="it-brand-text">
+                    <div class="it-brand-title">Nome dell'Istituzione</div>
+                    <div class="it-brand-tagline d-none d-md-block">Tag line dell'Istituzione</div>
+                  </div>
+                </a>
               </div>
-            </a>
-          </div>
-          <div class="it-right-zone">
-                <div class="it-brand-tagline d-none d-md-block"><a href="/portali/trasparenza/">Trasparenza</div>
+              <div class="it-right-zone">
+                <div class="it-brand-tagline d-none d-md-block">
+                  <a href="/portali/trasparenza/"><b>Trasparenza</b></a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<div class="it-header-navbar-wrapper">
-  <div class="container-xxl">
-    <div class="row">
-      <div class="col-12">
-        <!--start nav-->
-        <nav class="navbar navbar-expand-lg has-megamenu" aria-label="Navigazione principale">
-          <button class="custom-navbar-toggler" type="button" aria-controls="nav4" aria-label="Mostra/Nascondi la navigazione" data-bs-toggle="navbarcollapsible" data-bs-target="#nav4">
-            <svg class="icon bg-override"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use></svg>
-          </button>
-          <div class="navbar-collapsable" id="nav4" tabindex="-1">
-            <div class="close-div">
-              <button class="btn close-menu" type="button">
-                <span class="visually-hidden">Nascondi la navigazione</span>
-                <svg class="icon"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-close-big"></use></svg>
+    <!-- NAVBAR -->
+    <div class="it-header-navbar-wrapper">
+      <div class="container-xxl">
+        <div class="row">
+          <div class="col-12">
+            <nav class="navbar navbar-expand-lg has-megamenu" aria-label="Navigazione principale">
+              <button class="custom-navbar-toggler" type="button" aria-controls="nav4" aria-label="Mostra/Nascondi la navigazione" data-bs-toggle="navbarcollapsible" data-bs-target="#nav4">
+                <svg class="icon bg-override"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use></svg>
               </button>
-            </div>
-            <div class="menu-wrapper">
-              <ul class="navbar-nav">
-                <!-- Link 1 -->
-                <li class="nav-item active">
-                  <a class="nav-link active" href="#" aria-current="page"><span>Link 1 (attivo)</span></a>
-                </li>
-
-                <!-- Dropdown (secondo link) -->
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span>Dropdown</span>
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Voce 1</a></li>
-                    <li><a class="dropdown-item" href="#">Voce 2</a></li>
-                    <li><a class="dropdown-item" href="#">Voce 3</a></li>
+              <div class="navbar-collapsable" id="nav4" tabindex="-1">
+                <div class="close-div">
+                  <button class="btn close-menu" type="button">
+                    <span class="visually-hidden">Nascondi la navigazione</span>
+                    <svg class="icon"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-close-big"></use></svg>
+                  </button>
+                </div>
+                <div class="menu-wrapper">
+                  <ul class="navbar-nav">
+                    <!-- Link 1 -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="/" aria-current="page"><span><b>Home</b></span></a>
+                    </li>
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span><b>Login</b></span>
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="/login/base/">Login SSO</a></li>
+                        <li><a class="dropdown-item" href="/login/DataWin/">Login DataWin</a></li>
+                        <li><a class="dropdown-item" href="/login/UfficioDigitale/">Login Ufficio Digitale</a></li>
+                        <li><a class="dropdown-item" href="/login/agfo/mail/">Login Mail AGFO</a></li>
+                        <li><a class="dropdown-item" href="/login/blog/">Login Blog</a></li>
+                        <li><a class="dropdown-item" href="/login/mail/">Login mail</a></li>
+                        <li><a class="dropdown-item" href="/login/agfo/">Login AGFO</a></li>
+                        <li><a class="dropdown-item" href="/login/accentocivico/">Login Accento Civico</a></li>
+                      </ul>
+                    </li>
+                    <!-- Link 3 -->
+                    <!-- Link 4 -->
+                    <li class="nav-item"><a class="nav-link" href="/archivio/"><span><b>Archivio</b></span></a></li>
+                    <!-- Link 5 -->
+                    <li class="nav-item"><a class="nav-link" href="https://gabrielmatteojonesblog.it/"><span><b>Blog</b></span></a></li>
                   </ul>
-                </li>
-
-                <!-- Link 3 -->
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#" aria-disabled="true"><span>Link 2 (disabilitato)</span></a>
-                </li>
-                <!-- Link 4 -->
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><span>Link 3</span></a>
-                </li>
-                <!-- Link 5 -->
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><span>Link 4</span></a>
-                </li>
-              </ul>
-
-              <ul class="navbar-nav navbar-secondary">
-                <li class="nav-item"><a class="nav-link" href="#"><span>Link 5</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="#"><span>Link 6</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="#"><span>Link 7</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="#"><span>Link 8</span></a></li>
-              </ul>
-            </div>
+                  <ul class="navbar-nav navbar-secondary">
+                    <li class="nav-item"><a class="nav-link" href="https://ufficiogabrieljones.it/agfo/"><span>AGFO</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://ufficiogabrieljones.it/upid/"><span>UPID</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://ufficiogabrieljones.it/amministrazione/org/accentocivico/"><span>Accento Civico - amministrazione</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/aree/"><span><b>Aree Tematiche</b></span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
           </div>
-        </nav>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-
-
-
-
-
-    https://gabrieljones.it/assets/logo.png
+    <!-- CONTENUTO PRINCIPALE -->
     <div class="container">
-    <main>
-      <br>
-      <br>
-      {{ content }}
-    </main>
-  <p>Powered by DataWin</p>
-</div>
-<script type="text/javascript">
-var _iub = _iub || [];
-_iub.csConfiguration = {"siteId":4163114,"cookiePolicyId":61374569,"lang":"it","storage":{"useSiteId":true}};
-</script>
-<script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4163114.js"></script>
-<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>           
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyCu9YBjutCK0UR3EoliYwiNrrKaY8cyt8U",
-      authDomain: "ufficiogabrieljones.firebaseapp.com",
-      projectId: "ufficiogabrieljones",
-      storageBucket: "ufficiogabrieljones.firebasestorage.app",
-      messagingSenderId: "754177287030",
-      appId: "1:754177287030:web:e4f70d2d3d9c54c1d91057",
-      measurementId: "G-HBSRVKC0JQ"
-    };
-    // 🔥 Inizializza Firebase
-    firebase.initializeApp(firebaseConfig);
-    // 📲 Login
-    const loginForm = document.getElementById('login-form');
-    const alertBox = document.getElementById('alert');
-    loginForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          window.location.href = "https://agfo.fvg.it/utenza/dashboard/?aflogiunx";
-        })
-        .catch((error) => {
-          // ❌ Errore
-          alertBox.classList.remove('d-none');
-          alertBox.textContent = "Errore: " + error.message;
-        });
-    });
-  </script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+      <main>
+        <br><br>
+        {{ content }}
+      </main>
+      <p>Powered by DataWin</p>
+    </div>
 
-<script src="https://cdn.unito.it/unito-theme/v3/js/bootstrap-unito.bundle.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.unito.it/unito-theme/v3/js/keyboardNav.min.js" crossorigin="anonymous"></script>  </body>
+    <!-- IUBENDA -->
+    <script type="text/javascript">
+      var _iub = _iub || [];
+      _iub.csConfiguration = {"siteId":4163114,"cookiePolicyId":61374569,"lang":"it","storage":{"useSiteId":true}};
+    </script>
+    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4163114.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCu9YBjutCK0UR3EoliYwiNrrKaY8cyt8U",
+        authDomain: "ufficiogabrieljones.firebaseapp.com",
+        projectId: "ufficiogabrieljones",
+        storageBucket: "ufficiogabrieljones.firebasestorage.app",
+        messagingSenderId: "754177287030",
+        appId: "1:754177287030:web:e4f70d2d3d9c54c1d91057",
+        measurementId: "G-HBSRVKC0JQ"
+      };
+      firebase.initializeApp(firebaseConfig);
+      const loginForm = document.getElementById('login-form');
+      const alertBox = document.getElementById('alert');
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        firebase.auth().signInWithEmailAndPassword(email, password)
+          .then(() => {
+            window.location.href = "https://agfo.fvg.it/utenza/dashboard/?aflogiunx";
+          })
+          .catch((error) => {
+            alertBox.classList.remove('d-none');
+            alertBox.textContent = "Errore: " + error.message;
+          });
+      });
+    </script>
+
+    <!-- JS BOOTSTRAP ITALIA (DEVE ESSERE L’ULTIMO) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.16.0/dist/js/bootstrap-italia.bundle.min.js"></script>
+  </body>
 </html>
