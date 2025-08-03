@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Accedi</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js"></script>
-  <!-- Firebase Config -->
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyA5vs7wXPz3gQlALVRjxJgFYwZmB-ySUGE",
@@ -21,28 +18,12 @@
     firebase.initializeApp(firebaseConfig);
   </script>
   <style>
-    body {
-      font-family: system-ui, sans-serif;
-      max-width: 400px;
-      margin: auto;
-      padding: 2rem;
-      background-color: #f7f7f7;
-    }
-    input, button {
-      width: 100%;
-      margin: 0.5rem 0;
-      padding: 0.75rem;
-      font-size: 1rem;
-    }
-    label {
-      font-weight: bold;
-    }
-    .error {
-      color: red;
-    }
-    .success {
-      color: green;
-    }
+    body { font-family: sans-serif; max-width: 400px; margin: auto; padding: 2rem; background: #f8f8f8; }
+    input, button { width: 100%; margin: 0.5rem 0; padding: 0.75rem; }
+    label { font-weight: bold; }
+    .hidden { display: none; }
+    .error { color: red; }
+    .success { color: green; }
   </style>
 </head>
 <body>
@@ -53,45 +34,70 @@
     <label for="email">Email</label>
     <input type="email" id="email" required placeholder="nome@esempio.it">
 
-    <label for="password">Password</label>
-    <input type="password" id="password" required placeholder="********">
+    <div id="password-section">
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="********">
+    </div>
 
     <button type="submit">Accedi</button>
   </form>
+
+  <button id="google-login" class="hidden">Accedi con Google</button>
 
   <p id="status" class="error"></p>
 
   <script>
     const form = document.getElementById('login-form');
+    const emailInput = document.getElementById('email');
+    const passwordSection = document.getElementById('password-section');
+    const googleBtn = document.getElementById('google-login');
     const status = document.getElementById('status');
+
+    const dominiGoogle = ['agfo.fvg.it', '18f.it'];
+
+    emailInput.addEventListener('input', () => {
+      const domain = emailInput.value.split('@')[1] || '';
+      const usaGoogle = dominiGoogle.includes(domain.toLowerCase());
+
+      if (usaGoogle) {
+        passwordSection.classList.add('hidden');
+        googleBtn.classList.remove('hidden');
+      } else {
+        passwordSection.classList.remove('hidden');
+        googleBtn.classList.add('hidden');
+      }
+    });
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const email = form.email.value.trim();
-      const password = form.password.value;
+      const email = emailInput.value.trim();
+      const password = document.getElementById('password').value;
 
       try {
         await firebase.auth().signInWithEmailAndPassword(email, password);
         status.className = "success";
-        status.textContent = "Accesso effettuato. Reindirizzamento...";
+        status.textContent = "Accesso riuscito. Reindirizzamento...";
         setTimeout(() => {
-          window.location.href = "/"; // modifica se vuoi mandarlo altrove
+          window.location.href = "/";
         }, 1000);
       } catch (error) {
         status.className = "error";
-        switch (error.code) {
-          case 'auth/user-not-found':
-            status.textContent = "Utente non trovato.";
-            break;
-          case 'auth/wrong-password':
-            status.textContent = "Password errata.";
-            break;
-          case 'auth/invalid-email':
-            status.textContent = "Indirizzo email non valido.";
-            break;
-          default:
-            status.textContent = "Errore: " + error.message;
-        }
+        status.textContent = "Errore: " + error.message;
+      }
+    });
+
+    googleBtn.addEventListener('click', async () => {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      try {
+        await firebase.auth().signInWithPopup(provider);
+        status.className = "success";
+        status.textContent = "Accesso con Google riuscito.";
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 1000);
+      } catch (error) {
+        status.className = "error";
+        status.textContent = "Errore: " + error.message;
       }
     });
   </script>
