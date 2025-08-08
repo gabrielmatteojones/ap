@@ -63,3 +63,8 @@ language: "it"
 og_image: "/assets/logo.png"
 canonical_url: "https://blog.gabrieljones.it/gabrieljones/"
 rss_feed_url: "https://blog.gabrieljones.it/gabrieljones/feed"
+
+collections:
+  categorie:
+    output: true
+    permalink: /categorie/:name/
