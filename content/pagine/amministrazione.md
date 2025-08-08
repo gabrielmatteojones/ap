@@ -23,3 +23,7 @@ Abbiamo creato questa sezione proprio per rendere chiaro e accessibile ogni dett
 In poche parole, questa pagina è il nostro biglietto da visita aperto a chiunque voglia scoprire, partecipare o semplicemente curiosare dietro le quinte di ciò che facciamo.
 
 Il nostro obiettivo è semplice: fare le cose bene, con trasparenza e passione, e mettere sempre al centro le persone. Se vuoi sapere di più, qui è il posto giusto.
+
+## Organi Progettuali
+
+[AGFO - Organo d'amministrazione amministrativa](https://agfo.fvg.it/organi/amministrazione/)
