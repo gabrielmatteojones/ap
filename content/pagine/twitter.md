@@ -26,4 +26,6 @@ Eventuali dati personali forniti tramite la piattaforma sono trattati secondo le
 **Referente ufficiale:**\
 **Accento Civico** – Rappresentante: **Gabriel Matteo Jones**\
 📧 Email: info@18f.it
+
+
 🌐 Sito web: https://ufficiogabrieljones.it/
