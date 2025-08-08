@@ -24,7 +24,4 @@ In poche parole, questa pagina è il nostro biglietto da visita aperto a chiunqu
 
 Il nostro obiettivo è semplice: fare le cose bene, con trasparenza e passione, e mettere sempre al centro le persone. Se vuoi sapere di più, qui è il posto giusto.
 
-```html
-<h1>ciao</h1>
-
-```
+`<h1>ciao</h1>`
