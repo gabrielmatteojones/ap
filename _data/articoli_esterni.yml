@@ -1,0 +1,10 @@
+infanzia:
+  - title: "Articolo 1"
+    url: "https://blog1.example.com/articolo-1"
+    source: "Blog 1"
+  - title: "Articolo 2"
+    url: "https://blog2.example.com/articolo-2"
+    source: "Blog 2"
+  - title: "Articolo 3"
+    url: "https://blog3.example.com/articolo-3"
+    source: "Blog 3"
