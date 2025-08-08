@@ -23,8 +23,6 @@ I contenuti pubblicati:
 L’interazione con gli utenti (menzioni, commenti, messaggi) avviene nel rispetto del linguaggio civile e del reciproco rispetto.\
 Eventuali dati personali forniti tramite la piattaforma sono trattati secondo le regole e le condizioni stabilite da **X (Twitter)**, consultabili sul sito ufficiale della stessa.
 
-- - -
-
 **Referente ufficiale:**\
 **Accento Civico** – Rappresentante: **Gabriel Matteo Jones**\
 📧 Email: info@18f.it
