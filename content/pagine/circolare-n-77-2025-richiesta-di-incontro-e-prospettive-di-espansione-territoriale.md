@@ -6,7 +6,11 @@ date: 2025-08-09T21:13:00.000+02:00
 permalink: /circolari/agfo/7725/
 ---
 **Circolare Ufficiale – AGFO**
+
+
 **Oggetto:** Richiesta di incontro e prospettive di espansione territoriale
+
+
 
 Il Consiglio Generale di AGFO, nella seduta più recente, ha approvato la proposta presentata dal Sig. Gabriel Matteo Jones di richiedere un incontro con l’Assessore Alberto Parigi, finalizzato a discutere la possibilità di integrare il progetto AGFO all’interno del Comune di Pordenone.
 
