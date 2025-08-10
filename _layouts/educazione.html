@@ -14,33 +14,25 @@ layout: default
 </section>
 
 <section class="categoria-pagine">
-  <h2>Pagine correlate</h2>
-  <ul>
-    {% assign pagine_categoria = site.pages | where_exp:"pagina","pagina.categories contains page.categoria" %}
-    {% for pagina in pagine_categoria %}
-      <li><a href="{{ pagina.url }}">{{ pagina.title }}</a></li>
-    {% endfor %}
-    {% if pagine_categoria == empty %}
-      <li>Nessuna pagina trovata.</li>
-    {% endif %}
-  </ul>
-</section>
-
-<section class="container">
-  <div class="card">
-    <div class="card-header">
-      Pagine correlate
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Pagine correlate</h5>
+      <div class="list-group list-group-flush">
+        {% assign pagine_categoria = site.pages | where_exp:"pagina","pagina.categories contains page.categoria" %}
+        {% if pagine_categoria != empty %}
+          {% for pagina in pagine_categoria %}
+            <a href="{{ pagina.url }}" class="list-group-item list-group-item-action">
+              {{ pagina.title }}
+            </a>
+          {% endfor %}
+        {% else %}
+          <div class="list-group-item text-muted">
+            Nessuna pagina trovata.
+          </div>
+        {% endif %}
+      </div>
     </div>
-    <ul class="list-group list-group-flush">
-      {% assign pagine_categoria = site.pages | where:"categoria", page.name %}
-      {% for pagina in pagine_categoria %}
-        <li class="list-group-item">
-          <a href="{{ pagina.url }}">{{ pagina.title }}</a>
-        </li>
-      {% endfor %}
-      {% if pagine_categoria == empty %}
-        <li class="list-group-item">Nessuna pagina trovata.</li>
-      {% endif %}
-    </ul>
   </div>
 </section>
+
+
