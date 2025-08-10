@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Oratorio
+title: Oratorio 2025-26
 date: 2025-08-08T14:38:00.000+02:00
 permalink: /fi25/oratorio/
 categories: educazione
