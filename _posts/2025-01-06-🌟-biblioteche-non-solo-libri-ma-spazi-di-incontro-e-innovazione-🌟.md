@@ -3,7 +3,7 @@ title: "ðŸŒŸ Biblioteche: Non Solo Libri, Ma Spazi di Incontro e Innovazione ðŸŒ
 date: 2025-06-01
 tags:
   - bibliowin
-categoria: educazione
+categories: [educazione]
 
 description: Scopri come Bibliowin sta rivoluzionando la gestione delle
   biblioteche, semplificando la catalogazione, il prestito e l'integrazione con
