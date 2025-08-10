@@ -2,7 +2,7 @@
 layout: page
 title: Oratorio
 date: 2025-08-08T14:38:00.000+02:00
-permalink: /oratorio/
+permalink: /fi25/oratorio/
 categories: educazione
 ---
 Quest’anno in oratorio ci aspetta una nuova stagione, ricca di sfide e di opportunità. La responsabilità di programmare le attività, organizzare i giochi, coordinare le proposte formative e curare ogni momento di incontro sarà affidata a me, **Gabriel Matteo Jones**. È un compito che accolgo con entusiasmo e determinazione, con il desiderio di fare un passo in avanti rispetto a quanto realizzato finora.
