@@ -25,20 +25,3 @@ layout: default
     {% endif %}
   </ul>
 </section>
-
-<section class="categoria-articoli-esterni">
-  <h2>Articoli esterni consigliati</h2>
-  <div class="cards-container">
-    {% assign articoli = site.data.articoli_esterni[page.name] %}
-    {% if articoli %}
-      {% for art in articoli limit:3 %}
-        <div class="card">
-          <h3><a href="{{ art.url }}" target="_blank" rel="noopener">{{ art.title }}</a></h3>
-          <p><small>Fonte: {{ art.source }}</small></p>
-        </div>
-      {% endfor %}
-    {% else %}
-      <p>Nessun articolo esterno disponibile.</p>
-    {% endif %}
-  </div>
-</section>
