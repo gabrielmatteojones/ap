@@ -17,7 +17,7 @@ collections:
       - { name: "date", label: "Data", widget: "datetime", default: "", hidden: true }
       - { name: "permalink", label: "Link personalizzato", widget: "string", required: true }
       - { name: "body", label: "page", widget: "markdown" }
-      - { label: "Categoria", name: "categories", widget: "list", default: ["educazione"] }
+      - { label: "Categoria", name: "categories", widget: "string", default: "[educazione]" }
   - name: "posts"
     label: "Post"
     label_singular: "Post"
