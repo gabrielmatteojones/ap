@@ -1,7 +1,8 @@
 ---
-layout: cattegorie
+layout: educazione
 title: Formazione e Istruzione
 date: 2025-08-08T21:59:00.000+02:00
+categoria: educazione
 permalink: /fi25/
 ---
 

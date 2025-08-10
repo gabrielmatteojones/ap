@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<section class="categoria-header">
+  <h1>{{ page.title }}</h1>
+  {% if page.description %}
+    <p>{{ page.description }}</p>
+  {% endif %}
+</section>
+
+<section class="categoria-intro">
+  {{ content }}
+</section>
+
+<section class="categoria-pagine">
+  <h2>Pagine correlate</h2>
+  <ul>
+    {% assign pagine_categoria = site.pages | where_exp:"pagina","pagina.categories contains page.categoria" %}
+    {% for pagina in pagine_categoria %}
+      <li><a href="{{ pagina.url }}">{{ pagina.title }}</a></li>
+    {% endfor %}
+    {% if pagine_categoria == empty %}
+      <li>Nessuna pagina trovata.</li>
+    {% endif %}
+  </ul>
+</section>
+
+<section class="categoria-articoli-esterni">
+  <h2>Articoli esterni consigliati</h2>
+  <div class="cards-container">
+    {% assign articoli = site.data.articoli_esterni[page.categoria] %}
+    {% if articoli %}
+      {% for art in articoli limit:3 %}
+        <div class="card">
+          <h3><a href="{{ art.url }}" target="_blank" rel="noopener">{{ art.title }}</a></h3>
+          <p><small>Fonte: {{ art.source }}</small></p>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>Nessun articolo esterno disponibile.</p>
+    {% endif %}
+  </div>
+</section>
