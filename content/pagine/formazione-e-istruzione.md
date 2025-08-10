@@ -4,6 +4,8 @@ title: Formazione e Istruzione
 date: 2025-08-08T21:59:00.000+02:00
 categoria: educazione
 permalink: /fi25/
+categories:
+  - "[educazione]"
 ---
 
 Questa pagina raccoglie tutti gli articoli, le pagine e i materiali legati alle attività dedicate ai bambini dell’asilo e della scuola primaria, organizzate con l’associazione Mangia Libri ODV, l’oratorio e il grest.
