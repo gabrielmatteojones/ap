@@ -5,6 +5,8 @@ date: 2025-08-10T20:11:00.000+02:00
 permalink: /fi25/oratorio/
 categories: educazione
 ---
+## Oratorio 2025-26
+
 Quest’anno in oratorio ci aspetta una nuova stagione, ricca di sfide e di opportunità. La responsabilità di programmare le attività, organizzare i giochi, coordinare le proposte formative e curare ogni momento di incontro sarà affidata a me, **Gabriel Matteo Jones**. È un compito che accolgo con entusiasmo e determinazione, con il desiderio di fare un passo in avanti rispetto a quanto realizzato finora.
 
 Il mio obiettivo è chiaro: **alzare l’asticella**. Voglio proporre attività più ricche e stimolanti, che uniscano il divertimento alla crescita personale e spirituale; voglio integrare momenti formativi che possano lasciare il segno, offrendo ai bambini e ai ragazzi occasioni di imparare, confrontarsi e scoprire talenti nascosti. Allo stesso tempo, desidero incrementare la partecipazione media di bambini, ragazzi e animatori, rendendo l’oratorio un luogo sempre vivo, dove ognuno possa sentirsi accolto e parte di una grande famiglia.
