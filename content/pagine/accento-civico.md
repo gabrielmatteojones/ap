@@ -3,6 +3,8 @@ layout: page
 title: Accento Civico
 date: 2025-07-29T14:57:00.000+02:00
 permalink: /amministrazione/org/accentocivico/
+persone_correlate:
+  - gabriel-jones
 ---
 # Accento Civico – Il progetto di una nuova cittadinanza attiva
 
