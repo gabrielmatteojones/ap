@@ -1,76 +1,88 @@
 <!doctype html>
 <html lang="it">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ufficio GMJ</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-      .navbar-brand {
-        font-size: 1.8rem;
-        font-weight: bold;
-      }
-      .nav-link {
-        font-size: 1.1rem;
-        padding: 0.75rem 1rem;
-      }
-      /* Forza l'offcanvas a partire da mobile */
-      @media (min-width: 992px) {
-        .offcanvas {
-          position: static;
-          transform: none;
-          visibility: visible !important;
-          background-color: transparent;
-          border: none;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="bg-dark text-white py-3">
-      <div class="container">
-        <strong>Sito gestito da gabrieljones.it</strong>
-      </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-ufficio-gmj-1.png">
+
+  <style>
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    .nav-link {
+      font-size: 1.1rem;
+      padding: 0.75rem 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra nera in alto -->
+  <div class="bg-dark text-white py-2">
+    <div class="container">
+      <strong>Sito gestito da gabrieljones.it</strong>
     </div>
+  </div>
 
-    <nav class="navbar navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="/">
-          <img src="https://gabrieljones.it/assets/logo.png" alt="Logo" width="50" height="50">
-          Ufficio GMJ
-        </a>
-        <!-- Bottone apertura sidebar -->
-        <button class="btn btn-outline-secondary d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
-          ☰
-        </button>
-      </div>
-    </nav>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <!-- Logo e titolo -->
+      <a class="navbar-brand d-flex align-items-center" href="{{ '/' | relative_url }}">
+        <img src="https://gabrieljones.it/assets/logo.png" alt="Logo" width="50" height="50" class="me-2">
+        Ufficio di Gabriel
+      </a>
 
-    <!-- Sidebar (Offcanvas) -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+      <!-- Bottone sidebar mobile -->
+      <button class="btn btn-outline-secondary d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+        ☰
+      </button>
+
+      <!-- Menu desktop -->
+      <div class="collapse navbar-collapse d-none d-lg-block">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="{{ '/' | relative_url }}">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="https://gabrieljones.it/tag/">Trasparenza</a></li>
-          <li class="nav-item"><a class="nav-link" href="/fi25/">Formazione & Istruzione</a></li>
-          <li class="nav-item"><a class="nav-link" href="/amministrazione/org/accentocivico/">Accento Civico</a></li>
-          <li class="nav-item"><a class="nav-link" href="/area-personale/">Area Personale</a></li>
-          <li class="nav-item"><a class="nav-link" href="/docs/">Guide</a></li>
-          <li class="nav-item"><a class="nav-link" href="/amministrazione/comunicazioni/">Comunicazioni & Avvisi</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ '/fi25/' | relative_url }}">Formazione & Istruzione</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ '/amministrazione/org/accentocivico/' | relative_url }}">Accento Civico</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ '/area-personale/' | relative_url }}">Area Personale</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ '/docs/' | relative_url }}">Guide</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ '/amministrazione/comunicazioni/' | relative_url }}">Comunicazioni & Avvisi</a></li>
         </ul>
-        <hr>
-        <a href="https://ufficiogabrieljones.it/area-personale/" class="btn btn-outline-primary w-100">👤 Area Personale</a>
       </div>
     </div>
+  </nav>
 
-    <div class="container mt-4">
-      {{ content }}
+  <!-- Sidebar mobile -->
+  <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="sidebarMenu">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="{{ '/' | relative_url }}">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://gabrieljones.it/tag/">Trasparenza</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ '/fi25/' | relative_url }}">Formazione & Istruzione</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ '/amministrazione/org/accentocivico/' | relative_url }}">Accento Civico</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ '/area-personale/' | relative_url }}">Area Personale</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ '/docs/' | relative_url }}">Guide</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ '/amministrazione/comunicazioni/' | relative_url }}">Comunicazioni & Avvisi</a></li>
+      </ul>
+      <hr>
+      <a href="https://ufficiogabrieljones.it/area-personale/" class="btn btn-outline-primary w-100">👤 Area Personale</a>
+    </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+  <!-- Contenuto -->
+  <div class="container mt-4">
+    {{ content }}
+    <p class="mt-5">Powered by DataWin</p>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
