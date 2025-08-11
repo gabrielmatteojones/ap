@@ -4,6 +4,8 @@ title: Circolare n. 77/2025; Richiesta di incontro e prospettive di espansione
   territoriale
 date: 2025-08-09T21:13:00.000+02:00
 permalink: /circolari/agfo/7725/
+persone_correlate:
+  - gabriel-jones
 ---
 **Circolare Ufficiale – AGFO**
 
