@@ -1,137 +1,76 @@
 <!doctype html>
 <html lang="it">
   <head>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-      <style>
-    .navbar-brand {
-      font-size: 1.8rem;
-      font-weight: bold;
-    }
-    .nav-link {
-      font-size: 1.1rem;
-      padding: 0.75rem 1rem;
-    }
-  </style>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- CSS -->
-<!---    <link href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.16.0/dist/css/bootstrap-italia.min.css" rel="stylesheet">    --->
-<!---    <link rel="stylesheet" href="https://www.comune.trieste.it/assets/static/styles_trieste.css">                            --->
-
-    <!-- FAVICON -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-ufficio-gmj-1.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/logo-ufficio-gmj-1.png">
-    <link rel="manifest" href="https://cdn.unito.it/unito-loghi/favicon/site.webmanifest">
-    <link rel="mask-icon" href="/assets/logo-ufficio-gmj-1.png" color="#5bbad5">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo-ufficio-gmj-1.png">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sidebar Header</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-      .navbar-nav .nav-link,
-      .navbar-nav .nav-link:hover,
-      .navbar-nav .nav-link:focus,
-      .navbar-nav .nav-link.active,
-      .navbar-nav .nav-link.dropdown-toggle {
-        color: #000 !important;
+      .navbar-brand {
+        font-size: 1.8rem;
+        font-weight: bold;
       }
-      .dropdown-menu .dropdown-item,
-      .dropdown-menu .dropdown-item:hover,
-      .dropdown-menu .dropdown-item:focus {
-        color: #000 !important;
+      .nav-link {
+        font-size: 1.1rem;
+        padding: 0.75rem 1rem;
+      }
+      /* Forza l'offcanvas a partire da mobile */
+      @media (min-width: 992px) {
+        .offcanvas {
+          position: static;
+          transform: none;
+          visibility: visible !important;
+          background-color: transparent;
+          border: none;
+        }
       }
     </style>
   </head>
-
   <body>
-     <div class="bg-dark text-white py-3">
-        <div class="container">
-          <strong>Sito gestito da gabrieljones.it</strong>
-        </div>
+    <div class="bg-dark text-white py-3">
+      <div class="container">
+        <strong>Sito gestito da gabrieljones.it</strong>
       </div>
-  <nav class="navbar navbar-expand-lg py-3">
-    <div class="container">
-      <a class="navbar-brand" href="/">
-          <img src="https://gabrieljones.it/assets/logo.png" alt="Logo" class="icon" width="91" height="93">Ufficio Digitale di Gabriel Matteo Jones</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://gabrieljones.it/tag/">Trasparenza</a>
-          </li>
+    </div>
+
+    <nav class="navbar navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <img src="https://gabrieljones.it/assets/logo.png" alt="Logo" width="50" height="50">
+          Ufficio Digitale di Gabriel Matteo Jones
+        </a>
+        <!-- Bottone apertura sidebar -->
+        <button class="btn btn-outline-secondary d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+          ☰
+        </button>
+      </div>
+    </nav>
+
+    <!-- Sidebar (Offcanvas) -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://gabrieljones.it/tag/">Trasparenza</a></li>
+          <li class="nav-item"><a class="nav-link" href="/fi25/">Formazione & Istruzione</a></li>
+          <li class="nav-item"><a class="nav-link" href="/amministrazione/org/accentocivico/">Accento Civico</a></li>
+          <li class="nav-item"><a class="nav-link" href="/area-personale/">Area Personale</a></li>
+          <li class="nav-item"><a class="nav-link" href="/docs/">Guide</a></li>
+          <li class="nav-item"><a class="nav-link" href="/amministrazione/comunicazioni/">Comunicazioni & Avvisi</a></li>
         </ul>
+        <hr>
+        <a href="https://ufficiogabrieljones.it/area-personale/" class="btn btn-outline-primary w-100">👤 Area Personale</a>
       </div>
     </div>
-  </nav>
-<div class="container d-flex justify-content-between align-items-center">
-  <ul class="nav">
-    <li class="nav-item"><a class="nav-link text-dark" href="/fi25/">Formazione & Istruzione</a></li>
-    <li class="nav-item"><a class="nav-link text-dark" href="/amministrazione/org/accentocivico/">Accento Civico</a></li>
-    <li class="nav-item"><a class="nav-link text-dark" href="/area-personale/">Area Personale</a></li>
-    <li class="nav-item"><a class="nav-link text-dark" href="/docs/">Guide</a></li>
-    <li class="nav-item"><a class="nav-link text-dark" href="/amministrazione/comunicazioni/">Comunicazioni & Avvisi</a></li>
-  </ul>
 
-  <!-- Emoji utente -->
-  <a href="https://ufficiogabrieljones.it/area-personale/" class="btn btn-outline-primary">
-    👤
-  </a>
-</div>
-    
-    <div class="container">
-      <main>
-        <br><br>
-        {{ content }}
-      </main>
-      <p>Powered by DataWin</p>
+    <div class="container mt-4">
+      {{ content }}
     </div>
 
-    <!-- IUBENDA -->
-    <script type="text/javascript">
-      var _iub = _iub || [];
-      _iub.csConfiguration = {"siteId":4163114,"cookiePolicyId":61374569,"lang":"it","storage":{"useSiteId":true}};
-    </script>
-    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4163114.js"></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
-
-    <!-- FIREBASE -->
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-    <script>
-      const firebaseConfig = {
-        apiKey: "AIzaSyCu9YBjutCK0UR3EoliYwiNrrKaY8cyt8U",
-        authDomain: "ufficiogabrieljones.firebaseapp.com",
-        projectId: "ufficiogabrieljones",
-        storageBucket: "ufficiogabrieljones.firebasestorage.app",
-        messagingSenderId: "754177287030",
-        appId: "1:754177287030:web:e4f70d2d3d9c54c1d91057",
-        measurementId: "G-HBSRVKC0JQ"
-      };
-      firebase.initializeApp(firebaseConfig);
-      const loginForm = document.getElementById('login-form');
-      const alertBox = document.getElementById('alert');
-      loginForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        firebase.auth().signInWithEmailAndPassword(email, password)
-          .then(() => {
-            window.location.href = "https://agfo.fvg.it/utenza/dashboard/?aflogiunx";
-          })
-          .catch((error) => {
-            alertBox.classList.remove('d-none');
-            alertBox.textContent = "Errore: " + error.message;
-          });
-      });
-    </script>
-
-    <!-- JS BOOTSTRAP ITALIA (DEVE ESSERE L’ULTIMO) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.16.0/dist/js/bootstrap-italia.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
