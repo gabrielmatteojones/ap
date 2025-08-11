@@ -55,10 +55,9 @@ exclude:
   - README.md
   - CNAME
 
-title: "Il mio Blog di Gabriel Jones"
-description: "Blog personale di Gabriel Jones su [argomenti]"
-keywords: "blog, tecnologia, lifestyle, viaggi"
-author: "Gabriel Jones"
+title: "Ufficio Digitale di Gabriel Matteo JOnes"
+description: "L'intero mondo di Gabriel, connesso al gestionale DataWin"
+author: "DataWin"
 language: "it"
 og_image: "/assets/logo.png"
 canonical_url: "https://blog.gabrieljones.it/gabrieljones/"
@@ -68,3 +67,15 @@ collections:
   categorie:
     output: true
     permalink: /categorie/:name/
+
+nav:
+  - name: Home
+    url: /
+  - name: Documenti
+    url: /documenti/
+  - name: Moduli
+    url: /moduli/
+  - name: Contatti
+    url: /contatti/
+
+search_action: /search/
