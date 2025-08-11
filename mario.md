@@ -2,6 +2,7 @@
 layout: person
 title: "Mario Rossi"
 slug: "mario-rossi"
+permalink: /profili/mario-rossi/
 nome: "Mario"
 cognome: "Rossi"
 aree:
