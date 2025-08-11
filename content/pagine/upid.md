@@ -7,4 +7,8 @@ categories: progetti
 persone_correlate:
   - gabriel-jones
 ---
-UPID, progetto fondato da Gabriel Matteo Jones, realizzato nel settembre 2024 e concluso nel febbraio 2025, è stato ri-aperto nell'agosto del 2025 per aumentare la cultura generale tra giovani e non! UPID aprira nel settembre 2025 in via ufficiale sulla piattaforma "online.upid.it" con tantissime storie e curiosità sulla cultura generale!
+**UPID**, progetto ideato e fondato da **Gabriel Matteo Jones**, ha visto la sua prima realizzazione nel settembre 2024, concludendo la sua fase iniziale nel febbraio 2025. Dopo una breve pausa, nell’agosto 2025 il progetto è stato **riaperto e rinnovato** con un obiettivo ancora più ambizioso: **diffondere e aumentare la cultura generale** tra giovani e adulti, in modo semplice, divertente e accessibile a tutti.
+
+La **riapertura ufficiale** è fissata per **settembre 2025**, quando UPID approderà sulla piattaforma **online.upid.it**. Qui gli utenti troveranno **storie affascinanti, curiosità sorprendenti e contenuti interattivi** dedicati alla cultura generale in tutte le sue forme: dalla storia all’arte, dalla scienza alle tradizioni popolari, fino alle piccole grandi scoperte del nostro quotidiano.
+
+Un luogo digitale dove **imparare sarà un piacere** e ogni giorno porterà con sé qualcosa di nuovo da scoprire.
