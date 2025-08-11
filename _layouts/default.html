@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   
-  <title>{{ page.title | default: site.title }}</title>
-  <meta name="description" content="{{ page.description | default: site.description }}" />
-  <meta name="author" content="{{ site.author }}" />
+  <title>Archivio Documenti - Ente Pubblico</title>
+  <meta name="description" content="Archivio ufficiale documenti e moduli dell'ente pubblico. Consulta, scarica e ricerca i documenti in modo semplice e sicuro." />
+  <meta name="author" content="Ente Pubblico" />
   <meta name="robots" content="index, follow" />
   
-  <link rel="icon" href="{{ '/assets/favicon.ico' | relative_url }}" type="image/x-icon" />
-  <link rel="shortcut icon" href="{{ '/assets/favicon.ico' | relative_url }}" type="image/x-icon" />
+  <link rel="icon" href="https://gabrieljones.it/assets/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="https://gabrieljones.it/assets/favicon.ico" type="image/x-icon" />
   
   <!-- USWDS CSS -->
   <link href="https://cdn.jsdelivr.net/npm/uswds@2.14.0/dist/css/uswds.min.css" rel="stylesheet" />
@@ -40,6 +40,7 @@
       margin-top: auto;
       box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.1);
     }
+    
     /* Navbar logo + text affiancati */
     .usa-logo {
       display: flex;
@@ -63,6 +64,7 @@
       transform: scale(1.05);
       box-shadow: 0 4px 12px rgb(0 0 0 / 0.25);
     }
+    
     /* Titolo semplice desktop */
     .usa-logo__title-static {
       font-weight: 700;
@@ -76,6 +78,7 @@
       user-select: none;
       display: inline-block;
     }
+    
     /* Titolo bottone mobile (hidden desktop) */
     .usa-logo__title-button {
       display: none;
@@ -90,6 +93,7 @@
       user-select: none;
       position: relative;
     }
+    
     /* Dropdown menu mobile */
     .dropdown-menu-mobile {
       position: absolute;
@@ -123,6 +127,7 @@
       background-color: #f0f9ff;
       outline: none;
     }
+    
     /* Nascondi titolo bottone mobile da desktop */
     @media (max-width: 767px) {
       .usa-logo__title-static {
@@ -132,16 +137,19 @@
         display: inline-block;
       }
     }
+    
     /* Navbar active link style */
     .usa-nav__link[aria-current="page"] {
       font-weight: 600;
       border-bottom: 3px solid #005ea2;
       color: #005ea2;
     }
+    
     /* Table styling */
     .usa-table--striped tbody tr:nth-child(odd) {
       background-color: #f2f4f7;
     }
+    
     /* Hero image full width */
     .hero-image {
       width: 100%;
@@ -152,6 +160,7 @@
       border-radius: 8px;
       box-shadow: 0 4px 16px rgb(0 0 0 / 0.12);
     }
+    
     /* Search form spacing */
     nav form {
       margin-top: 1rem;
@@ -163,39 +172,83 @@
     <div class="usa-nav-container">
       <div class="usa-navbar">
         <div class="usa-logo" id="basic-logo">
-          <a href="{{ '/' | relative_url }}" class="usa-logo__link" title="Homepage" aria-label="Homepage">
-            <img src="{{ 'https://gabrieljones.it/assets/logo.png' | relative_url }}" alt="{{ site.title }} Logo" />
+          <a href="#" class="usa-logo__link" title="Homepage" aria-label="Homepage">
+            <img src="https://gabrieljones.it/assets/logo.png" alt="Logo Ente" />
           </a>
           <!-- Titolo semplice desktop -->
-          <span class="usa-logo__title-static">Ufficio GMJ</span>
+          <span class="usa-logo__title-static">Archivio Documenti</span>
           <!-- Titolo bottone mobile -->
           <button id="titleMobileBtn" class="usa-logo__title-button" aria-haspopup="true" aria-expanded="false" aria-controls="titleMobileMenu">
-            Ufficio GMJ
+            Archivio Documenti ▾
           </button>
-          <nav id="titleMobileMenu" class="dropdown-menu-mobile" role="menu" aria-label="Menu {{ site.title }}">
-            {% for item in site.nav %}
-            <a href="{{ item.url | relative_url }}" role="menuitem" {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.name }}</a>
-            {% endfor %}
+          <nav id="titleMobileMenu" class="dropdown-menu-mobile" role="menu" aria-label="Menu Archivio Documenti">
+            <a href="#" role="menuitem">Home</a>
+            <a href="#" role="menuitem">Documenti</a>
+            <a href="#" role="menuitem">Moduli</a>
+            <a href="#" role="menuitem">Contatti</a>
           </nav>
         </div>
         <button class="usa-menu-btn" aria-expanded="false" aria-controls="basic-mobile-menu">Menu</button>
       </div>
+
+      <nav id="basic-mobile-menu" class="usa-nav" role="navigation" aria-label="Primary navigation">
+        <ul class="usa-nav__primary usa-accordion">
+          <li class="usa-nav__primary-item">
+            <a href="#" class="usa-nav__link" aria-current="page">Home</a>
+          </li>
+          <li class="usa-nav__primary-item">
+            <a href="#" class="usa-nav__link">Documenti</a>
+          </li>
+          <li class="usa-nav__primary-item">
+            <a href="#" class="usa-nav__link">Moduli</a>
+          </li>
+          <li class="usa-nav__primary-item">
+            <a href="#" class="usa-nav__link">Contatti</a>
+          </li>
+        </ul>
+        <form class="usa-search usa-search--small" role="search" action="#" method="get">
+          <label class="usa-sr-only" for="search-field">Cerca</label>
+          <input
+            class="usa-input"
+            id="search-field"
+            type="search"
+            name="search"
+            placeholder="Cerca documenti"
+            aria-label="Cerca documenti"
+          />
+          <button class="usa-button usa-button--primary" type="submit" aria-label="Cerca">
+            Cerca
+          </button>
+        </form>
+      </nav>
     </div>
   </header>
 
-<div class="grid-container-full">
+  <section aria-label="Immagine introduttiva archivio documenti">
+    <div class="grid-container">
+      <br />
+      <br />
+<img
+  src="{{ page.image | default: '/assets/head.png' }}"
+  alt="NA"
+  class="hero-image"
+/>
+    </div>
+  </section>
+
+  <main id="documenti" class="usa-prose" role="main">
+    <h1 class="usa-heading">{{ page.title }}</h1>
     {{ content }}
-  </div>
-  
+  </main>
+
   <footer>
     <div class="grid-container">
-      &copy; {{ "now" | date: "%Y" }} {{ site.author }} • Tutti i diritti riservati •
-      <a href="{{ '/privacy' | relative_url }}" style="color:#cbd3dc;">Privacy</a> •
-      <a href="{{ '/accessibility' | relative_url }}" style="color:#cbd3dc;">Accessibilità</a>
+      &copy; 2025 Ufficio Digitale di Gabriel Matteo Jones • Tutti i diritti riservati • <a href="/legal/privacy/" style="color:#cbd3dc;">Privacy</a> • <a href="/accessibilita/" style="color:#cbd3dc;">Accessibilità</a>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/uswds@2.14.0/dist/js/uswds.min.js"></script>
+
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const btnMobile = document.getElementById("titleMobileBtn");
