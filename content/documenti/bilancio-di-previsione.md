@@ -5,4 +5,6 @@ description: Bilancio di previsione del mandato di Gabriel Matteo Jones (2025-20
 author: Segreteria Generale
 permalink: /bilancio/
 file: /assets/0001.png
+persone_correlate:
+  - gabriel-jones
 ---
