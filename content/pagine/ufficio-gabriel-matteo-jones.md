@@ -3,7 +3,10 @@ layout: page
 title: Ufficio Gabriel Matteo Jones
 date: 2025-07-17T19:56:00.000+02:00
 permalink: /
+categories: none
 ---
+![ufficio di gabriel matteo jones](/assets/casa-museo-greco-toledo-c-patronato-municipal-de-turismo-de-toledo.avif "ufficio di gabriel matteo jones")
+
 ## Chi sono
 
 👋 Ciao! Sono Gabriel Jones.
