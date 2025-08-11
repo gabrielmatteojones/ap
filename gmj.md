@@ -11,7 +11,7 @@ aree:
   - Innovazione
 contatti:
   email: gabriel.jones@interno.18f.it
-  Tel Interno: 11045
+  telefono: 733808
 siti:
   - https://gabrieljones.it
   - https://twitter.com/gabrieljones_it
