@@ -208,6 +208,7 @@
     <div class="grid-container">
       <br />
       <br />
+<div class="position-relative display-inline-block" style="width: 100%; max-width: 800px;">
 <img
   src="{{ page.image | default: 'https://d1ldvf68ux039x.cloudfront.net/thumbs/photos/1509/2164680/1000w_q95.jpg' }}"
   alt="NA"
@@ -223,7 +224,12 @@
     font-size: 1rem;
     border-radius: 4px;
   ">
+  <div class="position-absolute top-0 left-0 width-full height-full bg-black" style="opacity: 0.5;"></div>
+
+  <!-- Testo -->
+  <h1 class="position-absolute bottom-2 left-2 text-white font-sans-xl margin-0">
     Ufficio Digitale di Gabriel Jones
+  </h1>
   </span>
     </div>
   </section>
