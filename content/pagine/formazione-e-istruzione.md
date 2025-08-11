@@ -6,6 +6,8 @@ categoria: educazione
 permalink: /fi25/
 categories:
   - "[educazione]"
+persone_correlate:
+  - mario-rossi
 ---
 
 Questa pagina raccoglie tutti gli articoli, le pagine e i materiali legati alle attività dedicate ai bambini dell’asilo e della scuola primaria, organizzate con l’associazione Mangia Libri ODV, l’oratorio e il grest.
