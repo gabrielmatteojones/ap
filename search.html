@@ -1,0 +1,100 @@
+---
+layout: default
+title: Cerca documenti
+description: Cerca documenti e moduli nell'archivio ufficiale.
+---
+
+<main class="usa-prose" role="main" aria-label="Ricerca documenti">
+  <h1 class="usa-heading">{{ page.title }}</h1>
+
+  <form id="searchForm" action="#" method="get" role="search" aria-label="Modulo ricerca documenti">
+    <label for="searchInput" class="usa-label">Cerca documenti:</label>
+    <input
+      type="search"
+      id="searchInput"
+      name="q"
+      class="usa-input"
+      placeholder="Inserisci parole chiave"
+      aria-describedby="searchHelp"
+      required
+    />
+    <button type="submit" class="usa-button usa-button--primary">Cerca</button>
+  </form>
+
+  <p id="searchHelp" class="usa-sr-only">
+    Inserisci una o più parole chiave e premi invio o il pulsante cerca per trovare i documenti.
+  </p>
+
+  <section id="searchResults" aria-live="polite" aria-relevant="additions" style="margin-top:2rem;">
+    <!-- Qui appariranno i risultati -->
+  </section>
+</main>
+
+<script>
+  // Demo semplice: ricerca su array di documenti finti
+  // In produzione: integra con lunr.js o altra libreria
+
+  const documents = [
+    {
+      title: "Guida all'uso",
+      description: "Manuale completo per utilizzare il servizio",
+      author: "Mario Rossi",
+      url: "{{ '/docs/guida-uso.pdf' | relative_url }}"
+    },
+    {
+      title: "Regolamento interno",
+      description: "Norme e linee guida per i collaboratori",
+      author: "Anna Bianchi",
+      url: "{{ '/docs/regolamento.pdf' | relative_url }}"
+    },
+    {
+      title: "Modulo iscrizione",
+      description: "Modulo per iscriversi al progetto",
+      author: "Paolo Verdi",
+      url: "{{ '/docs/modulo-iscrizione.pdf' | relative_url }}"
+    }
+  ];
+
+  const form = document.getElementById('searchForm');
+  const input = document.getElementById('searchInput');
+  const resultsContainer = document.getElementById('searchResults');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const query = input.value.trim().toLowerCase();
+    resultsContainer.innerHTML = '';
+
+    if (query.length === 0) {
+      resultsContainer.innerHTML = '<p>Inserisci una parola chiave per cercare.</p>';
+      return;
+    }
+
+    const results = documents.filter(doc =>
+      doc.title.toLowerCase().includes(query) ||
+      doc.description.toLowerCase().includes(query) ||
+      doc.author.toLowerCase().includes(query)
+    );
+
+    if (results.length === 0) {
+      resultsContainer.innerHTML = `<p>Nessun documento trovato per: <strong>${query}</strong>.</p>`;
+      return;
+    }
+
+    const ul = document.createElement('ul');
+    ul.classList.add('usa-list');
+
+    results.forEach(doc => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <strong>${doc.title}</strong><br/>
+        <em>${doc.description}</em><br/>
+        Autore: ${doc.author}<br/>
+        <a href="${doc.url}" target="_blank" class="usa-link" aria-label="Scarica ${doc.title} PDF">Scarica PDF</a>
+      `;
+      ul.appendChild(li);
+    });
+
+    resultsContainer.appendChild(ul);
+  });
+</script>
