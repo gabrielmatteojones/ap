@@ -1,24 +1,22 @@
 ---
 layout: page
 title: Area 1
-date: 2025-08-11T23:03:00.000+02:00
+date: 2025-08-11T23:47:00.000+02:00
 permalink: /aree/1/
 categories: aree
 ---
-## Area 1 – Affari Istituzionali e Biblioteconomia
+## Area 2 – Istruzione e Formazione
 
-L’Area 1 dell’Ufficio Digitale si occupa di due ambiti strettamente connessi:
+L’Area 2 dell’Ufficio Digitale raccoglie tutte le attività dedicate alla crescita educativa e formativa di bambini, ragazzi e famiglie.
+Qui si sviluppano progetti e servizi che uniscono apprendimento, creatività e socialità, con particolare attenzione all’inclusione e al benessere della comunità.
 
-* **Affari Istituzionali**, ossia la gestione dei rapporti con enti pubblici, istituzioni culturali e organizzazioni del territorio.
-* **Biblioteconomia**, intesa come studio, organizzazione e sviluppo delle attività legate alle biblioteche e ai servizi bibliotecari.
+### Attività principali
 
-### Affari Istituzionali
+* **Oratorio**: iniziative di aggregazione, giochi e laboratori per bambini e ragazzi.
+* **Grest**: attività estive strutturate con animazione, sport, laboratori artistici e momenti di condivisione.
+* **Servizio di babysitting**: supporto alle famiglie, con personale qualificato per la cura e l’intrattenimento dei più piccoli.
+* **Letture per bambini**: incontri di lettura animata e laboratori creativi per avvicinare i più piccoli al piacere dei libri.
 
-In questo settore rientrano tutte le attività di coordinamento e relazione con comuni, scuole, biblioteche, associazioni e altre realtà pubbliche. L’obiettivo è costruire e mantenere un dialogo costante con gli interlocutori istituzionali, promuovendo progetti condivisi e favorendo la collaborazione tra diversi livelli della pubblica amministrazione.
+L’obiettivo di quest’area è offrire spazi e momenti di crescita, educazione e divertimento, favorendo relazioni positive e un apprendimento che vada oltre la scuola.
 
-### Biblioteconomia
-
-La parte dedicata alla biblioteconomia si concentra su ricerca, metodologie e buone pratiche per la gestione e la valorizzazione del patrimonio librario e documentale.
-Vengono seguiti progetti di innovazione dei servizi bibliotecari, promozione della lettura e diffusione della cultura, sia in presenza sia attraverso strumenti digitali.
-
-> Nelle **pagine private** di questa sezione sono disponibili appunti, materiali di lavoro e note operative, riservati all’uso interno.
+> Nelle **pagine private** di questa sezione sono raccolti appunti, materiali operativi e progetti in corso, riservati all’uso interno.
