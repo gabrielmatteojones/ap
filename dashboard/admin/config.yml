@@ -18,6 +18,12 @@ collections:
       - { name: "permalink", label: "Link personalizzato", widget: "string", required: true }
       - { name: "body", label: "page", widget: "markdown" }
       - { label: "Categoria", name: "categories", widget: "string", default: "[educazione]" }
+      - label: "Persone correlate"
+        name: "persone_correlate"
+        widget: "list"
+        required: false
+        hint: "Inserisci gli slug delle persone (es: mario-rossi, lucia-bianchi)"
+
   - name: "posts"
     label: "Post"
     label_singular: "Post"
@@ -33,6 +39,12 @@ collections:
       - { label: "Tag", name: "tags", widget: "list" }
       - { label: "Contenuto", name: "body", widget: "markdown" }
       - { label: "Autore", name: "autore", widget: "string", default: "Redazione: Gabriel Matteo Jones" }
+      - label: "Persone correlate"
+        name: "persone_correlate"
+        widget: "list"
+        required: false
+        hint: "Inserisci gli slug delle persone (es: mario-rossi, lucia-bianchi)"
+
   - name: "private_pages"
     label: "Pagine ad autorizzazione"
     folder: "content/private/"
@@ -45,3 +57,8 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "riservato" }
       - { label: "Permalink", name: "permalink", widget: "string" }
       - { label: "Corpo", name: "body", widget: "markdown" }
+      - label: "Persone correlate"
+        name: "persone_correlate"
+        widget: "list"
+        required: false
+        hint: "Inserisci gli slug delle persone (es: mario-rossi, lucia-bianchi)"
