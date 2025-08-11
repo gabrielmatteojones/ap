@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Area 1
+title: Area 2
 date: 2025-08-11T23:47:00.000+02:00
-permalink: /aree/1/
+permalink: /aree/2/
 categories: aree
 ---
 ## Area 2 – Istruzione e Formazione
