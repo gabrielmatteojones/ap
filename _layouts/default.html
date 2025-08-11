@@ -1,6 +1,17 @@
 <!doctype html>
 <html lang="it">
   <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+      <style>
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    .nav-link {
+      font-size: 1.1rem;
+      padding: 0.75rem 1rem;
+    }
+  </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,133 +44,45 @@
   </head>
 
   <body>
-    <!-- HEADER SLIM -->
-    <div class="it-header-slim-wrapper">
-      <div class="container-xxl">
-        <div class="row">
-          <div class="col-12">
-            <div class="it-header-slim-wrapper-content">
-              <a class="d-lg-block navbar-brand" href="https://ufficiogabrieljones.it/">Accento Civico</a>
-              <div class="it-header-slim-right-zone">
-                <div class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="visually-hidden">Accesso Rapido</span>
-                    <span>Accesso Rapido</span>
-                    <svg class="icon d-none d-lg-block"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-expand"></use></svg>
-                  </a>
-                  <div class="dropdown-menu">
-                    <div class="row">
-                      <div class="col-12">
-                        <div class="link-list-wrapper">
-                          <ul class="link-list">
-                            <li><a class="dropdown-item list-item" href="/login/"><span>Login</span></a></li>
-                            <li><a class="dropdown-item list-item" href="/trasparenza/"><span>Trasparenza</span></a></li>
-                            <li><a class="dropdown-item list-item" href="/dashboard/"><span>Dashboard</span></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <a href="#" class="btn btn-primary btn-icon btn-full">
-                  <span class="rounded-icon">
-                    <svg class="icon icon-primary">
-                      <use href="https://gabrieljones.it/assets/logo.png"></use>
-                    </svg>
-                  </span>
-                  <span class="d-none d-lg-block">Accedi all'area personale</span>
-                </a>
-              </div>
-            </div>
-          </div>
+     <div class="bg-dark text-white py-3">
+        <div class="container">
+          <strong>Sito gestito da gabrieljones.it</strong>
         </div>
       </div>
-    </div>
-
-    <!-- HEADER CENTER -->
-    <div class="it-header-center-wrapper it-small-header">
-      <div class="container-xxl">
-        <div class="row">
-          <div class="col-12">
-            <div class="it-header-center-content-wrapper">
-              <div class="it-brand-wrapper">
-                <a href="/">
-                    <img src="https://gabrieljones.it/assets/logo.png" alt="Logo" class="icon icon-sm me-2" width="40" height="40" data-cmp-info="10">                  <div class="it-brand-text">
-                    <div class="it-brand-title">Ufficio di Gabriel Matteo Jones</div>
-                    <div class="it-brand-tagline d-none d-md-block">Documento, Comunicazioni, Avvisi e <br> trasparenza, tutto in un unico posto</div>
-                  </div>
-                </a>
-              </div>
-              <div class="it-right-zone">
-                <div class="it-brand-tagline d-none d-md-block">
-                  <a href="/portali/trasparenza/"><b>Trasparenza</b></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+          <img src="https://gabrieljones.it/assets/logo.png" alt="Logo" class="icon" width="91" height="93">Sito di esempio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://gabrieljones.it/tag/">Trasparenza</a>
+          </li>
+        </ul>
       </div>
     </div>
+  </nav>
+<div class="container d-flex justify-content-between align-items-center">
+  <ul class="nav">
+    <li class="nav-item"><a class="nav-link text-dark" href="#">SAMPLE</a></li>
+    <li class="nav-item"><a class="nav-link text-dark" href="#">SAMPLE</a></li>
+    <li class="nav-item"><a class="nav-link text-dark" href="#">SAMPLE</a></li>
+    <li class="nav-item"><a class="nav-link text-dark" href="#">SAMPLE</a></li>
+  </ul>
 
-    <!-- NAVBAR -->
-    <div class="it-header-navbar-wrapper theme-light">
-      <div class="container-xxl">
-        <div class="row">
-          <div class="col-12">
-            <nav class="navbar navbar-expand-lg has-megamenu" aria-label="Navigazione principale">
-              <button class="custom-navbar-toggler" type="button" aria-controls="nav4" aria-label="Mostra/Nascondi la navigazione" data-bs-toggle="navbarcollapsible" data-bs-target="#nav4">
-                <svg class="icon bg-override"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use></svg>
-              </button>
-              <div class="navbar-collapsable" id="nav4" tabindex="-1">
-                <div class="close-div">
-                  <button class="btn close-menu" type="button">
-                    <span class="visually-hidden">Nascondi la navigazione</span>
-                    <svg class="icon"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-close-big"></use></svg>
-                  </button>
-                </div>
-                <div class="menu-wrapper">
-                  <ul class="navbar-nav">
-                    <!-- Link 1 -->
-                    <li class="nav-item">
-                      <a class="nav-link" href="/" aria-current="page"><span><b>Home</b></span></a>
-                    </li>
-                    <!-- Dropdown -->
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span><b>Login</b></span>
-                      </a>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" href="/login/base/">Login SSO</a></li>
-                        <li><a class="dropdown-item" href="/login/DataWin/">Login DataWin</a></li>
-                        <li><a class="dropdown-item" href="/login/UfficioDigitale/">Login Ufficio Digitale</a></li>
-                        <li><a class="dropdown-item" href="/login/agfo/mail/">Login Mail AGFO</a></li>
-                        <li><a class="dropdown-item" href="/login/blog/">Login Blog</a></li>
-                        <li><a class="dropdown-item" href="/login/mail/">Login mail</a></li>
-                        <li><a class="dropdown-item" href="/login/agfo/">Login AGFO</a></li>
-                        <li><a class="dropdown-item" href="/login/accentocivico/">Login Accento Civico</a></li>
-                      </ul>
-                    </li>
-                    <!-- Link 3 -->
-                    <!-- Link 4 -->
-                    <li class="nav-item"><a class="nav-link" href="/archivio/"><span><b>Archivio</b></span></a></li>
-                    <!-- Link 5 -->
-                    <li class="nav-item"><a class="nav-link" href="https://gabrielmatteojonesblog.it/"><span><b>Blog</b></span></a></li>
-                  </ul>
-                  <ul class="navbar-nav navbar-secondary">
-                    <li class="nav-item"><a class="nav-link" href="https://ufficiogabrieljones.it/agfo/"><span>AGFO</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://ufficiogabrieljones.it/upid/"><span>UPID</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://ufficiogabrieljones.it/amministrazione/org/accentocivico/"><span>Accento Civico - amministrazione</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="/aree/"><span><b>Aree Tematiche</b></span></a></li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CONTENUTO PRINCIPALE -->
+  <!-- Emoji utente -->
+  <a href="https://accounts.gabrieljones.it/$login?gabrieljones-[[site-name]]-to-accounts.gabrieljones.it/[[site-name]]/" class="btn btn-outline-primary">
+    👤
+  </a>
+</div>
+    
     <div class="container">
       <main>
         <br><br>
