@@ -73,26 +73,6 @@ layout: default
 
   <hr class="my-4">
 
-  <!-- Articoli correlati -->
-  <div class="row">
-    <div class="col-12">
-      <h2 class="h4">Articoli correlati</h2>
-      {% assign articoli = site.posts | where_exp: "post", "post.persone_correlate contains page.slug" %}
-      {% if articoli.size > 0 %}
-        <ul class="list-group">
-          {% for articolo in articoli %}
-            <li class="list-group-item">
-              <a href="{{ articolo.url }}">{{ articolo.title }}</a>
-              <small class="text-muted d-block">{{ articolo.date | date: "%d/%m/%Y" }}</small>
-            </li>
-          {% endfor %}
-        </ul>
-      {% else %}
-        <p class="text-muted">Nessun articolo correlato trovato.</p>
-      {% endif %}
-    </div>
-  </div>
-
   <!-- Pagine correlate -->
   <div class="row mt-4">
     <div class="col-12">
