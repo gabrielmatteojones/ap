@@ -167,10 +167,10 @@
             <img src="{{ 'https://gabrieljones.it/assets/logo.png' | relative_url }}" alt="{{ site.title }} Logo" />
           </a>
           <!-- Titolo semplice desktop -->
-          <span class="usa-logo__title-static">{{ site.title }}</span>
+          <span class="usa-logo__title-static">Ufficio GMJ</span>
           <!-- Titolo bottone mobile -->
           <button id="titleMobileBtn" class="usa-logo__title-button" aria-haspopup="true" aria-expanded="false" aria-controls="titleMobileMenu">
-            {{ site.title }} ▾
+            Ufficio GMJ
           </button>
           <nav id="titleMobileMenu" class="dropdown-menu-mobile" role="menu" aria-label="Menu {{ site.title }}">
             {% for item in site.nav %}
@@ -180,30 +180,6 @@
         </div>
         <button class="usa-menu-btn" aria-expanded="false" aria-controls="basic-mobile-menu">Menu</button>
       </div>
-
-      <nav id="basic-mobile-menu" class="usa-nav" role="navigation" aria-label="Primary navigation">
-        <ul class="usa-nav__primary usa-accordion">
-          {% for item in site.nav %}
-          <li class="usa-nav__primary-item">
-            <a href="{{ item.url | relative_url }}" class="usa-nav__link" {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.name }}</a>
-          </li>
-          {% endfor %}
-        </ul>
-        <form class="usa-search usa-search--small" role="search" action="{{ site.search_action | default: '#' }}" method="get">
-          <label class="usa-sr-only" for="search-field">Cerca</label>
-          <input
-            class="usa-input"
-            id="search-field"
-            type="search"
-            name="search"
-            placeholder="Cerca documenti"
-            aria-label="Cerca documenti"
-          />
-          <button class="usa-button usa-button--primary" type="submit" aria-label="Cerca">
-            Cerca
-          </button>
-        </form>
-      </nav>
     </div>
   </header>
 
