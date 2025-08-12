@@ -128,6 +128,18 @@
 
     const dominiGoogle = ["agfo.fvg.it", "18f.it"];
 
+    // Abilita persistenza locale per mantenere il login dopo refresh/chiusura
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(error => {
+      console.error("Errore persistenza:", error);
+    });
+
+    // Se utente già loggato, lo mando subito all'area personale
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        redirectAfterLogin();
+      }
+    });
+
     // Mostra Google login solo per email aziendali
     emailInput.addEventListener("input", () => {
       const domain = emailInput.value.split("@")[1] || "";
