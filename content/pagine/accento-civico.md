@@ -7,7 +7,7 @@ categories: none
 persone_correlate:
   - gabriel-jones
 ---
-# Accento Civico – Il progetto di una nuova cittadinanza attiva
+## Accento Civico – Il progetto di una nuova cittadinanza attiva
 
 **Accento Civico** è il nome e il cuore del progetto ideato da **Gabriel Matteo Jones**: una piattaforma civica e culturale che ha l’obiettivo di unire in modo coerente e sinergico iniziative dedicate alla rappresentanza giovanile, alla promozione culturale e al raggiungimento dei 20 Obiettivi GMJ per lo sviluppo interno.
 
