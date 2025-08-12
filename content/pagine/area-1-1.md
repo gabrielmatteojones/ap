@@ -1,9 +1,11 @@
 ---
-layout: page
+layout: educazione
 title: Area 1
 date: 2025-08-11T23:47:00.000+02:00
 permalink: /aree/1/
 categories: aree
+categories:
+  - "[area1]"
 ---
 ## Area 1 – Affari Istituzionali e Biblioteconomia
 
