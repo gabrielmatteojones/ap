@@ -1,0 +1,46 @@
+---
+layout: page
+---
+<div id="loading">🔒 Verifica accesso...</div>
+<div id="content" style="display:none;">
+  {{ content }}
+  <button id="logout">Esci</button>
+</div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"></script>
+
+<script>
+  // Configurazione Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyCu9YBjutCK0UR3EoliYwiNrrKaY8cyt8U",
+    authDomain: "ufficiogabrieljones.firebaseapp.com",
+    projectId: "ufficiogabrieljones",
+    storageBucket: "ufficiogabrieljones.firebasestorage.app",
+    messagingSenderId: "754177287030",
+    appId: "1:754177287030:web:e4f70d2d3d9c54c1d91057",
+    measurementId: "G-HBSRVKC0JQ"
+  };
+
+  // Inizializza Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  // Controlla stato login
+  auth.onAuthStateChanged(user => {
+    const loading = document.getElementById("loading");
+    const content = document.getElementById("content");
+
+    if (user) {
+      loading.style.display = "none";
+      content.style.display = "block";
+      document.getElementById("logout").onclick = () => auth.signOut();
+    } else {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      auth.signInWithPopup(provider).catch(err => {
+        loading.innerHTML = "Errore di login: " + err.message;
+      });
+    }
+  });
+</script>
