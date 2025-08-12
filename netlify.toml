@@ -1,4 +1,3 @@
 [build]
 publish = "_site"
-command = "bundle exec jekyll build --verbose
-"
+command = "bundle exec jekyll build --verbose"
