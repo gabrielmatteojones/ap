@@ -4,7 +4,7 @@ title: Formazione e Istruzione
 date: 2025-08-08T21:59:00.000+02:00
 permalink: /fi25/
 categoria: educazione
-categories: area2
+categories: "[area1]"
 persone_correlate:
   - gabriel-jones
 ---
