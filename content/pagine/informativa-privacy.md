@@ -4,7 +4,7 @@ title: Informativa Privacy
 date: 2025-08-12T15:53:00.000+02:00
 permalink: /legal/informativa-privacy/
 image: /assets/base.png
-categories: "[educazione]"
+categories: "[legal]"
 ---
 # **Informativa Privacy**
 
