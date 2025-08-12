@@ -3,10 +3,11 @@ layout: educazione
 title: Formazione e Istruzione
 date: 2025-08-08T21:59:00.000+02:00
 permalink: /fi25/
-categoria: educazione
-categories: "[area1]"
 persone_correlate:
   - gabriel-jones
+categoria: educazione
+image: /assets/base.png
+categories: "[area1]"
 ---
 
 Questa pagina raccoglie tutti gli articoli, le pagine e i materiali legati alle attività dedicate ai bambini dell’asilo e della scuola primaria, organizzate con l’associazione Mangia Libri ODV, l’oratorio e il grest.
