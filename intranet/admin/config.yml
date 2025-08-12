@@ -1,0 +1,65 @@
+backend:
+  name: git-gateway
+  branch: "48891"
+
+media_folder: "assets/img"
+public_folder: "/assets/img/"
+
+collections:
+  - name: "pagine_it"
+    label: "Pagine"
+    folder: "content/pagine"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
+      - { name: "title", label: "Titolo", widget: "string" }
+      - { name: "date", label: "Data", widget: "datetime", default: "", hidden: true }
+      - { name: "permalink", label: "Link personalizzato", widget: "string", required: true }
+      - { name: "image", label: "Immagine", name: "image", widget: "image", required: false }
+      - { name: "body", label: "page", widget: "markdown" }
+      - { label: "Categoria", name: "categories", widget: "string", default: "[educazione]" }
+      - label: "Persone correlate"
+        name: "persone_correlate"
+        widget: "list"
+        required: false
+        hint: "Inserisci gli slug delle persone (es: mario-rossi, lucia-bianchi)"
+
+  - name: "posts"
+    label: "Post"
+    label_singular: "Post"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "posts/{{slug}}"
+    sortable_fields: ['date', 'title']
+    fields:
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ" }
+      - { label: "Categoria", name: "categories", widget: "list", default: ["notizie"] }
+      - { label: "Tag", name: "tags", widget: "list" }
+      - { label: "Contenuto", name: "body", widget: "markdown" }
+      - { label: "Autore", name: "autore", widget: "string", default: "Redazione: Gabriel Matteo Jones" }
+      - label: "Persone correlate"
+        name: "persone_correlate"
+        widget: "list"
+        required: false
+        hint: "Inserisci gli slug delle persone (es: mario-rossi, lucia-bianchi)"
+
+  - name: "private_pages"
+    label: "Pagine ad autorizzazione"
+    folder: "content/private/"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "riservato" }
+      - { label: "Permalink", name: "permalink", widget: "string" }
+      - { label: "Corpo", name: "body", widget: "markdown" }
+      - label: "Persone correlate"
+        name: "persone_correlate"
+        widget: "list"
+        required: false
+        hint: "Inserisci gli slug delle persone (es: mario-rossi, lucia-bianchi)"
