@@ -20,7 +20,3 @@ Qui si sviluppano progetti e servizi che uniscono apprendimento, creatività e s
 L’obiettivo di quest’area è offrire spazi e momenti di crescita, educazione e divertimento, favorendo relazioni positive e un apprendimento che vada oltre la scuola.
 
 > Nelle **pagine private** di questa sezione sono raccolti appunti, materiali operativi e progetti in corso, riservati all’uso interno.
-
-[Formazione & Istruzione - Pagina Primaria](https://ufficiogabrieljones.it/fi25/)
-
-[Mangia Libri](https://ufficiogabrieljones.it/fi25/mangialibri/)
