@@ -1,9 +1,11 @@
 ---
-layout: page
+layout: educazione
 title: Area 3
 date: 2025-08-11T23:50:00.000+02:00
 permalink: /aree/3/
-categories: aree
+categoria: area3
+categories:
+  - "[area3]"
 ---
 ## Area 3 – Servizi Informatici e Progetti *Accento Civico*
 

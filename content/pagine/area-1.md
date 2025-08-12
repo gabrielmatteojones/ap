@@ -1,9 +1,11 @@
 ---
-layout: page
+layout: educazione
 title: Area 2
 date: 2025-08-11T23:47:00.000+02:00
 permalink: /aree/2/
-categories: aree
+categoria: area1
+categories:
+  - "[area1]"
 ---
 ## Area 2 – Istruzione e Formazione
 
