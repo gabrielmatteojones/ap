@@ -1,8 +1,9 @@
 ---
 layout: page
-title: Accento_Civico
+title: Accento Civico
 date: 2025-07-29T14:57:00.000+02:00
 permalink: /amministrazione/org/accentocivico/
+categories: none
 persone_correlate:
   - gabriel-jones
 ---
