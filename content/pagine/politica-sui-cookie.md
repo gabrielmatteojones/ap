@@ -1,64 +1,61 @@
 ---
 layout: page
-title: Politica sui Cookie
+title: Termini e Condizioni d’Uso
 date: 2025-08-12T15:53:00.000+02:00
-permalink: /legal/politica-sui-cookie/
+permalink: /legal/termini-e-condizioni-uso/
 image: /assets/base.png
-categories: "[educazione]"
+categories: "[legal]"
 ---
-# **Politica sui Cookie**
+# **Termini e Condizioni d’Uso**
 
-*(ai sensi del Regolamento UE 2016/679 – GDPR e delle Linee guida Garante Privacy 10 giugno 2021)*
+## 1. Oggetto
 
-## 1. Cosa sono i cookie
+I presenti Termini e Condizioni disciplinano l’accesso e l’utilizzo del sito web e dei servizi offerti dal titolare **Gabriel Matteo Jones** (di seguito “Titolare”), accessibili all’indirizzo indicato nella sezione contatti.
 
-I cookie sono piccoli file di testo che il sito invia e memorizza sul dispositivo dell’utente durante la navigazione. Sono utilizzati per far funzionare correttamente il sito, migliorarne le prestazioni e fornire informazioni ai titolari.
+## 2. Accettazione
 
-## 2. Tipologie di cookie utilizzati
+Accedendo o utilizzando il sito, l’utente dichiara di aver letto, compreso e accettato i presenti Termini e Condizioni. Se non accetta, l’utente è invitato a non utilizzare il sito.
 
-Questo sito utilizza le seguenti categorie di cookie:
+## 3. Uso consentito
 
-* **Cookie tecnici o necessari**
-  Essenziali per il corretto funzionamento del sito e l’erogazione dei servizi richiesti dall’utente (es. autenticazione, salvataggio preferenze). Non richiedono consenso.
+L’utente si impegna a utilizzare il sito:
 
-* **Cookie statistici/analitici**
-  Raccolgono informazioni anonime o aggregate sull’uso del sito (es. pagine visitate, tempo di permanenza). Se forniti da terze parti e non anonimizzati, richiedono consenso.
+* In conformità con la legge, i regolamenti e le disposizioni vigenti;
+* In modo lecito e corretto, evitando attività fraudolente, diffamatorie o lesive di terzi;
+* Senza tentare di compromettere la sicurezza, il funzionamento o l’integrità del sito e dei suoi contenuti.
 
-* **Cookie di profilazione/marketing**
-  Utilizzati per tracciare la navigazione e mostrare contenuti personalizzati o annunci pubblicitari mirati. Richiedono il consenso esplicito dell’utente.
+## 4. Registrazione e autenticazione
 
-## 3. Cookie di terze parti
+Alcune funzionalità del sito richiedono la creazione di un account tramite **Firebase Authentication**.
+L’utente è responsabile della riservatezza delle proprie credenziali e dell’uso dell’account.
 
-Il sito integra servizi esterni che possono installare cookie sul dispositivo dell’utente.
-Ecco l’elenco dei principali fornitori e link alle rispettive policy:
+## 5. Contenuti generati dagli utenti
 
-* **Firebase** – [Privacy](https://firebase.google.com/support/privacy)
-* **Netlify** – [Privacy](https://www.netlify.com/privacy/)
-* **Google Analytics** – [Privacy](https://policies.google.com/privacy)
-* **YouTube** – [Privacy](https://policies.google.com/privacy)
-* **Vimeo** – [Privacy](https://vimeo.com/privacy)
-* **Instagram** – [Privacy](https://privacycenter.instagram.com/policy/)
-* **Google Fonts** – [Privacy](https://policies.google.com/privacy)
+Eventuali contenuti (testi, immagini, file) caricati dagli utenti devono rispettare:
 
-## 4. Gestione del consenso
+* Normativa vigente su copyright e proprietà intellettuale;
+* Divieto di contenuti offensivi, discriminatori o illeciti;
+* Norme sul trattamento dei dati personali.
 
-Al primo accesso, l’utente visualizza un banner che consente di:
+Il Titolare si riserva il diritto di rimuovere contenuti in violazione delle presenti condizioni.
 
-* Accettare tutti i cookie;
-* Rifiutare i cookie non necessari;
-* Personalizzare le scelte per ciascuna categoria.
+## 6. Proprietà intellettuale
 
-Il consenso può essere modificato in qualsiasi momento tramite l’apposito link “Preferenze Cookie” presente in fondo a ogni pagina.
+Tutti i contenuti del sito (testi, grafica, loghi, video, ecc.) sono di proprietà del Titolare o dei rispettivi autori e protetti dalle leggi italiane e internazionali in materia di diritto d’autore.
+È vietata la riproduzione, distribuzione o modifica senza autorizzazione scritta.
 
-## 5. Come disabilitare i cookie dal browser
+## 7. Limitazione di responsabilità
 
-L’utente può anche gestire o eliminare i cookie direttamente dalle impostazioni del proprio browser:
+Il Titolare non garantisce che il sito sia privo di errori o interruzioni e non sarà responsabile di danni diretti o indiretti derivanti dall’uso del sito, salvo dolo o colpa grave.
 
-* [Chrome](https://support.google.com/chrome/answer/95647?hl=it)
-* [Firefox](https://support.mozilla.org/it/kb/Gestione%20dei%20cookie)
-* [Safari](https://support.apple.com/it-it/guide/safari/sfri11471/mac)
-* [Edge](https://support.microsoft.com/it-it/microsoft-edge/eliminare-i-cookie-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09)
+## 8. Servizi di terzi
 
-## 6. Aggiornamenti della cookie policy
+Il sito può contenere collegamenti o contenuti provenienti da servizi di terzi (es. YouTube, Vimeo, Instagram). L’utilizzo di tali servizi è regolato dalle rispettive condizioni d’uso e privacy policy.
 
-La presente Cookie Policy può essere modificata in qualsiasi momento. Le modifiche saranno pubblicate su questa pagina con la data di aggiornamento.
+## 9. Modifiche ai Termini
+
+Il Titolare si riserva il diritto di modificare in qualsiasi momento i presenti Termini e Condizioni. Le modifiche saranno pubblicate sul sito e avranno effetto dalla data di pubblicazione.
+
+## 10. Legge applicabile e foro competente
+
+I presenti Termini sono regolati dalla legge italiana. Per qualsiasi controversia sarà competente in via esclusiva il Foro di residenza del Titolare.
