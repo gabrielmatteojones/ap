@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Area 1 – Affari Istituzionali e Biblioteconomia
+title: Area 2 – Affari Istituzionali e Biblioteconomia
 date: 2025-08-11T23:47:00.000+02:00
-permalink: /aree/1/
+permalink: /aree/2/
 categories: aree
 ---
-L’Area 1 dell’Ufficio Digitale si occupa di due ambiti strettamente connessi:
+L’Area 2 dell’Ufficio Digitale si occupa di due ambiti strettamente connessi:
 
 * **Affari Istituzionali**, ossia la gestione dei rapporti con enti pubblici, istituzioni culturali e organizzazioni del territorio.
 * **Biblioteconomia**, intesa come studio, organizzazione e sviluppo delle attività legate alle biblioteche e ai servizi bibliotecari.
