@@ -7,34 +7,35 @@ permalink: /login/
 <div class="login-shell">
   <div class="login-head">
     <h1>Accedi</h1>
-    <p class="muted">Scegli il metodo di accesso</p>
+    <p class="muted">Scegli come autenticarti</p>
   </div>
 
   <div id="login-error" class="alert" role="alert" style="display:none;"></div>
 
-  <div class="provider-grid">
-    <!-- ACSL / Firebase -->
-    <button id="btn-acsl" class="provider-card acsl" aria-label="Accedi con ACSL">
-      <div class="icon">🔑</div>
-      <div class="txt">
-        <strong>ACSL</strong>
-        <span class="muted">AccentoCivicoServiceSecuritySystemLogin</span>
-      </div>
-    </button>
+  <!-- ACSL (Firebase: Email + Password) -->
+  <form id="form-acsl" class="login-form">
+    <h2>🔑 ACSL</h2>
+    <label>Email</label>
+    <input type="email" id="acsl-email" required placeholder="esempio@email.com">
 
-    <!-- Netlify Identity -->
-    <button id="btn-netlify" class="provider-card netlify" aria-label="Accedi con Netlify">
-      <div class="icon">🌐</div>
-      <div class="txt">
-        <strong>Netlify</strong>
-        <span class="muted">Identity Widget</span>
-      </div>
-    </button>
-  </div>
+    <label>Password</label>
+    <input type="password" id="acsl-password" required placeholder="••••••••">
 
-  <p class="help muted">
-    Problemi? Verifica di aver abilitato il provider e il dominio autorizzato.
-  </p>
+    <div class="form-actions">
+      <button type="submit" class="btn-acsl">Accedi</button>
+    </div>
+  </form>
+
+  <div class="divider">oppure</div>
+
+  <!-- Netlify Identity -->
+  <button id="btn-netlify" class="provider-card netlify" aria-label="Accedi con Netlify">
+    <div class="icon">🌐</div>
+    <div class="txt">
+      <strong>Netlify</strong>
+      <span class="muted">Identity Widget</span>
+    </div>
+  </button>
 </div>
 
 <!-- Netlify Identity -->
@@ -43,17 +44,7 @@ permalink: /login/
 <!-- Firebase (ACSL) -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
-  import { getAnalytics, isSupported as analyticsSupported } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
-  import {
-    getAuth,
-    setPersistence,
-    browserLocalPersistence,
-    onAuthStateChanged,
-    signInWithPopup,
-    signInWithRedirect,
-    getRedirectResult,
-    GoogleAuthProvider
-  } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
+  import { getAuth, signInWithEmailAndPassword, setPersistence, browserLocalPersistence, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
 
   // --- Config che mi hai dato ---
   const firebaseConfig = {
@@ -66,69 +57,40 @@ permalink: /login/
     measurementId: "G-VNEYX22DX9"
   };
 
-  // --- Init Firebase + Analytics (solo se supportati) ---
+  // Init Firebase
   const app = initializeApp(firebaseConfig);
-  try {
-    if (await analyticsSupported()) getAnalytics(app);
-  } catch(e) {
-    // ignora errori analytics (ambiente non supportato)
-    console.warn("Analytics non disponibili:", e?.message || e);
-  }
-
-  // --- Auth ---
   const auth = getAuth(app);
   await setPersistence(auth, browserLocalPersistence);
-  const provider = new GoogleAuthProvider();
 
-  // UI helpers
   const $err = document.getElementById("login-error");
-  const showError = (msg) => {
-    $err.textContent = msg;
-    $err.style.display = "block";
-  };
+  const showError = (msg) => { $err.textContent = msg; $err.style.display = "block"; };
   const hideError = () => { $err.style.display = "none"; };
 
-  // Se già loggato con ACSL, vai subito all'area personale
+  // Redirect se già loggato
   onAuthStateChanged(auth, (user) => {
     if (user) window.location.href = "/area-personale/";
   });
 
-  // Gestisci eventuale ritorno da signInWithRedirect
-  try {
-    const redirectRes = await getRedirectResult(auth);
-    if (redirectRes?.user) {
-      window.location.href = "/area-personale/";
-    }
-  } catch(e) {
-    console.error(e);
-  }
-
-  // --- Login ACSL (Firebase) ---
-  document.getElementById("btn-acsl").addEventListener("click", async () => {
+  // Login ACSL
+  document.getElementById("form-acsl").addEventListener("submit", async (e) => {
+    e.preventDefault();
     hideError();
+    const email = document.getElementById("acsl-email").value;
+    const pass = document.getElementById("acsl-password").value;
+
     try {
-      // tenta col popup
-      await signInWithPopup(auth, provider);
+      await signInWithEmailAndPassword(auth, email, pass);
       window.location.href = "/area-personale/";
-    } catch (e) {
-      console.warn("Popup fallito, provo redirect…", e?.code, e?.message);
-      // Fallback: alcuni browser bloccano i popup
-      try {
-        await signInWithRedirect(auth, provider);
-      } catch (err) {
-        console.error("Errore login ACSL:", err);
-        if (err?.code === "auth/unauthorized-domain") {
-          showError("Dominio non autorizzato in Firebase Authentication. Aggiungi il dominio Netlify in Authentication → Settings → Authorized domains.");
-        } else if (err?.code === "auth/operation-not-allowed") {
-          showError("Provider Google non abilitato. Abilitalo in Authentication → Sign-in method.");
-        } else {
-          showError("Errore ACSL: " + (err?.message || "riprovare."));
-        }
-      }
+    } catch (err) {
+      console.error("Errore login ACSL:", err);
+      if (err.code === "auth/wrong-password") showError("Password errata.");
+      else if (err.code === "auth/user-not-found") showError("Utente non trovato.");
+      else if (err.code === "auth/invalid-email") showError("Email non valida.");
+      else showError("Errore: " + (err.message || "riprovare."));
     }
   });
 
-  // --- Login Netlify Identity ---
+  // Login Netlify
   document.getElementById("btn-netlify").addEventListener("click", () => {
     const netlifyIdentity = window.netlifyIdentity;
     if (!netlifyIdentity) return showError("Netlify Identity non disponibile.");
@@ -140,51 +102,15 @@ permalink: /login/
 </script>
 
 <style>
-/* ===== Login Design ===== */
-.login-shell{
-  max-width: 720px; margin: 40px auto; padding: 24px;
-}
-.login-head h1{ margin:0 0 6px }
-.login-head .muted{ color: var(--muted); }
-
-.provider-grid{
-  display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:18px;
-}
-.provider-card{
-  display:flex; gap:14px; align-items:center; justify-content:flex-start;
-  padding:16px 18px; border-radius:16px; border:1px solid rgba(2,6,23,.08);
-  background:#fff; box-shadow: var(--shadow); cursor:pointer;
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-}
-.provider-card:hover{ transform: translateY(-3px); box-shadow: 0 18px 34px rgba(2,6,23,.10) }
-.provider-card .icon{
-  width:44px; height:44px; border-radius:12px; display:grid; place-items:center; font-size:22px;
-  background: rgba(16,185,129,.12);
-}
-.provider-card .txt strong{ display:block; font-weight:700; }
-.provider-card .txt .muted{ font-size:.9rem; color: var(--muted); }
-
-.provider-card.acsl .icon{ background: rgba(59,130,246,.14); }      /* blu tenue */
-.provider-card.acsl{ border-color: rgba(59,130,246,.25) }
-.provider-card.netlify .icon{ background: rgba(16,185,129,.14); }   /* emerald tenue */
-.provider-card.netlify{ border-color: rgba(16,185,129,.25) }
-
-.alert{
-  border:1px solid rgba(220,38,38,.2);
-  background: rgba(254,226,226,.6);
-  color:#7f1d1d;
-  padding:12px 14px; border-radius:12px; margin:12px 0 4px; font-weight:600;
-}
-
-.help{ margin-top:14px; }
-
-/* Dark mode tweaks */
-html.dark .provider-card{ background: var(--bg-soft); border-color:#1f2937; }
-html.dark .alert{
-  background: rgba(127,29,29,.18); color:#fecaca; border-color: rgba(127,29,29,.5);
-}
-
-@media (max-width: 720px){
-  .provider-grid{ grid-template-columns: 1fr; }
-}
+/* --- stile simile a prima --- */
+.login-shell{max-width:480px;margin:40px auto;padding:24px}
+.login-head h1{margin:0 0 6px}
+.login-form{display:flex;flex-direction:column;gap:12px;margin:20px 0}
+.login-form input{padding:10px;border-radius:8px;border:1px solid #ccc}
+.form-actions{display:flex;justify-content:flex-end}
+.btn-acsl{background:#2563eb;color:#fff;border:none;padding:10px 18px;border-radius:8px;cursor:pointer}
+.btn-acsl:hover{background:#1d4ed8}
+.provider-card{margin-top:16px;width:100%;padding:14px 18px;border:1px solid rgba(0,0,0,.1);border-radius:12px;display:flex;align-items:center;gap:12px;cursor:pointer}
+.alert{border:1px solid rgba(220,38,38,.3);background:#fee2e2;color:#991b1b;padding:12px;border-radius:8px;margin:12px 0}
+.divider{text-align:center;margin:20px 0;color:#888}
 </style>
