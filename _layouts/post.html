@@ -1,10 +1,62 @@
 ---
-layout: page
+layout: default
 ---
 
-<article class="container my-4">
-  <h1>{{ page.title }}</h1>
-  <div class="entry">
-    {{ content }}
+<article class="post-card">
+  <!-- Cover image -->
+  {% if page.image %}
+  <div class="post-cover">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+  </div>
+  {% endif %}
+
+  <div class="post-body">
+    <!-- Metadata -->
+    <div class="meta">
+      {% if page.categories %}
+      <span class="chip">{{ page.categories | join: ", " }}</span>
+      {% endif %}
+      <time class="muted">{{ page.date | date: "%d %B %Y" }}</time>
+    </div>
+
+    <!-- Title -->
+    <h1 class="post-title">{{ page.title }}</h1>
+
+    <!-- Content -->
+    <div class="content">
+      {{ content }}
+    </div>
+
+    <!-- Tags -->
+    {% if page.tags %}
+    <div class="tags">
+      {% for tag in page.tags %}
+      <span class="chip small">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
   </div>
 </article>
+
+<!-- Related posts -->
+{% assign related = site.posts | where: "categories", page.categories[0] | where_exp: "post", "post.url != page.url" | limit: 3 %}
+{% if related.size > 0 %}
+<section class="related">
+  <h2>Articoli correlati</h2>
+  <div class="grid related-grid">
+    {% for post in related %}
+    <article class="card post">
+      <a href="{{ post.url | relative_url }}">
+        {% if post.image %}
+        <div class="card-media"><img src="{{ post.image | relative_url }}" alt="{{ post.title }}"></div>
+        {% endif %}
+        <div class="card-body">
+          <h3>{{ post.title }}</h3>
+          <p class="muted">{{ post.date | date: "%d %B %Y" }}</p>
+        </div>
+      </a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
