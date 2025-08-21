@@ -4,33 +4,58 @@ title: "Login"
 permalink: /login/
 ---
 
-<div class="login-page">
-  <div class="login-box">
+<div class="login-shell">
+  <div class="login-head">
     <h1>Accedi</h1>
-    <p>Scegli il tuo metodo di accesso</p>
+    <p class="muted">Scegli il metodo di accesso</p>
+  </div>
 
-    <!-- Login Firebase / ACSL -->
-    <button id="login-firebase" class="btn-acsl">
-      🔑 Accedi con ACSL
+  <div id="login-error" class="alert" role="alert" style="display:none;"></div>
+
+  <div class="provider-grid">
+    <!-- ACSL / Firebase -->
+    <button id="btn-acsl" class="provider-card acsl" aria-label="Accedi con ACSL">
+      <div class="icon">🔑</div>
+      <div class="txt">
+        <strong>ACSL</strong>
+        <span class="muted">AccentoCivicoServiceSecuritySystemLogin</span>
+      </div>
     </button>
 
-    <!-- Login Netlify Identity -->
-    <button id="login-netlify" class="btn-netlify">
-      🌐 Accedi con Netlify
+    <!-- Netlify Identity -->
+    <button id="btn-netlify" class="provider-card netlify" aria-label="Accedi con Netlify">
+      <div class="icon">🌐</div>
+      <div class="txt">
+        <strong>Netlify</strong>
+        <span class="muted">Identity Widget</span>
+      </div>
     </button>
   </div>
+
+  <p class="help muted">
+    Problemi? Verifica di aver abilitato il provider e il dominio autorizzato.
+  </p>
 </div>
 
 <!-- Netlify Identity -->
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-<!-- Firebase -->
+<!-- Firebase (ACSL) -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
-  import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
+  import { getAnalytics, isSupported as analyticsSupported } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
+  import {
+    getAuth,
+    setPersistence,
+    browserLocalPersistence,
+    onAuthStateChanged,
+    signInWithPopup,
+    signInWithRedirect,
+    getRedirectResult,
+    GoogleAuthProvider
+  } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
 
-  // Config tuo Firebase (quello che mi hai passato)
+  // --- Config che mi hai dato ---
   const firebaseConfig = {
     apiKey: "AIzaSyDET0ys2c41Lwl1WklVD2dlT9IsQFbgbns",
     authDomain: "gabrielmatteojoneslogin.firebaseapp.com",
@@ -41,33 +66,125 @@ permalink: /login/
     measurementId: "G-VNEYX22DX9"
   };
 
+  // --- Init Firebase + Analytics (solo se supportati) ---
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  try {
+    if (await analyticsSupported()) getAnalytics(app);
+  } catch(e) {
+    // ignora errori analytics (ambiente non supportato)
+    console.warn("Analytics non disponibili:", e?.message || e);
+  }
+
+  // --- Auth ---
   const auth = getAuth(app);
+  await setPersistence(auth, browserLocalPersistence);
   const provider = new GoogleAuthProvider();
 
-  // --- Login ACSL (Firebase) ---
-  document.getElementById("login-firebase").addEventListener("click", async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      console.log("ACSL login OK:", result.user);
-      // redirect alla tua area personale
+  // UI helpers
+  const $err = document.getElementById("login-error");
+  const showError = (msg) => {
+    $err.textContent = msg;
+    $err.style.display = "block";
+  };
+  const hideError = () => { $err.style.display = "none"; };
+
+  // Se già loggato con ACSL, vai subito all'area personale
+  onAuthStateChanged(auth, (user) => {
+    if (user) window.location.href = "/area-personale/";
+  });
+
+  // Gestisci eventuale ritorno da signInWithRedirect
+  try {
+    const redirectRes = await getRedirectResult(auth);
+    if (redirectRes?.user) {
       window.location.href = "/area-personale/";
-    } catch (err) {
-      console.error("Errore login ACSL:", err);
-      alert("Errore login ACSL, riprova.");
+    }
+  } catch(e) {
+    console.error(e);
+  }
+
+  // --- Login ACSL (Firebase) ---
+  document.getElementById("btn-acsl").addEventListener("click", async () => {
+    hideError();
+    try {
+      // tenta col popup
+      await signInWithPopup(auth, provider);
+      window.location.href = "/area-personale/";
+    } catch (e) {
+      console.warn("Popup fallito, provo redirect…", e?.code, e?.message);
+      // Fallback: alcuni browser bloccano i popup
+      try {
+        await signInWithRedirect(auth, provider);
+      } catch (err) {
+        console.error("Errore login ACSL:", err);
+        if (err?.code === "auth/unauthorized-domain") {
+          showError("Dominio non autorizzato in Firebase Authentication. Aggiungi il dominio Netlify in Authentication → Settings → Authorized domains.");
+        } else if (err?.code === "auth/operation-not-allowed") {
+          showError("Provider Google non abilitato. Abilitalo in Authentication → Sign-in method.");
+        } else {
+          showError("Errore ACSL: " + (err?.message || "riprovare."));
+        }
+      }
     }
   });
 
   // --- Login Netlify Identity ---
-  document.getElementById("login-netlify").addEventListener("click", () => {
+  document.getElementById("btn-netlify").addEventListener("click", () => {
     const netlifyIdentity = window.netlifyIdentity;
-    if (!netlifyIdentity) return alert("Netlify Identity non disponibile.");
-    
+    if (!netlifyIdentity) return showError("Netlify Identity non disponibile.");
     netlifyIdentity.open("login");
-    netlifyIdentity.on("login", user => {
-      console.log("Netlify login ok:", user);
+    netlifyIdentity.on("login", (user) => {
       window.location.href = "/intranet/";
     });
   });
 </script>
+
+<style>
+/* ===== Login Design ===== */
+.login-shell{
+  max-width: 720px; margin: 40px auto; padding: 24px;
+}
+.login-head h1{ margin:0 0 6px }
+.login-head .muted{ color: var(--muted); }
+
+.provider-grid{
+  display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:18px;
+}
+.provider-card{
+  display:flex; gap:14px; align-items:center; justify-content:flex-start;
+  padding:16px 18px; border-radius:16px; border:1px solid rgba(2,6,23,.08);
+  background:#fff; box-shadow: var(--shadow); cursor:pointer;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.provider-card:hover{ transform: translateY(-3px); box-shadow: 0 18px 34px rgba(2,6,23,.10) }
+.provider-card .icon{
+  width:44px; height:44px; border-radius:12px; display:grid; place-items:center; font-size:22px;
+  background: rgba(16,185,129,.12);
+}
+.provider-card .txt strong{ display:block; font-weight:700; }
+.provider-card .txt .muted{ font-size:.9rem; color: var(--muted); }
+
+.provider-card.acsl .icon{ background: rgba(59,130,246,.14); }      /* blu tenue */
+.provider-card.acsl{ border-color: rgba(59,130,246,.25) }
+.provider-card.netlify .icon{ background: rgba(16,185,129,.14); }   /* emerald tenue */
+.provider-card.netlify{ border-color: rgba(16,185,129,.25) }
+
+.alert{
+  border:1px solid rgba(220,38,38,.2);
+  background: rgba(254,226,226,.6);
+  color:#7f1d1d;
+  padding:12px 14px; border-radius:12px; margin:12px 0 4px; font-weight:600;
+}
+
+.help{ margin-top:14px; }
+
+/* Dark mode tweaks */
+html.dark .provider-card{ background: var(--bg-soft); border-color:#1f2937; }
+html.dark .alert{
+  background: rgba(127,29,29,.18); color:#fecaca; border-color: rgba(127,29,29,.5);
+}
+
+@media (max-width: 720px){
+  .provider-grid{ grid-template-columns: 1fr; }
+}
+</style>
