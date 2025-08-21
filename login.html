@@ -1,52 +1,73 @@
 ---
-layout: page
-title: login
+layout: default
+title: "Login"
+permalink: /login/
 ---
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyCu9YBjutCK0UR3EoliYwiNrrKaY8cyt8U",
-      authDomain: "ufficiogabrieljones.firebaseapp.com",
-      projectId: "ufficiogabrieljones",
-      storageBucket: "ufficiogabrieljones.firebasestorage.app",
-      messagingSenderId: "754177287030",
-      appId: "1:754177287030:web:e4f70d2d3d9c54c1d91057",
-      measurementId: "G-HBSRVKC0JQ"
-    };
-    firebase.initializeApp(firebaseConfig);
 
-    function login() {
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(() => {
-          window.location.href = '/'; // Reindirizza alla home o pagina privata
-        })
-        .catch(error => {
-          const alertBox = document.getElementById('alertBox');
-          alertBox.textContent = error.message;
-          alertBox.classList.remove('d-none');
-        });
-    }
-  </script>
-<body class="bg-light d-flex align-items-center" style="height: 100vh;">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-4">
-        <div class="card shadow-sm">
-          <div class="card-body">
-            <h3 class="card-title mb-4 text-center">Accedi</h3>
-            <div id="alertBox" class="alert alert-danger d-none" role="alert"></div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="Inserisci email" required />
-            </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" placeholder="Inserisci password" required />
-            </div>
-            <button class="btn btn-primary w-100" onclick="login()">Accedi</button>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="login-page">
+  <div class="login-box">
+    <h1>Accedi</h1>
+    <p>Scegli il tuo metodo di accesso</p>
+
+    <!-- Login Firebase / ACSL -->
+    <button id="login-firebase" class="btn-acsl">
+      🔑 Accedi con ACSL
+    </button>
+
+    <!-- Login Netlify Identity -->
+    <button id="login-netlify" class="btn-netlify">
+      🌐 Accedi con Netlify
+    </button>
   </div>
+</div>
+
+<!-- Netlify Identity -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<!-- Firebase -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
+  import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
+
+  // Config tuo Firebase (quello che mi hai passato)
+  const firebaseConfig = {
+    apiKey: "AIzaSyDET0ys2c41Lwl1WklVD2dlT9IsQFbgbns",
+    authDomain: "gabrielmatteojoneslogin.firebaseapp.com",
+    projectId: "gabrielmatteojoneslogin",
+    storageBucket: "gabrielmatteojoneslogin.firebasestorage.app",
+    messagingSenderId: "842558884649",
+    appId: "1:842558884649:web:f3a895cd546f8165d30538",
+    measurementId: "G-VNEYX22DX9"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  // --- Login ACSL (Firebase) ---
+  document.getElementById("login-firebase").addEventListener("click", async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      console.log("ACSL login OK:", result.user);
+      // redirect alla tua area personale
+      window.location.href = "/area-personale/";
+    } catch (err) {
+      console.error("Errore login ACSL:", err);
+      alert("Errore login ACSL, riprova.");
+    }
+  });
+
+  // --- Login Netlify Identity ---
+  document.getElementById("login-netlify").addEventListener("click", () => {
+    const netlifyIdentity = window.netlifyIdentity;
+    if (!netlifyIdentity) return alert("Netlify Identity non disponibile.");
+    
+    netlifyIdentity.open("login");
+    netlifyIdentity.on("login", user => {
+      console.log("Netlify login ok:", user);
+      window.location.href = "/intranet/";
+    });
+  });
+</script>
