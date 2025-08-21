@@ -293,5 +293,60 @@ footer {
     });
   }
 </script>
+<script type="module">
+  const authActions = document.getElementById('auth-actions');
+
+  // 🔹 funzione comune per aggiornare i bottoni
+  function renderAuthUI(user) {
+    authActions.innerHTML = ""; // pulisci tutto
+    if (user) {
+      authActions.innerHTML = `
+        <a class="btn" href="/area-personale/">Area Personale</a>
+        <button class="btn" id="logoutBtn">Logout</button>`;
+    } else {
+      authActions.innerHTML = `<a class="btn" href="/login">Login</a>`;
+    }
+  }
+
+  // --- ESEMPIO FIREBASE ---
+  /*
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  onAuthStateChanged(auth, (user) => {
+    renderAuthUI(user);
+
+    // gestisci logout
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", () => signOut(auth));
+    }
+  });
+  */
+
+  // --- ESEMPIO NETLIFY IDENTITY ---
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      renderAuthUI(user);
+
+      // ogni volta che cambia login/logout aggiorno UI
+      window.netlifyIdentity.on("login", user => renderAuthUI(user));
+      window.netlifyIdentity.on("logout", () => renderAuthUI(null));
+
+      // gestisci logout
+      document.addEventListener("click", e => {
+        if (e.target && e.target.id === "logoutBtn") {
+          window.netlifyIdentity.logout();
+        }
+      });
+    });
+
+    // forza init se già loggato
+    window.netlifyIdentity.init();
+  }
+</script>
 </body>
 </html>
