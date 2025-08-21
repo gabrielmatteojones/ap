@@ -5,8 +5,108 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ page.title }} · {{ site.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}" />
-  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
-</head>
+<style>
+
+  :root {
+  --bg-light: #f7f7fb;
+  --bg-dark: #0b0c0f;
+  --text-light: #0b1221;
+  --text-dark: #e5e7eb;
+  --muted: #6b7280;
+  --brand: #10b981;
+  --shadow: 0 10px 30px rgba(2,6,23,.08);
+  --radius: 16px;
+  --transition: 0.25s ease;
+}
+
+/* Reset base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* Tema dark */
+html.dark body { background: var(--bg-dark); color: var(--text-dark); }
+html.dark .btn { background: #111827; border-color: #1f2937; color: #e5e7eb; }
+html.dark footer { border-color: #1f2937; }
+
+/* Container */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+.logo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 700;
+}
+.logo .mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(16,185,129,.25), rgba(16,185,129,.7));
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow);
+}
+.logo svg { width: 20px; height: 20px; }
+
+/* Bottoni */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(2,6,23,.1);
+  background: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.1); }
+.btn-ghost { background: transparent; }
+
+/* HERO */
+.hero {
+  position: relative;
+  border-bottom: 1px solid rgba(2,6,23,.06);
+  background: linear-gradient(180deg, rgba(16,185,129,.08), transparent 40%);
+}
+.surface {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px 200px at 20% -10%, rgba(16,185,129,.25), transparent),
+              radial-gradient(800px 250px at 80% 0%, rgba(16,185,129,.15), transparent);
+  filter: blur(20px);
+  opacity: .6;
+  pointer-events: none;
+}
+
+/* FOOTER */
+footer {
+  padding: 40px 24px;
+  border-top: 1px solid rgba(2,6,23,.1);
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+
+  
+</style></head>
 <body>
 <header class="hero">
   <div class="surface" aria-hidden="true"></div>
