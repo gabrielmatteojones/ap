@@ -2,104 +2,62 @@
 layout: default
 ---
 
-<section class="hero-inner container">
-  <span class="badge">
-    <span class="brand-dot"></span>
-    Risorse, idee e strumenti per biblioteche moderne
-  </span>
-  <h1>Strategie, accessibilità e community per una biblioteca <em>viva</em>.</h1>
-  <p class="subtitle">Articoli pratici, guide e strumenti per bibliotecari di oggi.</p>
-</section>
-
 <main class="container">
+  <article class="post-card">
 
-  <!-- Articolo in evidenza -->
-  {% assign featured = site.posts.first %}
-  <section class="featured-article card">
-    <a href="{{ featured.url | relative_url }}">
-      {% if featured.image %}
-      <div class="card-media large">
-        <img src="{{ featured.image }}" alt="{{ featured.title }}">
+    <!-- Immagine in evidenza -->
+    {% if page.image %}
+    <div class="post-cover">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
+
+    <!-- Contenuto -->
+    <div class="post-body">
+      <div class="meta">
+        {% if page.category %}
+          <span class="chip">{{ page.category }}</span>
+        {% endif %}
+        <span class="muted">{{ page.date | date: "%d %B %Y" }}</span>
+      </div>
+
+      <h1 class="post-title">{{ page.title }}</h1>
+
+      <div class="content">
+        {{ content }}
+      </div>
+
+      <!-- Tags -->
+      {% if page.tags %}
+      <div class="tags">
+        {% for tag in page.tags %}
+        <span class="chip small">{{ tag }}</span>
+        {% endfor %}
       </div>
       {% endif %}
-      <div class="post-body">
-        <div class="meta">
-          {% if featured.category %}<span class="chip">{{ featured.category }}</span>{% endif %}
-          <span class="muted">{{ featured.date | date: "%d %B %Y" }}</span>
-        </div>
-        <h2 class="featured-title">{{ featured.title }}</h2>
-        <p>{{ featured.excerpt | strip_html | truncate: 180 }}</p>
-      </div>
-    </a>
-  </section>
+    </div>
 
-  <!-- Altri articoli -->
-  <h2>Altri articoli</h2>
-  <section class="grid">
-    {% for post in site.posts offset:1 limit:4 %}
-    <article class="card col-6">
-      <a href="{{ post.url | relative_url }}">
-        {% if post.image %}
-        <div class="card-media"><img src="{{ post.image }}" alt="{{ post.title }}"></div>
-        {% endif %}
-        <div class="post-body">
-          <div class="meta">
-            {% if post.category %}<span class="chip">{{ post.category }}</span>{% endif %}
-            <span class="muted">{{ post.date | date: "%d %B %Y" }}</span>
+  </article>
+
+  <!-- Articoli correlati -->
+  <section class="related">
+    <h2>Articoli correlati</h2>
+    <div class="grid">
+      {% assign related = site.posts | where: "category", page.category | where_exp: "post", "post.url != page.url" | limit:3 %}
+      {% for post in related %}
+      <article class="card col-4">
+        <a href="{{ post.url | relative_url }}">
+          {% if post.image %}
+          <div class="card-media"><img src="{{ post.image }}" alt="{{ post.title }}"></div>
+          {% endif %}
+          <div class="post-body">
+            <h3>{{ post.title }}</h3>
+            <p class="muted">{{ post.date | date: "%d %B %Y" }}</p>
           </div>
-          <h3>{{ post.title }}</h3>
-          <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
-        </div>
-      </a>
-    </article>
-    {% endfor %}
-  </section>
-
-  <!-- Categorie -->
-  <h2>Argomenti</h2>
-  <section class="grid">
-    {% assign categories = site.categories %}
-    {% for category in categories %}
-    <div class="card col-4">
-      <div class="post-body">
-        <h3><a href="{{ '/categories/' | append: category[0] | relative_url }}">{{ category[0] }}</a></h3>
-        <p class="muted">{{ category[1].size }} articoli</p>
-      </div>
+        </a>
+      </article>
+      {% endfor %}
     </div>
-    {% endfor %}
-  </section>
-
-  <!-- Risorse -->
-  <h2>Guide e strumenti</h2>
-  <section class="grid">
-    <div class="card col-4">
-      <div class="post-body">
-        <h3><a href="/guide/">Guide pratiche</a></h3>
-        <p>Approfondimenti e manuali rapidi.</p>
-      </div>
-    </div>
-    <div class="card col-4">
-      <div class="post-body">
-        <h3><a href="/strumenti/">Strumenti utili</a></h3>
-        <p>Template, checklist e risorse scaricabili.</p>
-      </div>
-    </div>
-    <div class="card col-4">
-      <div class="post-body">
-        <h3><a href="/faq/">FAQ</a></h3>
-        <p>Risposte alle domande più comuni.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Newsletter -->
-  <section id="newsletter" class="newsletter">
-    <h2>Iscriviti alla newsletter</h2>
-    <form method="POST" data-netlify="true">
-      <input type="email" name="email" placeholder="tua@email.it" required>
-      <button type="submit">Iscriviti</button>
-    </form>
-    <p class="muted">Una volta al mese. Niente spam.</p>
   </section>
 
 </main>
