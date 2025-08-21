@@ -2,60 +2,194 @@
 layout: default
 ---
 
-<article class="post-card">
-  <!-- Cover image -->
+<style>
+
+  /* Post Hero */
+.post-hero {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.post-hero-img img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.post-hero-meta {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.post-hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0.5rem 0 1rem;
+}
+.post-excerpt {
+  font-size: 1.2rem;
+  color: #444;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Body */
+.post-content {
+  max-width: 700px;
+  margin: 3rem auto;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #222;
+}
+.post-content h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+.post-content img {
+  margin: 2rem 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.post-content blockquote {
+  border-left: 4px solid #0077ff;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #555;
+  margin: 2rem 0;
+}
+
+/* Footer tags */
+.post-footer {
+  max-width: 700px;
+  margin: 3rem auto;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+.chip {
+  display: inline-block;
+  background: #f1f1f1;
+  border-radius: 50px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  margin: 0.2rem;
+}
+.chip.category {
+  background: #0077ff;
+  color: #fff;
+}
+
+/* Related posts */
+.related-posts {
+  max-width: 900px;
+  margin: 5rem auto;
+  padding: 0 1rem;
+}
+.related-posts h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.related-card {
+  display: block;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+.related-card:hover {
+  transform: translateY(-5px);
+}
+.related-thumb img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+.related-body {
+  padding: 1rem;
+}
+.related-body h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.related-body p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+  
+</style>
+
+<article class="post-hero">
+  <!-- Hero image -->
   {% if page.image %}
-  <div class="post-cover">
+  <div class="post-hero-img">
     <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
   </div>
   {% endif %}
 
-  <div class="post-body">
-    <!-- Metadata -->
-    <div class="meta">
-      {% if page.categories %}
-      <span class="chip">{{ page.categories | join: ", " }}</span>
-      {% endif %}
-      <time class="muted">{{ page.date | date: "%d %B %Y" }}</time>
-    </div>
-
-    <!-- Title -->
-    <h1 class="post-title">{{ page.title }}</h1>
-
-    <!-- Content -->
-    <div class="content">
-      {{ content }}
-    </div>
-
-    <!-- Tags -->
-    {% if page.tags %}
-    <div class="tags">
-      {% for tag in page.tags %}
-      <span class="chip small">{{ tag }}</span>
-      {% endfor %}
-    </div>
+  <!-- Meta sopra il titolo -->
+  <div class="post-hero-meta">
+    {% if page.categories %}
+    <span class="chip category">{{ page.categories | join: ", " }}</span>
     {% endif %}
+    <time datetime="{{ page.date | date_to_xmlschema }}">
+      {{ page.date | date: "%d %B %Y" }}
+    </time>
   </div>
+
+  <!-- Titolo -->
+  <h1 class="post-hero-title">{{ page.title }}</h1>
+  
+  <!-- Estratto opzionale -->
+  {% if page.excerpt %}
+  <p class="post-excerpt">{{ page.excerpt }}</p>
+  {% endif %}
 </article>
+
+<section class="post-content">
+  {{ content }}
+</section>
+
+<!-- Tags -->
+{% if page.tags %}
+<footer class="post-footer">
+  <div class="tags">
+    {% for tag in page.tags %}
+    <a href="/tags/{{ tag | slugify }}/" class="chip small">#{{ tag }}</a>
+    {% endfor %}
+  </div>
+</footer>
+{% endif %}
 
 <!-- Related posts -->
 {% assign related = site.posts | where: "categories", page.categories[0] | where_exp: "post", "post.url != page.url" | limit: 3 %}
 {% if related.size > 0 %}
-<section class="related">
+<section class="related-posts">
   <h2>Articoli correlati</h2>
-  <div class="grid related-grid">
+  <div class="related-grid">
     {% for post in related %}
-    <article class="card post">
-      <a href="{{ post.url | relative_url }}">
-        {% if post.image %}
-        <div class="card-media"><img src="{{ post.image | relative_url }}" alt="{{ post.title }}"></div>
-        {% endif %}
-        <div class="card-body">
-          <h3>{{ post.title }}</h3>
-          <p class="muted">{{ post.date | date: "%d %B %Y" }}</p>
-        </div>
-      </a>
-    </article>
+    <a class="related-card" href="{{ post.url | relative_url }}">
+      {% if post.image %}
+      <div class="related-thumb">
+        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+      </div>
+      {% endif %}
+      <div class="related-body">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.excerpt | truncate: 100 }}</p>
+      </div>
+    </a>
     {% endfor %}
   </div>
 </section>
