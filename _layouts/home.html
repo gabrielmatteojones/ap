@@ -2,128 +2,76 @@
 layout: default
 ---
 
-<style>
-  /* Post principale */
-.post-card {
-  background: #fff;
-  border-radius: var(--radius);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  overflow: hidden;
-  margin: 40px auto;
-  max-width: 800px;
+<style>.card {
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  overflow:hidden;
+  transition:.2s ease;
 }
+.card:hover { transform: translateY(-3px); box-shadow:0 10px 24px rgba(0,0,0,0.12); }
 
-.post-cover img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
+.card-media img { width:100%; height:200px; object-fit:cover; display:block; }
+.featured .card-media img { height:300px; }
 
-.post-body {
-  padding: 2rem;
-}
+.card-body { padding:1.2rem; }
+.card-body h2, .card-body h3, .card-body h4 { margin:0 0 .5rem; }
 
-.post-title {
-  font-size: 2rem;
-  margin: 1rem 0;
-}
+.posts-grid { display:grid; grid-template-columns: repeat(2,1fr); gap:16px; margin:2rem 0; }
+.topics-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin:2rem 0; }
 
-.content p {
-  margin-bottom: 1.2rem;
-  line-height: 1.7;
+@media(max-width:900px){
+  .posts-grid { grid-template-columns:1fr; }
+  .topics-grid { grid-template-columns:1fr; }
 }
-
-/* Tags */
-.tags {
-  margin-top: 2rem;
-}
-.tags .chip {
-  margin-right: 6px;
-}
-
-/* Related posts */
-.related {
-  margin-top: 4rem;
-}
-.related h2 {
-  margin-bottom: 1.5rem;
-}
-.card {
-  background: #fff;
-  border-radius: var(--radius);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-  overflow: hidden;
-  transition: transform 0.2s ease;
-}
-.card:hover {
-  transform: translateY(-3px);
-}
-.card-media img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
-.card .post-body {
-  padding: 1rem;
-}
-
 </style>
-<main class="container">
-  <article class="post-card">
 
-    <!-- Immagine in evidenza -->
-    {% if page.image %}
-    <div class="post-cover">
-      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
-    </div>
-    {% endif %}
+<main class="container home">
 
-    <!-- Contenuto -->
-    <div class="post-body">
-      <div class="meta">
-        {% if page.category %}
-          <span class="chip">{{ page.category }}</span>
-        {% endif %}
-        <span class="muted">{{ page.date | date: "%d %B %Y" }}</span>
-      </div>
-
-      <h1 class="post-title">{{ page.title }}</h1>
-
-      <div class="content">
-        {{ content }}
-      </div>
-
-      <!-- Tags -->
-      {% if page.tags %}
-      <div class="tags">
-        {% for tag in page.tags %}
-        <span class="chip small">{{ tag }}</span>
-        {% endfor %}
-      </div>
+  <!-- Ultimo post -->
+  {% assign ultimo = site.posts.first %}
+  <article class="card featured">
+    <a href="{{ ultimo.url | relative_url }}">
+      {% if ultimo.image %}
+        <div class="card-media"><img src="{{ ultimo.image | relative_url }}" alt="{{ ultimo.title }}"></div>
       {% endif %}
-    </div>
-
+      <div class="card-body">
+        <h2>{{ ultimo.title }}</h2>
+        <p>{{ ultimo.excerpt | strip_html | truncate: 120 }}</p>
+      </div>
+    </a>
   </article>
 
-  <!-- Articoli correlati -->
-  <section class="related">
-    <h2>Articoli correlati</h2>
-    <div class="grid">
-      {% assign related = site.posts | where: "category", page.category | where_exp: "post", "post.url != page.url" | limit:3 %}
-      {% for post in related %}
-      <article class="card col-4">
-        <a href="{{ post.url | relative_url }}">
-          {% if post.image %}
-          <div class="card-media"><img src="{{ post.image }}" alt="{{ post.title }}"></div>
-          {% endif %}
-          <div class="post-body">
-            <h3>{{ post.title }}</h3>
-            <p class="muted">{{ post.date | date: "%d %B %Y" }}</p>
-          </div>
-        </a>
-      </article>
-      {% endfor %}
-    </div>
-  </section>
+  <!-- Prossimi 4 post -->
+  <div class="posts-grid">
+    {% for post in site.posts offset:1 limit:4 %}
+    <article class="card post">
+      <a href="{{ post.url | relative_url }}">
+        {% if post.image %}
+          <div class="card-media"><img src="{{ post.image | relative_url }}" alt="{{ post.title }}"></div>
+        {% endif %}
+        <div class="card-body">
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.excerpt | strip_html | truncate: 80 }}</p>
+        </div>
+      </a>
+    </article>
+    {% endfor %}
+  </div>
+
+  <!-- Argomenti (categorie) -->
+  <div class="topics-grid">
+    {% assign categorie = site.categories | slice: 0,3 %}
+    {% for categoria in categorie %}
+    <article class="card topic">
+      <a href="{{ site.baseurl }}/categories/{{ categoria[0] | slugify }}/">
+        <div class="card-body">
+          <h4>{{ categoria[0] }}</h4>
+          <p>{{ categoria[1].size }} articoli</p>
+        </div>
+      </a>
+    </article>
+    {% endfor %}
+  </div>
 
 </main>
