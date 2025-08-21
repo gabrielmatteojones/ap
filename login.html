@@ -38,15 +38,12 @@ permalink: /login/
   </button>
 </div>
 
-<!-- Netlify Identity -->
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-<!-- Firebase (ACSL) -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
-  import { getAuth, signInWithEmailAndPassword, setPersistence, browserLocalPersistence, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
+  import { getAuth, signInWithEmailAndPassword, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
 
-  // --- Config che mi hai dato ---
   const firebaseConfig = {
     apiKey: "AIzaSyDET0ys2c41Lwl1WklVD2dlT9IsQFbgbns",
     authDomain: "gabrielmatteojoneslogin.firebaseapp.com",
@@ -57,7 +54,6 @@ permalink: /login/
     measurementId: "G-VNEYX22DX9"
   };
 
-  // Init Firebase
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   await setPersistence(auth, browserLocalPersistence);
@@ -66,12 +62,7 @@ permalink: /login/
   const showError = (msg) => { $err.textContent = msg; $err.style.display = "block"; };
   const hideError = () => { $err.style.display = "none"; };
 
-  // Redirect se già loggato
-  onAuthStateChanged(auth, (user) => {
-    if (user) window.location.href = "/area-personale/";
-  });
-
-  // Login ACSL
+  // --- Login ACSL ---
   document.getElementById("form-acsl").addEventListener("submit", async (e) => {
     e.preventDefault();
     hideError();
@@ -90,7 +81,7 @@ permalink: /login/
     }
   });
 
-  // Login Netlify
+  // --- Login Netlify ---
   document.getElementById("btn-netlify").addEventListener("click", () => {
     const netlifyIdentity = window.netlifyIdentity;
     if (!netlifyIdentity) return showError("Netlify Identity non disponibile.");
@@ -100,17 +91,3 @@ permalink: /login/
     });
   });
 </script>
-
-<style>
-/* --- stile simile a prima --- */
-.login-shell{max-width:480px;margin:40px auto;padding:24px}
-.login-head h1{margin:0 0 6px}
-.login-form{display:flex;flex-direction:column;gap:12px;margin:20px 0}
-.login-form input{padding:10px;border-radius:8px;border:1px solid #ccc}
-.form-actions{display:flex;justify-content:flex-end}
-.btn-acsl{background:#2563eb;color:#fff;border:none;padding:10px 18px;border-radius:8px;cursor:pointer}
-.btn-acsl:hover{background:#1d4ed8}
-.provider-card{margin-top:16px;width:100%;padding:14px 18px;border:1px solid rgba(0,0,0,.1);border-radius:12px;display:flex;align-items:center;gap:12px;cursor:pointer}
-.alert{border:1px solid rgba(220,38,38,.3);background:#fee2e2;color:#991b1b;padding:12px;border-radius:8px;margin:12px 0}
-.divider{text-align:center;margin:20px 0;color:#888}
-</style>
