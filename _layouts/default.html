@@ -217,6 +217,40 @@ footer {
     });
   }
 </script>
+<!-- Firebase Auth -->
+<script type="module">
+  const authActions = document.getElementById('auth-actions');
 
+  // Simulazione: rimpiazza con onAuthStateChanged(auth, user => {...})
+  const firebaseUser = false; // cambia in true se loggato
+
+  if (firebaseUser) {
+    authActions.innerHTML += `
+      <a class="btn" href="/area-personale/">Area Personale</a>
+      <button class="btn" onclick="firebaseSignOut()">Logout</button>`;
+  } else {
+    authActions.innerHTML += `<a class="btn" href="/login">Login</a>`;
+  }
+
+  function firebaseSignOut(){
+    alert("Logout Firebase (qui metti signOut(auth))");
+  }
+</script>
+
+<!-- Netlify Identity -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      const authActions = document.getElementById('auth-actions');
+      if (user) {
+        authActions.innerHTML += `
+          <a class="btn" href="/area-personale/">Area Personale</a>
+          <button class="btn" onclick="window.netlifyIdentity.logout()">Logout</button>`;
+      } else {
+        authActions.innerHTML += `<a class="btn" href="/login">Login</a>`;
+      }
+    });
+  }
+</script>
 </body>
 </html>
