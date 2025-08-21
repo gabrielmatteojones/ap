@@ -24,7 +24,14 @@ collections:
         widget: "list"
         required: false
         hint: "Inserisci gli slug delle persone (es: mario-rossi, lucia-bianchi)"
-
+  - name: "videos"
+    label: "Video"
+    folder: "_videos"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "URL Instagram", name: "url", widget: "string" }
   - name: "posts"
     label: "Post"
     label_singular: "Post"
