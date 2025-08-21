@@ -122,30 +122,24 @@ footer {
 
 </style></head>
 <body>
-<header class="hero">
-  <div class="surface" aria-hidden="true"></div>
-  <nav class="nav container" aria-label="Principale">
-    <a href="{{ '/' | relative_url }}" class="logo" aria-label="Homepage">
-      <span class="mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-          <path d="M4 4v15.5"/>
-          <path d="M20 4v13"/>
-          <path d="M6.5 17A2.5 2.5 0 0 0 4 19.5"/>
-        </svg>
-      </span>
-      <span>{{ site.title }}</span>
-    </a>
-    <div class="nav-actions" id="auth-actions">
-      <button id="themeBtn" class="btn btn-ghost" aria-pressed="false" aria-label="Cambia tema">
-        <span id="themeIcon" aria-hidden="true">🌞</span>
-        <span class="sr-only">Cambia tema</span>
-      </button>
-      <!-- I bottoni login/logout saranno gestiti via JS -->
+
+  <header class="site-header">
+    <div class="container">
+      <a href="{{ '/' | relative_url }}" class="logo-link">
+        <img src="/assets/login.png" alt="Gabriel Jones" class="logo">
+      </a>
+
+      <nav class="site-nav">
+        <ul>
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/articoli/' | relative_url }}">Articoli</a></li>
+          <li><a href="{{ '/contatti/' | relative_url }}">Contatti</a></li>
+          <li id="nav-login"></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
-</header>
+  </header>
+
 <br>
   <br>
 <main class="container">
@@ -218,5 +212,109 @@ footer {
   }
 </script>
 
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
+
+    // Configurazione ACSL (Firebase)
+    const firebaseConfig = {
+      apiKey: "AIzaSyDET0ys2c41Lwl1WklVD2dlT9IsQFbgbns",
+      authDomain: "gabrielmatteojoneslogin.firebaseapp.com",
+      projectId: "gabrielmatteojoneslogin",
+      storageBucket: "gabrielmatteojoneslogin.firebasestorage.app",
+      messagingSenderId: "842558884649",
+      appId: "1:842558884649:web:f3a895cd546f8165d30538",
+      measurementId: "G-VNEYX22DX9"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const $navLogin = document.getElementById("nav-login");
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const name = user.displayName || user.email || "Utente";
+        const photo = user.photoURL || "/assets/img/avatar.png";
+
+        $navLogin.innerHTML = `
+          <a href="/area-personale/" class="user-link">
+            <img src="${photo}" alt="Foto profilo" class="nav-avatar">
+            Vai in area personale <strong>${name}</strong>
+          </a>
+        `;
+      } else {
+        $navLogin.innerHTML = `<a href="/login/">Login</a>`;
+      }
+    });
+  </script>
+
+  <style>
+    /* HEADER */
+    .site-header {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .logo-link {
+      display: inline-flex;
+      align-items: center;
+    }
+    .logo {
+      height: 40px;
+      width: auto;
+    }
+
+    /* NAVIGATION */
+    .site-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+    .site-nav a {
+      text-decoration: none;
+      color: #111;
+      font-weight: 500;
+      transition: color .2s ease;
+    }
+    .site-nav a:hover {
+      color: #2563eb;
+    }
+
+    /* LOGIN / USER */
+    .user-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid #ccc;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #eee;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 40px;
+    }
+  </style>
 </body>
 </html>
