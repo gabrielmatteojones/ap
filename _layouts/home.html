@@ -1,23 +1,105 @@
 ---
-layout: page
+layout: default
 ---
-<section class="it-hero-wrapper" aria-label="In evidenza">
-   <div class="img-responsive-wrapper">
-      <div class="img-responsive">
-         <div class="img-wrapper"><img src="https://terrasolida.it/wp-content/uploads/2022/08/parco-villadolt-fontanafredda-1.jpg" title="" alt="Uffici"></div>
-      </div>
-   </div>
+
+<section class="hero-inner container">
+  <span class="badge">
+    <span class="brand-dot"></span>
+    Risorse, idee e strumenti per biblioteche moderne
+  </span>
+  <h1>Strategie, accessibilità e community per una biblioteca <em>viva</em>.</h1>
+  <p class="subtitle">Articoli pratici, guide e strumenti per bibliotecari di oggi.</p>
 </section>
-<br>
 
-<div class="container">
-<div class="alert alert-danger" role="alert">
-  È in corso la <b>Procedura di Scrutinio</b>per la realizzazione del centro giovani.
-   <a href="/procedure-di-scutinio/cg/"> Scopri di più </a>
-</div>
+<main class="container">
 
-   <br>
+  <!-- Articolo in evidenza -->
+  {% assign featured = site.posts.first %}
+  <section class="featured-article card">
+    <a href="{{ featured.url | relative_url }}">
+      {% if featured.image %}
+      <div class="card-media large">
+        <img src="{{ featured.image }}" alt="{{ featured.title }}">
+      </div>
+      {% endif %}
+      <div class="post-body">
+        <div class="meta">
+          {% if featured.category %}<span class="chip">{{ featured.category }}</span>{% endif %}
+          <span class="muted">{{ featured.date | date: "%d %B %Y" }}</span>
+        </div>
+        <h2 class="featured-title">{{ featured.title }}</h2>
+        <p>{{ featured.excerpt | strip_html | truncate: 180 }}</p>
+      </div>
+    </a>
+  </section>
 
-{{ content }}
+  <!-- Altri articoli -->
+  <h2>Altri articoli</h2>
+  <section class="grid">
+    {% for post in site.posts offset:1 limit:4 %}
+    <article class="card col-6">
+      <a href="{{ post.url | relative_url }}">
+        {% if post.image %}
+        <div class="card-media"><img src="{{ post.image }}" alt="{{ post.title }}"></div>
+        {% endif %}
+        <div class="post-body">
+          <div class="meta">
+            {% if post.category %}<span class="chip">{{ post.category }}</span>{% endif %}
+            <span class="muted">{{ post.date | date: "%d %B %Y" }}</span>
+          </div>
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
+        </div>
+      </a>
+    </article>
+    {% endfor %}
+  </section>
 
-</div>
+  <!-- Categorie -->
+  <h2>Argomenti</h2>
+  <section class="grid">
+    {% assign categories = site.categories %}
+    {% for category in categories %}
+    <div class="card col-4">
+      <div class="post-body">
+        <h3><a href="{{ '/categories/' | append: category[0] | relative_url }}">{{ category[0] }}</a></h3>
+        <p class="muted">{{ category[1].size }} articoli</p>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+
+  <!-- Risorse -->
+  <h2>Guide e strumenti</h2>
+  <section class="grid">
+    <div class="card col-4">
+      <div class="post-body">
+        <h3><a href="/guide/">Guide pratiche</a></h3>
+        <p>Approfondimenti e manuali rapidi.</p>
+      </div>
+    </div>
+    <div class="card col-4">
+      <div class="post-body">
+        <h3><a href="/strumenti/">Strumenti utili</a></h3>
+        <p>Template, checklist e risorse scaricabili.</p>
+      </div>
+    </div>
+    <div class="card col-4">
+      <div class="post-body">
+        <h3><a href="/faq/">FAQ</a></h3>
+        <p>Risposte alle domande più comuni.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section id="newsletter" class="newsletter">
+    <h2>Iscriviti alla newsletter</h2>
+    <form method="POST" data-netlify="true">
+      <input type="email" name="email" placeholder="tua@email.it" required>
+      <button type="submit">Iscriviti</button>
+    </form>
+    <p class="muted">Una volta al mese. Niente spam.</p>
+  </section>
+
+</main>

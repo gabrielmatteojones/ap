@@ -1,29 +1,56 @@
 ---
 layout: post
-title: Come mi sto comprando il mio primo iPhone (partendo da 20 euro!)
-categories:
-  - GabrielMatteoJones
-tags:
-  - iphone
-  - economia
-lang: it
-ref: new
-author: RedazioneGabrielMatteoJones
+title: "Come rendere una biblioteca digitale più accessibile"
+date: 2025-08-21
+category: Accessibilità
+tags: [UX, Inclusione, Digitale]
+image: /assets/img/biblioteca-digitale.jpg
+excerpt: "Scopri pratiche e strumenti per migliorare l'accessibilità di una biblioteca digitale, dal design inclusivo alle tecnologie assistive."
 ---
-Da un po’ di tempo ho un sogno: **comprare il mio primo iPhone**. Non è solo un’idea che mi gira in testa, è un vero e proprio obiettivo. Voglio raggiungerlo con le mie forze, partendo da zero. Anzi, da 20 euro.
 
-### Il Punto di Partenza: Solo 20 Euro in Tasca
+Le biblioteche stanno evolvendo, e sempre più servizi passano al digitale. Ma come garantire che la **biblioteca digitale** sia davvero accessibile a tutti?
 
-Tutto è cominciato quando ho deciso che mi sarei fatto un regalo per il mio compleanno: l’iPhone. Avevo solo **una banconota da 20 euro** da parte, ma una gran voglia di riuscire. Così ho iniziato a cercare modi per **guadagnare soldi da adolescente**, nel modo più semplice: **facendo lavoretti per i vicini**.
+In questo articolo vedremo **strategie pratiche** per rendere piattaforme e cataloghi più inclusivi, rispettando standard e buone pratiche.
 
-Ho mandato qualche messaggio nel quartiere, offrendo il mio aiuto per piccole cose: portare a spasso i cani, fare la spesa, sistemare il giardino. I classici **lavoretti per ragazzi**, insomma. Non sapevo se qualcuno mi avrebbe risposto.
+---
 
-### La Sorpresa: 100 Euro Inaspettati
+## Perché l'accessibilità conta
+Una biblioteca digitale senza accessibilità rischia di **escludere** intere categorie di utenti: persone con disabilità visive, uditive, motorie o cognitive.
 
-Uno dei primi a rispondere è stato un vicino — chiamiamolo “K”. Inizialmente ha detto “ti faccio sapere”. Non mi aspettavo granché, ma pochi giorni dopo mi ha ricontattato e mi ha detto di passare.
+Gli standard internazionali (come le [WCAG 2.1](https://www.w3.org/TR/WCAG21/)) forniscono linee guida fondamentali, ma spesso non bastano: serve anche **sensibilità progettuale**.
 
-Ed è lì che succede l’incredibile: mi mette in mano **100 euro in contanti**. Sul serio! Non riuscivo a crederci. Li ho contati almeno dieci volte. Era tutto vero. Quello è stato il momento in cui ho capito che **questo progetto era davvero possibile**.
+---
 
-### Il Mio Obiettivo: Comprare un iPhone Con i Miei Soldi
+## 5 strategie concrete
 
-Non ho ancora comprato l’iPhone, ma ogni giorno mi avvicino un po’ di più. Sto continuando a cercare lavoretti e ho già in mente a chi chiedere per il prossimo. Ogni euro risparmiato è un passo verso il mio obiettivo: **comprarlo con i miei soldi, senza chiedere niente a nessuno**.
+1. **Contrasti cromatici leggibili**  
+   Usa combinazioni di colori che rispettino il rapporto minimo di contrasto.
+
+2. **Navigazione da tastiera**  
+   Tutte le funzionalità devono essere raggiungibili senza mouse.
+
+3. **Testi alternativi alle immagini**  
+   Ogni immagine significativa va descritta con `alt`.
+
+4. **Struttura chiara dei contenuti**  
+   Titoli gerarchici (`h1`, `h2`, `h3`) e menu consistenti aiutano la comprensione.
+
+5. **Compatibilità con screen reader**  
+   Testare con strumenti come NVDA o VoiceOver è indispensabile.
+
+---
+
+## Strumenti utili
+
+- **WAVE Accessibility Tool** → analisi automatica delle pagine.  
+- **Lighthouse (Chrome)** → audit integrato per performance e accessibilità.  
+- **Color Contrast Checker** → verifica dei contrasti cromatici.  
+
+---
+
+## Conclusioni
+
+L’accessibilità non è un optional: è un **diritto degli utenti** e un **valore per la comunità**.  
+Ogni piccolo miglioramento può fare la differenza tra un servizio esclusivo e uno inclusivo.  
+
+👉 Vuoi approfondire? Leggi la nostra [guida completa all'accessibilità](/guide/accessibilita).
