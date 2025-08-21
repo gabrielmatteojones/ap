@@ -13,7 +13,6 @@
   <nav class="nav container" aria-label="Principale">
     <a href="{{ '/' | relative_url }}" class="logo" aria-label="Homepage">
       <span class="mark" aria-hidden="true">
-        <!-- icona libro -->
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
@@ -24,20 +23,12 @@
       </span>
       <span>{{ site.title }}</span>
     </a>
-    <div class="nav-actions">
+    <div class="nav-actions" id="auth-actions">
       <button id="themeBtn" class="btn btn-ghost" aria-pressed="false" aria-label="Cambia tema">
         <span id="themeIcon" aria-hidden="true">🌞</span>
         <span class="sr-only">Cambia tema</span>
       </button>
-      {% if site.user %}
-        <!-- se loggato -->
-        <a class="btn" href="/dashboard">Dashboard</a>
-        <a class="btn" href="/logout">Logout</a>
-      {% else %}
-        <!-- se NON loggato -->
-        <a class="btn" href="/signup">Registrati</a>
-        <a class="btn" href="/login">Login</a>
-      {% endif %}
+      <!-- I bottoni login/logout saranno gestiti via JS -->
     </div>
   </nav>
 </header>
@@ -69,5 +60,48 @@
     icon.textContent = html.classList.contains('dark') ? '🌙' : '🌞';
   })();
 </script>
+
+<!-- Firebase Auth -->
+<script type="module">
+  // Import SDK Firebase (servono i tuoi config)
+  // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+  // import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+  // const app = initializeApp(firebaseConfig);
+  // const auth = getAuth(app);
+
+  const authActions = document.getElementById('auth-actions');
+
+  // Simulazione: rimpiazza con onAuthStateChanged(auth, user => {...})
+  const firebaseUser = false; // cambia in true se loggato
+
+  if (firebaseUser) {
+    authActions.innerHTML += `
+      <a class="btn" href="/area-personale/">Area Personale</a>
+      <button class="btn" onclick="firebaseSignOut()">Logout</button>`;
+  } else {
+    authActions.innerHTML += `<a class="btn" href="/login">Login</a>`;
+  }
+
+  function firebaseSignOut(){
+    alert("Logout Firebase (qui metti signOut(auth))");
+  }
+</script>
+
+<!-- Netlify Identity -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      const authActions = document.getElementById('auth-actions');
+      if (user) {
+        authActions.innerHTML += `
+          <a class="btn" href="/intranet/">Intranet</a>
+          <button class="btn" onclick="window.netlifyIdentity.logout()">Logout</button>`;
+      } else {
+        authActions.innerHTML += `<a class="btn" href="/login">Login</a>`;
+      }
+    });
+  }
+</script>
+
 </body>
 </html>
