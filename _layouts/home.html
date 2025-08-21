@@ -61,17 +61,30 @@ layout: default
 
   <!-- Argomenti (categorie) -->
   <div class="topics-grid">
-    {% assign categorie = site.categories | slice: 0,3 %}
-    {% for categoria in categorie %}
     <article class="card topic">
-      <a href="{{ site.baseurl }}/categories/{{ categoria[0] | slugify }}/">
+      <a href="{{ site.baseurl }}/categories/esempio/">
         <div class="card-body">
-          <h4>{{ categoria[0] }}</h4>
-          <p>{{ categoria[1].size }} articoli</p>
+          <h4>Esempio</h4>
+          <p>Esempio di articoli</p>
         </div>
       </a>
     </article>
-    {% endfor %}
+    <article class="card topic">
+      <a href="{{ site.baseurl }}/categories/esempio/">
+        <div class="card-body">
+          <h4>Esempio</h4>
+          <p>Esempio di articoli</p>
+        </div>
+      </a>
+    </article>
+      <article class="card topic">
+      <a href="{{ site.baseurl }}/categories/esempio/">
+        <div class="card-body">
+          <h4>Esempio</h4>
+          <p>Esempio di articoli</p>
+        </div>
+      </a>
+    </article>
   </div>
 
 </main>
