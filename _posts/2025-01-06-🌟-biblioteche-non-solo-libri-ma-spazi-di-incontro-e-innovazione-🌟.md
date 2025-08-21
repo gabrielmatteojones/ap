@@ -1,56 +1,51 @@
 ---
+excerpt: Scopri pratiche e strumenti per migliorare l'accessibilità di una
+  biblioteca digitale, dal design inclusivo alle tecnologie assistive.
 layout: post
-title: "Come rendere una biblioteca digitale più accessibile"
+title: Come rendere una biblioteca digitale più accessibile
 date: 2025-08-21
+categories:
+  - Nessuna
+tags:
+  - UX
+  - Inclusione
+  - Digitale
+image: https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80
 category: Accessibilità
-tags: [UX, Inclusione, Digitale]
-image: /assets/img/biblioteca-digitale.jpg
-excerpt: "Scopri pratiche e strumenti per migliorare l'accessibilità di una biblioteca digitale, dal design inclusivo alle tecnologie assistive."
 ---
 
-Le biblioteche stanno evolvendo, e sempre più servizi passano al digitale. Ma come garantire che la **biblioteca digitale** sia davvero accessibile a tutti?
 
-In questo articolo vedremo **strategie pratiche** per rendere piattaforme e cataloghi più inclusivi, rispettando standard e buone pratiche.
+![Collaborazione creativa](https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80)
 
----
+Il **design inclusivo** non è solo una scelta etica: è anche un’opportunità per raggiungere più persone e rendere i tuoi prodotti digitali migliori per tutti.  
 
-## Perché l'accessibilità conta
-Una biblioteca digitale senza accessibilità rischia di **escludere** intere categorie di utenti: persone con disabilità visive, uditive, motorie o cognitive.
+> “Il design migliore è quello che non lascia nessuno indietro.”
 
-Gli standard internazionali (come le [WCAG 2.1](https://www.w3.org/TR/WCAG21/)) forniscono linee guida fondamentali, ma spesso non bastano: serve anche **sensibilità progettuale**.
 
----
+## 🌍 Perché è importante
+Secondo l’OMS, oltre 1 miliardo di persone nel mondo vive con una qualche forma di disabilità. Ignorare questi utenti significa escludere una parte enorme della popolazione.
 
-## 5 strategie concrete
+- **Accessibilità**: testi leggibili, contrasto dei colori adeguato, compatibilità con screen reader.  
+- **Usabilità**: interfacce semplici, comprensibili anche da chi non ha competenze digitali avanzate.  
+- **Empatia**: mettersi nei panni degli utenti per capire i loro bisogni reali.  
 
-1. **Contrasti cromatici leggibili**  
-   Usa combinazioni di colori che rispettino il rapporto minimo di contrasto.
+![Accessibilità web](https://images.unsplash.com/photo-1520975698519-59c37a9e486d?auto=format&fit=crop&w=1200&q=80)
 
-2. **Navigazione da tastiera**  
-   Tutte le funzionalità devono essere raggiungibili senza mouse.
 
-3. **Testi alternativi alle immagini**  
-   Ogni immagine significativa va descritta con `alt`.
+## 💡 Consigli pratici
+1. Usa testi chiari e strutturati.  
+2. Mantieni un contrasto di colore sufficiente.  
+3. Offri alternative testuali per immagini e video.  
+4. Progetta pensando anche all’uso da mobile.  
 
-4. **Struttura chiara dei contenuti**  
-   Titoli gerarchici (`h1`, `h2`, `h3`) e menu consistenti aiutano la comprensione.
 
-5. **Compatibilità con screen reader**  
-   Testare con strumenti come NVDA o VoiceOver è indispensabile.
+## 📚 Risorse utili
+- [WCAG Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/)  
+- [Inclusive Design Principles](https://inclusivedesignprinciples.org/)  
 
----
 
-## Strumenti utili
+## ✨ Conclusione
+Il design inclusivo rende i prodotti digitali **più giusti, più efficaci e più belli**.  
+Inizia da piccoli accorgimenti, e vedrai subito la differenza.
 
-- **WAVE Accessibility Tool** → analisi automatica delle pagine.  
-- **Lighthouse (Chrome)** → audit integrato per performance e accessibilità.  
-- **Color Contrast Checker** → verifica dei contrasti cromatici.  
-
----
-
-## Conclusioni
-
-L’accessibilità non è un optional: è un **diritto degli utenti** e un **valore per la comunità**.  
-Ogni piccolo miglioramento può fare la differenza tra un servizio esclusivo e uno inclusivo.  
-
-👉 Vuoi approfondire? Leggi la nostra [guida completa all'accessibilità](/guide/accessibilita).
+![Team al lavoro](https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=80)
