@@ -2,28 +2,37 @@ backend:
   name: git-gateway
   branch: "48891"
 
-media_folder: "assets/img"
-public_folder: "/assets/img/"
+media_folder: "assets/uploads"   # dove si salvano i file caricati
+public_folder: "/assets/uploads"
 
 collections:
-  - name: "pagine_it"
+
+  # --- POST ---
+  - name: "posts"
+    label: "Post"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Categoria", name: "categories", widget: "list", default: ["general"] }
+      - { label: "Tag", name: "tags", widget: "list", required: false }
+      - { label: "Immagine di copertina", name: "image", widget: "image", required: false }
+      - { label: "Contenuto", name: "body", widget: "markdown" }
+
+  # --- PAGINE ---
+  - name: "pages"
     label: "Pagine"
-    folder: "content/pagine"
+    folder: "_pages"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
-      - { name: "title", label: "Titolo", widget: "string" }
-      - { name: "date", label: "Data", widget: "datetime", default: "", hidden: true }
-      - { name: "permalink", label: "Link personalizzato", widget: "string", required: true }
-      - { name: "image", label: "Immagine", widget: "image", required: false }
-      - { name: "body", label: "page", widget: "markdown" }
-      - { label: "Categoria", name: "categories", widget: "string", default: "[educazione]" }
-      - label: "Persone correlate"
-        name: "persone_correlate"
-        widget: "list"
-        required: false
-        hint: "Inserisci gli slug delle persone (es: mario-rossi, lucia-bianchi)"
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Layout", name: "layout", widget: "string", default: "page" }
+      - { label: "Contenuto", name: "body", widget: "markdown" }
+
+  # --- VIDEO ---
   - name: "videos"
     label: "Video"
     folder: "_videos"
@@ -32,41 +41,4 @@ collections:
     fields:
       - { label: "Titolo", name: "title", widget: "string" }
       - { label: "URL Instagram", name: "url", widget: "string" }
-  - name: "posts"
-    label: "Post"
-    label_singular: "Post"
-    folder: "_posts"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    preview_path: "posts/{{slug}}"
-    sortable_fields: ['date', 'title']
-    fields:
-      - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ" }
-      - { label: "Categoria", name: "categories", widget: "list", default: ["notizie"] }
-      - { label: "Tag", name: "tags", widget: "list" }
-      - { label: "Contenuto", name: "body", widget: "markdown" }
-      - { label: "Autore", name: "autore", widget: "string", default: "Redazione: Gabriel Matteo Jones" }
-      - label: "Persone correlate"
-        name: "persone_correlate"
-        widget: "list"
-        required: false
-        hint: "Inserisci gli slug delle persone (es: mario-rossi, lucia-bianchi)"
-
-  - name: "private_pages"
-    label: "Pagine ad autorizzazione"
-    folder: "content/private/"
-    create: true
-    slug: "{{slug}}"
-    editor:
-      preview: false
-    fields:
-      - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Layout", name: "layout", widget: "hidden", default: "riservato" }
-      - { label: "Permalink", name: "permalink", widget: "string" }
-      - { label: "Corpo", name: "body", widget: "markdown" }
-      - label: "Persone correlate"
-        name: "persone_correlate"
-        widget: "list"
-        required: false
-        hint: "Inserisci gli slug delle persone (es: mario-rossi, lucia-bianchi)"
+      - { label: "Thumbnail (opzionale)", name: "thumb", widget: "image", required: false }
