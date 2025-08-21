@@ -1,0 +1,188 @@
+---
+layout: default
+title: "Login"
+permalink: /login/
+---
+
+<div class="login-shell">
+  <div class="card">
+    <h1>Accedi</h1>
+    <p class="muted">Entra con il tuo account ACSL o con Netlify</p>
+
+    <div id="login-error" class="alert" style="display:none;"></div>
+
+    <!-- ACSL: Firebase Email + Password -->
+    <form id="form-acsl" class="login-form">
+      <h2>🔑 ACSL</h2>
+
+      <label>Email</label>
+      <input type="email" id="acsl-email" required placeholder="nome@email.com">
+
+      <label>Password</label>
+      <input type="password" id="acsl-password" required placeholder="••••••••">
+
+      <button type="submit" class="btn-primary">Accedi</button>
+    </form>
+
+    <div class="divider">oppure</div>
+
+    <!-- Netlify Identity -->
+    <button id="btn-netlify" class="btn-secondary">
+      🌐 Accedi con Netlify
+    </button>
+  </div>
+</div>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDET0ys2c41Lwl1WklVD2dlT9IsQFbgbns",
+    authDomain: "gabrielmatteojoneslogin.firebaseapp.com",
+    projectId: "gabrielmatteojoneslogin",
+    storageBucket: "gabrielmatteojoneslogin.firebasestorage.app",
+    messagingSenderId: "842558884649",
+    appId: "1:842558884649:web:f3a895cd546f8165d30538",
+    measurementId: "G-VNEYX22DX9"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  await setPersistence(auth, browserLocalPersistence);
+
+  const $err = document.getElementById("login-error");
+  const showError = (msg) => { $err.textContent = msg; $err.style.display = "block"; };
+  const hideError = () => { $err.style.display = "none"; };
+
+  // --- Login ACSL ---
+  document.getElementById("form-acsl").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    hideError();
+    const email = document.getElementById("acsl-email").value;
+    const pass = document.getElementById("acsl-password").value;
+
+    try {
+      await signInWithEmailAndPassword(auth, email, pass);
+      window.location.href = "/area-personale/";
+    } catch (err) {
+      console.error("Errore login ACSL:", err);
+      if (err.code === "auth/wrong-password") showError("Password errata.");
+      else if (err.code === "auth/user-not-found") showError("Utente non trovato.");
+      else showError("Errore: " + err.message);
+    }
+  });
+
+  // --- Login Netlify ---
+  document.getElementById("btn-netlify").addEventListener("click", () => {
+    const netlifyIdentity = window.netlifyIdentity;
+    if (!netlifyIdentity) return showError("Netlify Identity non disponibile.");
+    netlifyIdentity.open("login");
+    netlifyIdentity.on("login", (user) => {
+      window.location.href = "/intranet/";
+    });
+  });
+</script>
+
+<style>
+/* Layout */
+.login-shell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 20px;
+}
+
+/* Card */
+.card {
+  background: #fff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+}
+
+.card h1 {
+  margin-bottom: 8px;
+  font-size: 1.8rem;
+  color: #111;
+}
+
+.card .muted {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Alert */
+.alert {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.login-form label {
+  font-size: 0.9rem;
+  text-align: left;
+  color: #333;
+}
+
+.login-form input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.divider {
+  margin: 16px 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Buttons */
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background .2s ease;
+}
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-secondary {
+  background: #10b981;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background .2s ease;
+  width: 100%;
+}
+.btn-secondary:hover {
+  background: #059669;
+}
+</style>
