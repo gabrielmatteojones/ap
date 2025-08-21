@@ -86,5 +86,17 @@ layout: default
       </a>
     </article>
   </div>
+<section class="videos">
+  <h2>Video</h2>
+  <div class="videos-grid">
+    {% for video in site.videos limit:3 %}
+      <div class="video-card">
+        <a href="{{ video.url }}" target="_blank" rel="noopener">
+          🎬 {{ video.title }}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</section>
 
 </main>
